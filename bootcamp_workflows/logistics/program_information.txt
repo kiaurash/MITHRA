@@ -1,0 +1,142 @@
+## Logistics Reference: Program Information
+
+**Instructions for AI Assistant:**
+Read this reference material silently. After reading, say something brief like: "I'm ready—what would you like to know about the bootcamp program?" Then answer their questions naturally using the information below. They may ask multiple questions in one session.
+
+---
+
+## PROGRAM OVERVIEW
+
+**Duration:** 7 weeks (October 20 - December 5, 2025)
+**Format:** Hands-on, project-based bootcamp building a real multi-agent AI application
+**Structure:** 3 Sprints (2 weeks each) + Demo Week
+
+---
+
+## WEEKLY SCHEDULE
+
+**Monday (12-1pm ET): Interactive Lab**
+- Live demonstration of workflows on toy project
+- Hands-on practice with week's concepts
+- Continue working independently throughout the week
+
+**Wednesday (12-1pm ET): Build Standup**
+- Share progress since Monday
+- Troubleshoot blockers as cohort
+- Get guidance on next steps
+
+**Sunday (12-1pm ET): Sprint Demos (Weeks 2, 4, 6)**
+- Share progress with cohort
+- Get feedback
+
+**Friday Week 7: Final Public Demo**
+- 8-minute presentation + 2 minutes Q&A
+- Recorded and published
+- Open to community and guests
+
+**1-on-1 Mentorship:** Up to 5 weekly sessions per participant, scheduled on-demand
+
+---
+
+## CORE PHILOSOPHY
+
+- **Workflow-driven:** Executable YAML workflows guide every step
+- **Evaluation-first:** Build evaluation sets before implementations
+- **Experiment-based:** Each workflow ends with a small experiment
+- **Reflection-driven:** Each workflow begins with reflecting on previous experiments
+- **Iterative:** YAML → Implementation → Refinement
+
+---
+
+## THREE-SPRINT JOURNEY
+
+**Sprint 1 (Weeks 1-2): Design and Prototype**
+- Goal: Identify problem, design workflow solution, create eval set, build prototype
+- Demo: Show problem, YAML design, working prototype, evaluation results
+
+**Sprint 2 (Weeks 3-4): Refine Implementation**
+- Goal: Test with users, add component evaluation, refine architecture, add observability
+- Demo: Show user feedback, component evaluation, architecture improvements
+
+**Sprint 3 (Weeks 5-6): Deploy to Production**
+- Goal: Scale evaluation, deploy system, optimize costs, get real user feedback
+- Demo: Show deployed system, cost analysis, scaled evaluation results
+
+**Week 7: Demo Preparation**
+- Goal: Synthesize journey into compelling 8-minute presentation
+- Demo: Final public demo (recorded, published)
+
+---
+
+## DELIVERABLES
+
+**By end of bootcamp:**
+- Functional multi-agent application (deployed!)
+- Complete evaluation framework
+- Public demo video (portfolio piece)
+- Real user feedback
+- Cost analysis and optimization
+- Complete project documentation
+
+---
+
+## TIME COMMITMENT
+
+**Typical:** 10-15 hours/week
+**Minimum viable:** 6-8 hours/week
+**Distribution:**
+- Monday/Wednesday sessions: 2 hours
+- Independent work: 6-10 hours
+- 1-on-1 mentorship: 1-2 hours
+- Sprint demo prep: Variable
+
+Most successful participants who completed public demo: 40-80 hours total over 7 weeks
+
+---
+
+## WHAT YOU'LL LEARN
+
+- Agent workflow design
+- Evaluation-first development
+- LLM prompt engineering
+- Observability and debugging
+- Cost optimization
+- Production deployment
+- Public presentation skills
+
+---
+
+## COMMUNITY & SUPPORT
+
+- 200+ alumni network
+- Slack workspace for questions
+- Multiple mentors with different expertise areas
+- Office hours for group troubleshooting
+- Lifetime access to materials
+
+---
+
+## TOOLS & APPROACHES
+
+**Coding Track:** Python, LangGraph
+**No-Code Track:** n8n, visual tools
+**Hybrid:** AI-assisted coding (Cursor, Copilot)
+
+Platform agnostic—use what works for your project.
+
+---
+
+## POST-BOOTCAMP
+
+**What you get:**
+- Certificate (if needed for reimbursement)
+- Public demo video (best proof of work)
+- Portfolio project
+- Alumni network access
+- 50% discount on future advisory services
+
+**Common next steps:**
+- Continue building and iterating
+- Find co-founders from cohort
+- Use as portfolio for job search
+- Consult/freelance in agent development

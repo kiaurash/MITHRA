@@ -1,0 +1,148 @@
+## Goal: Show participant where they are in the bootcamp with clear visual progress indicators
+
+Your task is to welcome them back, sync their task list, calculate where they are in the bootcamp timeline, show upcoming tasks, and provide data-driven status assessment.
+
+---
+
+## Phase 1: Welcome Back
+
+1. **Get recent activity summary**
+   - Execute: `./bootcamp_workflows/util/get_recent_activity.sh`
+   - This returns: last check-in time and days since
+
+2. **Brief welcome**
+   - Display: "Welcome back! It's been [X days] since we last talked."
+   - If less than 1 day: Just say "Welcome back!"
+   - Keep it warm but brief—move quickly to progress
+
+---
+
+## Phase 2: Sync Task List
+
+1. **Run task sync script**
+   - Execute: `./bootcamp_workflows/util/sync_tasks.sh`
+   - This ensures their task list includes any new required tasks
+   - Silent operation - just run it, don't show output unless there's an error
+
+---
+
+## Phase 3: Calculate Current Status
+
+1. **Get participant and bootcamp context**
+   - Execute: `./bootcamp_workflows/util/get_participant_info.sh`
+   - This returns: current week, sprint, and sprint goal
+   - Calculate: Days until next major milestone (use sprint demo dates)
+
+2. **Get task completion data**
+   - Execute: `./bootcamp_workflows/util/get_task_stats.sh`
+   - This returns: done/in_progress/backlog counts and completion %
+
+3. **Check for overdue or urgent tasks**
+   - Execute: `./bootcamp_workflows/util/check_upcoming_tasks.sh`
+   - Capture output to show upcoming tasks
+
+---
+
+## Phase 4: Create Visual Progress Indicator
+
+**Overall Bootcamp Timeline:**
+```
+BOOTCAMP PROGRESS (7 weeks: Oct 20 - Dec 5, 2025)
+
+Week:  1    2    3    4    5    6    7
+       |----|----|----|----|----|----|
+       ████████████░░░░░░░░░░░░░░░░░░    Week 3 of 7
+
+Sprint 1 ✅  Sprint 2 →  Sprint 3 ⬜  Final ⬜
+
+✅ Sprint 1 Demo (submitted Oct 27)
+🔵 Sprint 2 Demo (due Nov 10) ← 7 days away
+⬜ Sprint 3 Demo (due Nov 24)
+⬜ Final Demo (due Dec 5)
+```
+
+**Task Completion Progress:**
+```
+[Output from get_task_stats.sh with visual progress bar]
+Example: TASKS: 12 done / 1 in_progress / 4 backlog (Total: 17)
+Progress: ████████████░░░░ 71% complete
+```
+
+**Upcoming Tasks (next 3 days):**
+```
+[Output from check_upcoming_tasks.sh]
+```
+
+**Recent Activity:**
+```
+[Output from get_recent_activity.sh]
+```
+
+---
+
+## Phase 5: Data-Driven Status Assessment
+
+Based on task data and deadlines, provide a brief status assessment:
+
+**If they have overdue tasks:**
+- "You have [X] overdue task(s). Let's prioritize catching up."
+
+**If they're on track (no overdue, keeping up with upcoming deadlines):**
+- "You're on schedule! [X] tasks completed, staying on top of deadlines."
+
+**If they're ahead (high completion rate for current week):**
+- "You're ahead of schedule! Great momentum—[XX]% of tasks complete."
+
+**If they have tasks due soon but not started:**
+- "You have [X] tasks due within 3 days that need attention."
+
+**If no upcoming tasks:**
+- "No immediate deadlines. Great time to work ahead or book a mentor session."
+
+---
+
+## Phase 6: Log Progress Check
+
+Add entry to `bootcamp2510/your_workspace/logs/activity_log.csv`:
+
+```csv
+YYYY-MM-DD HH:MM:SS,master_orchestration,progress_check,Week [X] - [X]/[Total] tasks complete
+```
+
+
+---
+
+## Instructions for the AI Assistant
+
+- **Run all utility scripts** in this order:
+  1. `sync_tasks.sh` (silent - just sync)
+  2. `get_recent_activity.sh` (for welcome)
+  3. `get_participant_info.sh` (for context)
+  4. `get_task_stats.sh` (for task completion)
+  5. `check_upcoming_tasks.sh` (for upcoming tasks)
+- **Be data-driven** - use actual script outputs, not vague intuition
+- **Don't read CSV/MD files directly** - use the utility scripts instead
+- **Be visual** - the ASCII progress bars and task output help participants see at a glance where they are
+- **Be honest but supportive** - if they're behind, acknowledge it with specific numbers
+- **Keep it concise** - they should be able to scan this in 30-60 seconds
+- **Use brand colors in mindset:**
+  - ✅ Green/checkmark for completed
+  - 🔵 Blue for current/active (primary blue: #2C66BD conceptually)
+  - ⬜ Gray for upcoming
+  - ⚠️ Warning for overdue
+  - Use filled blocks (████) for completed portions, hollow (░░░░) for remaining
+- After showing progress, automatically proceed to menu_and_routing
+- Remember to log the progress check and update Conversation Notes
+
+---
+
+## Output Requirements
+
+- ASCII visualization of bootcamp timeline
+- Task completion statistics with progress bar (from get_task_stats.sh)
+- Upcoming tasks (from check_upcoming_tasks.sh)
+- Recent activity summary (from get_recent_activity.sh)
+- Data-driven status message based on task completion
+- Log entry for progress_check with task completion data
+
+After completing this step, proceed automatically to menu_and_routing.

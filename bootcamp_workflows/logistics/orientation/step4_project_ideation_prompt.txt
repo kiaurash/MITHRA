@@ -1,0 +1,180 @@
+## Goal: Help participant identify and document their project idea
+
+Your task is to help the participant articulate their project idea so they can share it with mentors and potentially find teammates.
+
+---
+
+## Phase 1: Check for Existing Project Idea
+
+Ask conversationally: "Do you already have a specific project idea in mind, or are you still exploring options?"
+
+---
+
+## Phase 2A: If They Have a Specific Idea
+
+**Ask them to describe it:**
+- "Great! Tell me about your project idea—just a few sentences about what you want to build and what problem it solves."
+
+**Listen for:**
+- What the project does
+- Who it's for / what problem it solves
+- Any technical details they're excited about
+
+**Document it:**
+Add to their profile under a new section called "Project Idea":
+
+```markdown
+## Project Idea
+
+**Status:** Defined
+
+**Project Title:** [Infer a clear title from their description]
+
+**Description:**
+[Their description in 2-4 sentences, lightly edited for clarity]
+
+**Why This Project:**
+[Capture why they're excited about this, in their words]
+```
+
+**Next step:**
+Tell them: "This looks great! You can share this with mentors for feedback, or post it in the Slack channel if you're looking for teammates. For now, let's continue with your orientation..."
+
+Then proceed to finalize_setup.
+
+---
+
+## Phase 2B: If They Don't Have a Specific Idea
+
+**Introduce the exploration process:**
+
+"No worries! Many participants start without a specific idea. Let's do a quick exercise to help you identify some options.
+
+First, check out our prior bootcamp demos here to see what kinds of projects other participants have built:
+https://youtube.com/playlist?list=PLB1nTQo4_y6u_4vzapND6Bm6J7M1KVurF
+
+Take a few minutes to watch a few demos, then come back and tell me: which 3 projects seem most attractive to you and why?"
+
+**Wait for their response with 3 projects.**
+
+**Capture their selections:**
+- For each project they mention, ask: "What specifically appeals to you about [project name]?"
+- Listen for patterns: Are they drawn to certain domains? Technical approaches? User problems?
+
+**Generate 7 project ideas:**
+
+Based on:
+- Their background (from profile)
+- The 3 projects they found attractive and why
+- Their goals and interests
+
+Generate 7 project ideas that might be a good fit for them. For each idea:
+- Give it a clear, descriptive title
+- Write 2-3 sentences describing what it does
+- Explain why it might be a good fit given what you know about them
+
+Present them as:
+```
+Based on what you've told me, here are 7 project ideas that might be a good fit:
+
+1. **[Title]**
+   [Description]
+   *Why this might work for you: [Connection to their interests/background]*
+
+2. **[Title]**
+   ...
+
+[Continue for all 7]
+```
+
+**Ask them to shortlist:**
+"Which 3 of these resonate most with you? You don't have to pick just one yet—the goal is to narrow it down."
+
+**Wait for their shortlist of 3.**
+
+**Document the shortlist:**
+Add to their profile:
+
+```markdown
+## Project Idea
+
+**Status:** Exploring (shortlisted 3 options)
+
+### Shortlisted Projects
+
+**Option 1: [Title]**
+[Description]
+*Why I'm interested: [Their reasoning]*
+
+**Option 2: [Title]**
+[Description]
+*Why I'm interested: [Their reasoning]*
+
+**Option 3: [Title]**
+[Description]
+*Why I'm interested: [Their reasoning]*
+
+### Next Steps
+- Think about which of these 3 I want to start building
+- Consider reaching out to mentors for input if I can't decide
+- Consider posting in Slack to see if anyone wants to team up
+```
+
+**Provide guidance:**
+"Great shortlist! Here's what to do next:
+
+1. **Think it over:** Which of these 3 are you most excited to actually build?
+
+2. **Get input if needed:**
+   - Can't decide? Reach out to mentors for their perspective
+   - Looking for teammates? Post these in Slack with notes about WHY you like each project—sharing your thinking helps attract the right collaborators
+
+3. **Refine later:** You'll have a chance to refine your idea in the Ideation workflow, so don't worry about having everything figured out right now
+
+For now, let's finish getting you set up..."
+
+Then proceed to finalize_setup.
+
+---
+
+## Phase 3: Log Project Ideation
+
+Add entry to `your_workspace/logs/activity_log.csv`:
+
+For defined project:
+```csv
+YYYY-MM-DD HH:MM:SS,orientation,project_defined,Documented initial project idea
+```
+
+For exploring projects:
+```csv
+YYYY-MM-DD HH:MM:SS,orientation,project_shortlist,Created shortlist of 3 project options
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Be conversational** - this should feel like brainstorming, not a form
+- **Listen for patterns** - what domains/problems/approaches excite them?
+- **Generate relevant ideas** - use everything you know about them from the profile
+- **Make ideas concrete** - each should be specific enough to visualize
+- **Encourage sharing thoughtfully** - remind them to add WHY they like ideas when posting to Slack
+- **Don't rush the decision** - it's OK to have 3 options at this stage
+- **Keep it brief** - if they have an idea already, just document and move on
+- After project ideation, automatically proceed to finalize_setup
+- Remember to log the project ideation action
+
+---
+
+## Output Requirements
+
+**If they have a specific idea:**
+- Project Idea section added to profile with title, description, and reasoning
+- Log entry for project_defined
+
+**If they're exploring:**
+- Project Idea section added with 3 shortlisted options and next steps
+- Log entry for project_shortlist
+
+After completing this step, proceed automatically to finalize_setup.

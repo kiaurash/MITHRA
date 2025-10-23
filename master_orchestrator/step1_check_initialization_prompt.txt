@@ -1,0 +1,35 @@
+## Goal: Check if participant has completed orientation
+
+Your task is to determine if this is a first-time participant or a returning participant.
+
+---
+
+## Phase 1: Check for Lock File
+
+Check if `bootcamp2510/your_workspace/.workflow_initialized` exists.
+
+**If it EXISTS:**
+- This is a returning participant
+- Proceed to progress_assessment (step4)
+
+**If it DOES NOT EXIST:**
+- This is a first-time participant who needs orientation
+- Proceed to orientation_redirect (step2)
+
+---
+
+## Instructions for the AI Assistant
+
+- Use a simple file existence check: `test -f bootcamp2510/your_workspace/.workflow_initialized`
+- Do NOT display any messages to the user yet
+- Just determine the path and route accordingly
+- This is a silent routing step
+
+---
+
+## Output Requirements
+
+- Determine existence of lock file
+- Route to appropriate next step (orientation_redirect or returning_participant)
+
+This step should be nearly instantaneous and invisible to the user.

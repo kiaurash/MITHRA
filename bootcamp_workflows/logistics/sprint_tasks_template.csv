@@ -1,0 +1,17 @@
+task_id,sprint,task,status,due_date,source,expected_artifact
+setup_cli,1,Set up Claude Code or similar CLI tool,backlog,2025-10-22,START_HERE.md,
+setup_git,1,Set up version control (Git) for bootcamp folder,backlog,2025-10-22,START_HERE.md,.git directory
+orient_start,1,Run master orchestrator workflow for first time,backlog,2025-10-22,START_HERE.md,your_workspace/.workflow_initialized
+orient_profile,1,Complete profile conversation to define background and context,backlog,2025-10-22,logistics/orientation/step2,your_workspace/profile/participant_profile.md
+orient_goals,1,Set personal bootcamp goals and time commitments,backlog,2025-10-22,logistics/orientation/step3,your_workspace/profile/participant_profile.md
+orient_project,1,Define or shortlist project idea,backlog,2025-10-22,logistics/orientation/step4,your_workspace/profile/participant_profile.md
+ideate_problem,1,Complete problem framing - define workflow inefficiency,backlog,2025-10-24,building/1_ideation/step1,your_workspace/reports/problem_definition.md
+ideate_assumptions,1,Challenge and validate assumptions about the workflow,backlog,2025-10-24,building/1_ideation/step2,your_workspace/reports/problem_definition.md
+ideate_solutions,1,Generate multiple solution approaches with different autonomy levels,backlog,2025-10-24,building/1_ideation/step3,your_workspace/reports/problem_definition.md
+ideate_selection,1,Select and design the most promising solution,backlog,2025-10-24,building/1_ideation/step4,your_workspace/reports/problem_definition.md
+ideate_experiment,1,Design experiment plan to validate the solution,backlog,2025-10-24,building/1_ideation/step5,your_workspace/reports/problem_definition.md
+ideate_workflow,1,Generate complete YAML workflow with prompt files,backlog,2025-10-24,building/1_ideation/step6,your_workspace/your_workflows/[project_name]/[project_name]_workflow.md
+share_profile,1,Share participant_profile.md on Slack with cohort,backlog,2025-10-24,logistics/orientation,
+share_project,1,Share problem_definition.md on Slack with cohort,backlog,2025-10-24,building/1_ideation,
+book_mentor,1,Book first mentorship call,backlog,2025-10-24,logistics/program_information,
+test_workflow,1,Test the generated YAML workflow,backlog,2025-10-27,building/1_ideation/step6,

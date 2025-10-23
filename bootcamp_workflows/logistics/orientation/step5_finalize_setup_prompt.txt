@@ -1,0 +1,66 @@
+## Goal: Complete orientation setup and create lock file
+
+Your task is to finalize the orientation by creating the lock file that indicates setup is complete.
+
+---
+
+## Phase 1: Create Lock File
+
+Create `your_workspace/.workflow_initialized` with the following content:
+
+```
+initialized_at: YYYY-MM-DD HH:MM:SS
+participant_name: [Name from profile]
+cohort: 2510
+cohort_start_date: 2025-10-20
+cohort_end_date: 2025-12-05
+```
+
+This lock file tells the master orchestration workflow that orientation is complete.
+
+---
+
+## Phase 2: Log Completion
+
+Add entry to `your_workspace/logs/activity_log.csv`:
+
+```csv
+YYYY-MM-DD HH:MM:SS,orientation,complete,Orientation finished - workspace ready
+```
+
+---
+
+## Phase 3: Welcome Complete Message
+
+Display:
+
+```
+All set! Your bootcamp workspace is ready at your_workspace/
+
+Here's what you have:
+✅ Profile created with your background and goals
+✅ Activity logging set up
+✅ Reports, data, and your_workflows folders ready
+✅ Access to all bootcamp logistics and building workflows
+
+Now let's see where you are in the bootcamp journey...
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Create the .workflow_initialized lock file with proper timestamp
+- Log the completion to activity_log.csv
+- Display encouraging completion message
+- After this step, the orientation workflow completes and control returns to master orchestration, which will automatically continue to the progress_assessment step
+
+---
+
+## Output Requirements
+
+- `.workflow_initialized` lock file created in `your_workspace/`
+- Log entry for orientation completion
+- Welcome complete message displayed
+
+After completing this step, the orientation workflow is done. Control returns to master orchestration which will continue automatically to progress_assessment.

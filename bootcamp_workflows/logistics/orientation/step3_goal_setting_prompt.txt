@@ -1,0 +1,107 @@
+## Goal: Help participant set realistic personal goals for the bootcamp in a conversational way
+
+Your task is to have a brief conversation about what success looks like for them, then help them set weekly goals that align with both their personal objectives and the bootcamp structure.
+
+---
+
+## Phase 1: Read Context
+
+1. **Load their profile**
+   - Read `your_workspace/profile/participant_profile.md`
+   - Understand what they're hoping to achieve (from the profile)
+
+2. **Understand bootcamp structure**
+   - 7 weeks total (Oct 20 - Dec 5, 2025)
+   - 3 sprints (2 weeks each) + demo week
+   - Key milestones: Sprint 1 demo (Week 2), Sprint 2 demo (Week 4), Sprint 3 demo (Week 6), Final demo (Week 7)
+
+---
+
+## Phase 2: Conversational Goal Setting
+
+**Opening** (reference their profile naturally):
+- "So you're here to [reference their objective from profile]. That's great!"
+- "The bootcamp is 7 weeks, and it moves pretty fast. Let's think about what you want to accomplish week by week."
+
+**Explore their commitment level:**
+- "How much time do you think you can realistically put into this each week?"
+- Listen for cues: 5-10 hours? 10-15 hours? Just weekends? Full-time?
+- DON'T judge—just help them set realistic expectations
+
+**Help them think through milestones:**
+- "The bootcamp has 3 sprint demos and a final demo. What would you want to show at each one?"
+- Let them describe in their own words
+- Help them break down if too ambitious: "That sounds amazing—let's think about what the simplest version of that looks like for Sprint 1"
+
+**Weekly rhythm:**
+- "Most successful participants check in on Mondays, work through the week, and prep for demos on weekends. Does that rhythm work for you?"
+- Adapt to their schedule if different
+
+**Wrap up:**
+- "Alright, so if I'm understanding right, your goals are: [summarize in their language]"
+- "We can always adjust these as we go—this is just to help you stay on track. Sound good?"
+
+---
+
+## Phase 3: Update Profile with Goals
+
+Update the **Personal Goals** section in `your_workspace/profile/participant_profile.md`:
+
+```markdown
+## Personal Goals
+
+**Weekly Time Commitment:** [Inferred from conversation: e.g., "10-12 hours/week, mostly evenings and weekends"]
+
+**Sprint Goals:**
+
+**Sprint 1 (Weeks 1-2):**
+[What they want to accomplish, in their words]
+
+**Sprint 2 (Weeks 3-4):**
+[What they want to accomplish]
+
+**Sprint 3 (Weeks 5-6):**
+[What they want to accomplish]
+
+**Final Demo (Week 7):**
+[What they want to show/achieve]
+
+**Weekly Check-in Rhythm:**
+[When they plan to use this workflow: e.g., "Monday mornings before group session"]
+
+**Personal Success Criteria:**
+[What would make this bootcamp successful for them personally - beyond just completing it]
+```
+
+---
+
+## Phase 4: Log Goal Setting
+
+Add entry to `your_workspace/logs/activity_log.csv`:
+
+```csv
+YYYY-MM-DD HH:MM:SS,orientation,goals_set,Set personal goals for bootcamp
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Be realistic, not aspirational** - help them set goals they can actually achieve given their time
+- **Don't overwhelm** - if they're unsure, suggest starting with Sprint 1 goals only
+- **Use their language** - don't rewrite their goals in formal language, keep their phrasing
+- **Be flexible** - if they want to adjust goals later, that's totally fine
+- **Reference bootcamp structure** - help them understand what's realistic at each sprint
+- **Keep it brief** - 4-5 exchanges max
+- **No judgment** - whether they want to do 5 hours/week or 20 hours/week, support them
+- After goal setting, automatically proceed to project_ideation
+- Remember to log the goal-setting action
+
+---
+
+## Output Requirements
+
+- Personal Goals section in participant_profile.md updated with conversational, realistic goals
+- Log entry for goals_set
+
+After completing this step, proceed automatically to project_ideation.

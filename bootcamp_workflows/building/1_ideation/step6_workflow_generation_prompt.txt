@@ -1,0 +1,222 @@
+## Goal: Generate a complete YAML workflow package with all prompt files
+
+Your task is to create a complete, ready-to-use workflow package based on the solution designed in the previous steps. This workflow will orchestrate LLM behavior through a YAML structure and individual prompt files.
+
+**What you're creating:**
+- YAML workflow file (defines structure and flow)
+- Prompt files (one per step, with instructions for the LLM)
+- README (usage instructions)
+
+---
+
+## Step 1: Read Previous Work
+
+Read these files to understand what to build:
+- `your_workspace/reports/problem_definition.md` - The problem and solution
+- Review the solution selected in step 4 and experiment designed in step 5
+
+You're creating a workflow that implements the solution they already designed. Don't ask what to build - build what they designed.
+
+---
+
+## Step 2: Generate Workflow Structure
+
+Based on the solution from previous steps, break it into 3-6 discrete workflow steps.
+
+**Standard workflow pattern:**
+1. **Input/Context gathering** - What information do you need from the user?
+2. **Main autonomous work** - What does the agent do with that information? (may be multiple steps)
+3. **Output generation** - What artifact does this produce?
+4. **(Optional) Review/Refine** - Does the user review before completion?
+
+**Determine:**
+- Workflow name (descriptive, based on their solution)
+- Step names (clear, action-oriented)
+- What each step does
+- What each step produces
+
+Show the user your proposed structure briefly:
+```
+Workflow: [Name]
+Step 1: [Name] - [What it does]
+Step 2: [Name] - [What it does]
+...
+```
+
+Get quick confirmation, then proceed.
+
+---
+
+## Step 3: Create the Complete Workflow Package
+
+Create all files in: `your_workspace/your_workflows/[workflow_name]/`
+
+### 3A. Create the YAML workflow file
+
+File: `[workflow_name]_workflow.md`
+
+Structure:
+```yaml
+---
+name: [Descriptive Workflow Name]
+description: [What this workflow does - 1 sentence]
+initial_state: step1_[step_name]
+states:
+  step1_[step_name]:
+    description: |
+      Goal: [What this step accomplishes]
+      Input: [What information this step receives]
+      Output: [What this step produces]
+    prompt_file: "step1_[step_name]_prompt.txt"
+    on_success: step2_[next_step_name]
+
+  step2_[next_step_name]:
+    description: |
+      Goal: [What this step accomplishes]
+      Input: [What information this step receives]
+      Output: [What this step produces]
+    prompt_file: "step2_[next_step_name]_prompt.txt"
+    on_success: step3_[next_step_name]
+
+  [continue for all steps]
+
+  done:
+    description: "Workflow complete. [What the user now has]"
+---
+```
+
+### 3B. Create prompt files for each step
+
+For each step in the YAML, create a corresponding prompt file: `step[N]_[name]_prompt.txt`
+
+**Each prompt file should contain:**
+
+```
+## Goal: [What this step accomplishes]
+
+Your task is to [specific instructions for what the LLM does at this step].
+
+---
+
+## Instructions
+
+[Step-by-step instructions for what to do. Be specific and actionable.]
+
+1. [First action - e.g., "Ask the user to describe..." or "Analyze the following..." or "Generate a..."]
+
+2. [Second action]
+
+3. [Continue for all actions in this step]
+
+---
+
+## Output Requirements
+
+At the end of this step, you must create:
+
+**File:** `path/to/output/file.md` (or specify the expected artifact)
+
+**Format:**
+```
+[Show the expected output structure/template]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- [Specific guidance: tone, interaction style, when to ask vs. infer]
+- [What to do if input is unclear]
+- After completing this step, [transition instruction]
+```
+
+**Important:** Write clear, specific instructions based on the solution from steps 1-5. Each prompt should tell the LLM exactly what to do at that step.
+
+### 3C. Create the README
+
+File: `README.md`
+
+Content:
+```markdown
+# [Workflow Name]
+
+## Purpose
+[1-2 sentences: what problem this solves]
+
+## How to Use
+
+### In an LLM CLI (like Claude Code):
+```
+Execute workflow [workflow_name]
+```
+
+### In a web chat (ChatGPT, Claude.ai, etc.):
+Copy and paste each prompt file in sequence:
+1. Copy `step1_[name]_prompt.txt` → paste in chat → complete that step
+2. Copy `step2_[name]_prompt.txt` → paste in chat → complete that step
+3. Continue for all steps
+
+## Expected Outputs
+- [List the files/artifacts this workflow creates]
+
+## Success Metrics
+[How to know if it worked well]
+```
+
+---
+
+## Step 4: Execute the File Creation
+
+**Now create all files in `your_workspace/your_workflows/[workflow_name]/`:**
+
+1. Create the directory
+2. Write `[workflow_name]_workflow.md` with complete YAML
+3. Write each `step[N]_[name]_prompt.txt` file with detailed instructions
+4. Write `README.md` with usage instructions
+
+**Do not ask for approval on each file. Generate all files based on the solution from steps 1-5.**
+
+---
+
+## Step 5: Confirm Completion
+
+After creating all files, show the user:
+
+```
+✓ Workflow package created at: your_workspace/your_workflows/[workflow_name]/
+
+Files created:
+- [workflow_name]_workflow.md (YAML structure)
+- step1_[name]_prompt.txt
+- step2_[name]_prompt.txt
+- [list all step prompts]
+- README.md
+
+Your workflow is ready to test! You can now:
+1. Execute it using "Execute workflow [workflow_name]"
+2. Share it with others
+3. Iterate and improve based on testing
+```
+
+---
+
+## Instructions for the AI Assistant
+
+**Critical execution instructions:**
+
+1. **Read first:** Read `your_workspace/reports/problem_definition.md` and review solutions from steps 4-5
+2. **Generate structure:** Determine 3-6 workflow steps based on their solution (show briefly for confirmation)
+3. **Create all files:** Generate YAML + all prompt files + README in one go
+4. **No options:** Don't give choices or ask "what should this do?" - build what they designed in previous steps
+5. **Complete package:** All files must be created before finishing this step
+6. **This is NOT code:** You're creating a YAML workflow for LLM orchestration, not building a Python/JS app
+7. **Confirm completion:** Show the file list when done
+
+**What you're building:**
+- A YAML workflow that orchestrates LLM behavior through sequential prompts
+- Each prompt tells an LLM what to do at that step
+- This is used in CLI tools like Claude Code or by copying prompts into web chat
+
+**Output location:** `your_workspace/your_workflows/[workflow_name]/`
+
+The workflow is complete when all files exist in that directory.

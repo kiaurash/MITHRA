@@ -1,0 +1,54 @@
+## Goal: Welcome first-time participant and route to orientation
+
+Your task is to welcome a first-time participant and automatically launch the orientation workflow.
+
+---
+
+## Message to Display
+
+```
+Welcome to the Build Multi-Agent Applications Bootcamp! 🎉
+
+I can see this is your first time here. Let me get you set up—this will take about 5-10 minutes.
+
+We'll:
+- Set up your bootcamp workspace
+- Get to know you and your goals
+- Initialize your activity tracking
+
+Let's get started...
+```
+
+---
+
+## Launch Orientation Workflow
+
+After displaying the welcome message, automatically launch the orientation workflow:
+
+**Execute:** `logistics/orientation/orientation_workflow.md` (relative to master_orchestration folder)
+
+The orientation workflow will handle:
+1. Workspace setup
+2. Profile conversation
+3. Goal setting
+4. Finalization (creating lock file)
+
+After orientation completes and returns control to master orchestration, the workflow will automatically continue to progress_assessment (the lock file now exists).
+
+---
+
+## Instructions for the AI Assistant
+
+- Display brief welcome message
+- Immediately launch the orientation workflow using relative path: `logistics/orientation/orientation_workflow.md`
+- The orientation workflow takes over from here
+- After orientation completes, master orchestration automatically continues to progress_assessment (the lock file now exists)
+
+---
+
+## Output Requirements
+
+- Welcome message displayed
+- Orientation workflow launched automatically via relative path
+
+User experience: seamless flow from master orchestration → orientation → progress_assessment → menu_and_routing, all in one session.

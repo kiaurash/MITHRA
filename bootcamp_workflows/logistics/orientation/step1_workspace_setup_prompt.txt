@@ -1,0 +1,77 @@
+## Goal: Set up complete folder structure for bootcamp participant
+
+Your task is to create the full workspace structure for the participant. This workflow only runs for first-time participants (master orchestration already checked).
+
+---
+
+## Phase 1: Create Folder Structure
+
+Create the following at `your_workspace/`:
+
+```
+your_workspace/
+├── profile/
+│   └── participant_profile.md (will be created in next step)
+├── logs/
+│   └── activity_log.csv (will be created with headers)
+├── reports/
+├── data/
+└── your_workflows/
+```
+
+**Note:** All bootcamp workflow files (logistics and building workflows) are provided by the bootcamp system in the parent directories and do not need to be created.
+
+---
+
+## Phase 2: Initialize Activity Log
+
+Create `your_workspace/logs/activity_log.csv` with headers:
+
+```csv
+timestamp,workflow_name,action,notes
+```
+
+Add first entry:
+```csv
+YYYY-MM-DD HH:MM:SS,orientation,started,Starting orientation workflow
+```
+
+---
+
+## Phase 3: Welcome Message
+
+Display:
+```
+Your bootcamp workspace is ready at your_workspace/
+
+I've set up:
+✅ Profile folder (we'll fill this next)
+✅ Activity logging
+✅ Reports and data folders
+✅ Your workflows folder (for custom workflows you'll create)
+
+All bootcamp workflow files are provided by the bootcamp system and ready to use.
+
+Let's get to know you a bit...
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Use bash commands to check for folder existence and create directories
+- Be encouraging and welcoming in tone (this is their first touchpoint)
+- Don't overwhelm with too much information - just confirm setup is complete
+- After setup (or confirming existing setup), automatically transition to the next step
+- DO NOT ask if they want to continue - just flow naturally to profile creation/loading
+- Remember to log every action taken to activity_log.csv
+
+---
+
+## Output Requirements
+
+- Full folder structure created at `your_workspace/`
+- activity_log.csv initialized with headers and first entry
+- Welcome message displayed
+
+After completing this step, proceed automatically to profile_conversation.

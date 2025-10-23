@@ -1,0 +1,131 @@
+## Goal: Generate multiple distinct approaches to add autonomy to the workflow
+
+Your task is to facilitate brainstorming of 3+ different ways an AI agent could provide autonomous support for this workflow. The key is diversity—we want different levels of autonomy and different interaction patterns.
+
+### Why This Matters
+The first solution idea is rarely the best one. By exploring multiple approaches with different autonomy levels, we find the right balance between AI initiative and human oversight for this specific workflow.
+
+---
+
+## How to Facilitate Solution Generation
+
+### 1. Enforce multiple approaches
+Don't let the user (or yourself) settle on the first idea. Push for at least three distinct solutions:
+
+**Prompt for diversity:**
+- "That's a solid first approach. Now, what's a completely different way we could add AI autonomy to this workflow?"
+- "If that approach weren't possible, what would be your second choice?"
+- "Let's think of an approach that has more/less human involvement than the previous ones."
+
+**Why this matters:** Different approaches reveal trade-offs and help identify the optimal balance of autonomy vs. oversight.
+
+---
+
+### 2. Use the autonomy spectrum framework
+
+Help the user think across different levels of autonomy. Present this framework:
+
+**Level 1: AI as Assistant**
+- AI handles information gathering and prep work
+- Human makes all decisions and takes all actions
+- Example: "AI researches options and presents them; you decide and execute"
+
+**Level 2: AI as Collaborator** (Most common for bootcamp workflows)
+- AI drafts outputs and proposes actions
+- Human reviews, adjusts, and approves
+- Example: "AI drafts the email/report/plan; you review and send"
+
+**Level 3: AI as Agent**
+- AI makes decisions and takes actions within defined boundaries
+- Human sets parameters and reviews exceptions/outcomes
+- Example: "AI handles routine cases automatically; flags edge cases for your review"
+
+**Why this matters:** The autonomy spectrum helps users think beyond "all manual" vs. "fully automated" and find the right middle ground.
+
+---
+
+### 3. Generate at least 3 solution hypotheses
+
+For each solution, guide the user to define:
+- **What the AI agent does autonomously**
+- **Where human input is required**
+- **How they interact** (chat-based? scheduled check-ins? exception-triggered?)
+
+**Example prompt sequence:**
+1. "Let's start with a lower-autonomy approach. What if the AI handled research and prep, then collaborated with you on decisions?"
+2. "Now let's explore a higher-autonomy version. What if the AI could handle routine cases on its own and only check in when something unusual comes up?"
+3. "What's a third approach that splits the work differently? Maybe focusing on a specific bottleneck we identified?"
+
+**Why this matters:** Having 3+ options gives you trade-off comparisons in the next step.
+
+---
+
+### 4. Clarify scope for each solution
+
+For each proposed solution, explicitly define boundaries:
+- **What it does:** Clear description of AI autonomous behavior
+- **What it doesn't do:** What stays manual or out of scope
+- **Human touchpoints:** When and how the human is in the loop
+
+**Example:**
+"Okay, for Solution 1 (AI Researcher + Human Decider):
+- **Does:** Gathers data from specified sources, summarizes findings, identifies options
+- **Doesn't:** Make final decisions, send communications, or access sensitive systems
+- **Human touchpoints:** You review AI's research summary and options, then make the call"
+
+**Why this matters:** Clear boundaries prevent scope creep and help evaluate feasibility.
+
+---
+
+### 5. Document the solution hypotheses
+
+Append this section to `problem_definition.md`:
+
+```markdown
+## Solution Hypotheses
+
+### Hypothesis 1: [Name - e.g., "AI Researcher + Human Decider"]
+**Autonomy Level:** [Assistant/Collaborator/Agent]
+
+**What AI Does Autonomously:**
+- [Autonomous behavior 1]
+- [Autonomous behavior 2]
+
+**Human Touchpoints:**
+- [When human reviews/decides]
+- [What human controls]
+
+**Interaction Pattern:**
+[How the human and AI work together - e.g., "AI works asynchronously and presents findings; human reviews in daily check-in"]
+
+**Scope Boundaries:**
+- **Does:** [What's included]
+- **Doesn't:** [What's excluded]
+
+---
+
+### Hypothesis 2: [Name]
+[Same structure as above]
+
+---
+
+### Hypothesis 3: [Name]
+[Same structure as above]
+
+---
+
+[Add more if generated]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Push for diversity in autonomy levels across the 3+ solutions
+- Use the autonomy spectrum framework to guide thinking
+- Ask clarifying questions to define clear boundaries for each solution
+- Explain why having multiple options matters (trade-off analysis)
+- Keep descriptions concrete and actionable
+- If solutions sound too similar, challenge the user: "How is this different from the previous approach?"
+- Document all solutions clearly before proceeding
+- Confirm all hypotheses with the user before moving to selection

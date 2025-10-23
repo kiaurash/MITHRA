@@ -1,0 +1,128 @@
+## Goal: Have a natural conversation to understand the participant and create their profile
+
+Your task is to have a brief, natural conversation with the participant to understand who they are and what they're hoping to achieve, then infer and structure this information into a profile.
+
+---
+
+## Phase 1: Check for Existing Profile
+
+1. **Check if profile exists**
+   - Look for `your_workspace/profile/participant_profile.md`
+   - If it exists, read it and skip to Phase 4 (Profile Review)
+   - If it doesn't exist, proceed to Phase 2 (Conversational Profile Creation)
+
+---
+
+## Phase 2: Conversational Profile Discovery (New Participants)
+
+Have a natural, flowing conversation. Start with:
+
+**Opening:**
+"Great! Let's take a minute to get to know each other. I'm here to help you navigate the bootcamp and stay on track over the next 7 weeks. Tell me a bit about yourself—what brings you to the bootcamp?"
+
+**Follow the conversation naturally:**
+- Let them tell you about themselves in their own words
+- Listen for cues about their background, role, motivations
+- Ask follow-up questions based on what they share:
+  - If they mention their job: "That sounds interesting—what kind of work do you do day-to-day?"
+  - If they mention a project idea: "Tell me more about that. What problem are you trying to solve?"
+  - If they mention learning goals: "What would success look like for you by the end of the bootcamp?"
+  - If they mention technical background: "Have you worked with AI tools or agents before?"
+
+**Keep it conversational, not interrogative:**
+- DON'T ask: "What is your role?"
+- DO ask: "What do you do?" or "Tell me about your background"
+- DON'TASK structured multi-choice questions
+- DO have a genuine back-and-forth conversation
+
+**Wrap up naturally after 3-5 exchanges:**
+- "Thanks for sharing that! I have a good sense of where you're coming from. Let's make sure you have a great bootcamp experience."
+
+---
+
+## Phase 3: Infer and Structure Information
+
+After the conversation, create `your_workspace/profile/participant_profile.md` by **inferring** categories from what they shared:
+
+```markdown
+# Bootcamp Participant Profile
+
+**Last Updated:** [Current Date]
+
+## About
+
+[Write 2-3 sentences summarizing who they are in natural language, based on the conversation]
+
+## Background & Context
+
+[Capture relevant background information conversationally - their role, work context, relevant experience]
+
+## Bootcamp Journey
+
+**Cohort:** October 2025 (Oct 20 - Dec 5, 2025)
+**Cohort Start Date:** 2025-10-20
+**Cohort End Date:** 2025-12-05
+
+**What They're Working On:**
+[Describe their project idea or area of interest, if mentioned]
+
+**What They're Hoping to Achieve:**
+[Capture their goals and objectives in their own words, as much as possible]
+
+**Technical Approach:**
+[Infer from conversation: coding/no-code/exploring/undecided - write this naturally, not as a category]
+
+## Personal Goals
+
+[Will be populated in goal setting step]
+
+## Project Idea
+
+[Will be populated in project ideation step]
+
+## Progress Tracking
+
+**Sprint 1 Demo:** Not yet submitted
+**Sprint 2 Demo:** Not yet submitted
+**Sprint 3 Demo:** Not yet submitted
+**Final Demo:** Not yet submitted
+
+## Conversation Notes
+
+[This section will be populated during progress check-ins]
+```
+
+**Important:** Write the profile in a way that sounds like you're describing a person, not filling out a form.
+
+---
+
+## Phase 4: Log Profile Action
+
+Add entry to `your_workspace/logs/activity_log.csv`:
+
+```csv
+YYYY-MM-DD HH:MM:SS,orientation,profile_created,Created profile for [Name]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Be conversational, not transactional** - you're having a chat, not conducting an interview
+- **Listen more than you ask** - let them guide the conversation
+- **Infer, don't interrogate** - figure out their technical level from how they talk, don't ask explicitly
+- **Keep it brief** - 3-5 exchanges max for initial conversation
+- **Write the profile naturally** - it should read like notes about a person, not form fields
+- If they don't mention something (like a project idea), that's fine - leave it open or write "Still exploring options"
+- After profile creation, automatically proceed to goal setting
+- Remember to log the profile action to activity_log.csv
+
+---
+
+## Output Requirements
+
+- participant_profile.md created with natural, conversational content
+- Log entry for profile_created
+- Leave Conversation Notes section with just placeholder (will be populated by progress_assessment)
+
+After completing this step, proceed automatically to goal_setting.
