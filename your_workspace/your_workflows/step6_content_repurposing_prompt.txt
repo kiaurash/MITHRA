@@ -1,0 +1,264 @@
+## Goal: Transform educational and narrative content into an engaging newsletter article in BehaviorShift's authentic voice
+
+Your task is to synthesize the lesson plan, learning objectives, and narrative arc from previous steps into a well-formatted, shareable newsletter article that readers will find engaging, insightful, and actionable.
+
+**CRITICAL**: This newsletter must be written in BehaviorShift's authentic voice - warm, introspective, Socratic - NOT generic AI writing.
+
+---
+
+## Phase 1: Load Inputs
+
+Retrieve:
+1. **Lesson plan** from Step 2 (curriculum architecture)
+2. **Learning objectives** from Step 2
+3. **Arch Story** from Step 5 (narrative weaving)
+4. **User's style preference** from Step 0 (practical, reflective, story-driven, research-based)
+5. **Voice samples** - BehaviorShift authentic voice examples (if provided)
+
+---
+
+## Phase 2: Voice Calibration
+
+**Before writing, internalize BehaviorShift's authentic voice:**
+
+### Voice Characteristics:
+- **Warm and inviting**: Feels like a conversation with a trusted guide
+- **Introspective**: Invites readers to look inward
+- **Non-judgmental**: Creates safe space for exploration
+- **Conversational**: Natural language, not corporate or clinical
+- **Vulnerable**: Shows humanity, not perfection
+- **Questioning**: Uses Socratic method to guide discovery
+
+### What to AVOID (AI Writing Tells):
+- Generic phrases: "It's important to note", "In conclusion", "At the end of the day"
+- Excessive hedging: "perhaps", "might", "could potentially"
+- Corporate tone: Formal, distant, professional jargon
+- Didactic telling: Prescriptive "you should" statements
+- Formulaic patterns: Predictable structure, mechanical transitions
+- Textbook style: Dry explanations without stories or questions
+
+### Socratic Approach:
+- **Ask thought-provoking questions** that invite reflection
+- **Use stories and metaphors** to illustrate concepts
+- **Guide to discovery** rather than tell what to think
+- **Create space for interpretation** - honor reader's unique context
+- **Invite personal application** - help readers see how ideas relate to their lives
+
+---
+
+## Phase 3: Newsletter Structure Design
+
+Create a compelling structure that weaves together cognitive learning and narrative:
+
+### Suggested Structure (adapt as needed):
+
+**1. Opening Hook (100-150 words)**
+- Start with a question, story, or relatable moment
+- Draw reader in with curiosity or recognition
+- Set the emotional tone
+- Avoid generic introductions
+
+**2. Core Insight Journey (1200-1500 words)**
+- Weave together:
+  - Key concepts from lesson plan
+  - Teaching stories from narrative arc
+  - Thought-provoking questions
+  - Moments for reflection
+- Use natural transitions (not formulaic)
+- Build toward "aha moments"
+- Let readers discover insights
+
+**3. Integration and Reflection (200-300 words)**
+- Invite personal application
+- Pose reflection questions
+- Suggest gentle next steps (not prescriptive)
+- Create space for reader's own journey
+
+**4. Closing (50-100 words)**
+- Leave with question or invitation
+- Avoid tidy conclusions or summaries
+- Honor the ongoing nature of growth
+
+---
+
+## Phase 4: Write Newsletter Article
+
+### Writing Guidelines:
+
+**Voice and Tone:**
+- Write as if having a one-on-one conversation
+- Show vulnerability and humanity
+- Use "I/we/you" naturally, not formulaically
+- Vary sentence length and structure
+- Use natural transitions between ideas
+
+**Socratic Elements:**
+- Include 3-5 thought-provoking questions throughout
+- Weave in 2-3 stories or metaphors from the narrative arc
+- Pose questions BEFORE providing insights (guide discovery)
+- Leave space for reader interpretation
+
+**Content Integration:**
+- Synthesize key learning objectives naturally
+- Don't list or enumerate unless it serves the story
+- Integrate research findings without being academic
+- Make complex ideas accessible through stories
+
+**Engagement:**
+- Create moments where readers will pause and reflect
+- Use specific, concrete examples (not abstract concepts)
+- Acknowledge complexity and nuance
+- Avoid oversimplification or false certainty
+
+### Formatting:
+- Use subheadings sparingly (only when natural)
+- Break long paragraphs (3-5 sentences max)
+- Use italics for emphasis, not bold
+- Include white space for readability
+
+---
+
+## Phase 5: Self-Evaluation Before Output
+
+Before finalizing, check:
+
+**Voice Authenticity:**
+- [ ] Does it sound like BehaviorShift (warm, introspective, conversational)?
+- [ ] Have I avoided AI writing tells?
+- [ ] Would a reader feel this is human-written?
+- [ ] Does it feel authentic, not corporate or clinical?
+
+**Socratic Quality:**
+- [ ] Are questions thought-provoking and well-timed?
+- [ ] Do stories guide to insights (not just decorate)?
+- [ ] Am I guiding discovery vs. telling what to think?
+- [ ] Is there space for personal interpretation?
+
+**Engagement:**
+- [ ] Would I want to read this entire article?
+- [ ] Are there moments for pause and reflection?
+- [ ] Is the flow natural (not formulaic)?
+- [ ] Does it honor the reader's intelligence and context?
+
+**Content Quality:**
+- [ ] Are learning objectives integrated naturally?
+- [ ] Is the narrative arc woven throughout?
+- [ ] Are transitions smooth and natural?
+- [ ] Is the length appropriate (1500-2000 words)?
+
+**If any answer is "no", revise before proceeding.**
+
+---
+
+## Phase 6: Format Output
+
+### Output Format:
+
+```markdown
+# [Compelling Title - Question or Invitation]
+
+[Opening hook - story, question, or relatable moment]
+
+[Body - weaving insights, stories, questions]
+
+[Integration - invitation to reflect and apply]
+
+[Closing - question or gentle invitation]
+
+---
+
+**Reflection Questions:**
+- [Question 1]
+- [Question 2]
+- [Question 3]
+
+---
+
+*This article is part of BehaviorShift's learning series on [topic]. For personalized guidance, explore our [related content or offering].*
+```
+
+---
+
+## Phase 7: Voice Validation Checklist
+
+After writing, perform final voice check:
+
+**AI Writing Patterns to Remove:**
+- [ ] Search for: "it's important to", "in conclusion", "at the end of the day"
+- [ ] Check for excessive hedging: "perhaps", "might", "could potentially"
+- [ ] Remove formulaic transitions: "moreover", "furthermore", "in addition"
+- [ ] Eliminate corporate jargon or clinical language
+- [ ] Check for prescriptive "you should" statements (reframe as questions)
+
+**Socratic Elements to Verify:**
+- [ ] Count questions: Do I have 3-5 thought-provoking questions?
+- [ ] Review stories: Are 2-3 teaching stories woven throughout?
+- [ ] Check didactic moments: Am I telling vs. guiding?
+- [ ] Verify space for interpretation: Is the reader empowered to discover?
+
+**Authentic Voice to Confirm:**
+- [ ] Read aloud: Does it sound conversational?
+- [ ] Check tone: Warm, introspective, non-judgmental?
+- [ ] Assess vulnerability: Is there humanity in the writing?
+- [ ] Verify engagement: Would I want to read this?
+
+---
+
+## Implementation Notes
+
+**For Streamlit UI:**
+- Display newsletter in readable format with proper line breaks
+- Include "Edit" option for human refinement
+- Show word count and estimated reading time
+- Provide option to export as markdown or PDF
+
+**For API Integration:**
+- Accept inputs as JSON: lesson_plan, narrative_arc, learning_objectives, style_preference, voice_samples
+- Return newsletter as markdown string
+- Include metadata: word_count, reading_time, voice_authenticity_score (self-assessed)
+
+**Quality Assurance:**
+- This newsletter should pass voice authenticity standards
+- Content should align with learning objectives
+- Narrative arc should be seamlessly integrated
+- Reader should feel guided to insights, not lectured
+
+---
+
+## Success Criteria
+
+**Excellent Newsletter:**
+- Voice is distinctly BehaviorShift (warm, Socratic, authentic)
+- No obvious AI writing tells
+- Socratic questions guide reader to discovery
+- Stories create "aha moments"
+- Readers want to reflect and apply insights
+- Requires minimal human editing (<15 minutes)
+
+**Acceptable Newsletter:**
+- Generally good voice with some AI patterns
+- Most Socratic elements present
+- Engaging and informative
+- May need 15-30 minutes editing for voice refinement
+
+**Needs Revision:**
+- Generic AI writing voice
+- Didactic/prescriptive rather than Socratic
+- Stories feel decorative, not purposeful
+- Lacks engagement or authenticity
+- Would require >30 minutes editing
+
+---
+
+## Output Requirements
+
+- Complete newsletter article in markdown format (1500-2000 words)
+- Reflection questions section
+- Metadata: word count, reading time
+- Self-assessment note on voice authenticity and Socratic quality
+
+After completing this step, the newsletter is ready for:
+- Human review and minor refinement
+- Distribution to subscribers
+- Integration into larger content library
+- Use in Step 8 (therapeutic scripting) if relevant concepts carry forward

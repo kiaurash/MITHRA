@@ -1,0 +1,381 @@
+## Goal: Generate personalized hypnosis/meditation script with voice AI cues in BehaviorShift's therapeutic voice
+
+Your task is to create a safe, effective, personalized therapeutic script that integrates learning content with hypnotic/meditative guidance. The script must include SSML tags for voice synthesis and maintain BehaviorShift's authentic therapeutic voice.
+
+**CRITICAL SAFETY NOTE**: This script will be used for therapeutic purposes. It must be safe, appropriate, and ethical. Gate 3 will validate safety before audio generation.
+
+---
+
+## Phase 1: Load Inputs
+
+Retrieve:
+1. **User context** from Step 0 (personal situation, goals, preferences)
+2. **Learning objectives** from Step 2
+3. **Narrative arc** from Step 5 (stories and themes)
+4. **Newsletter content** from Step 6 (key insights)
+5. **User's style preference** from Step 0
+6. **Therapeutic voice samples** (if provided)
+
+---
+
+## Phase 2: Therapeutic Voice Calibration
+
+**BehaviorShift's therapeutic voice is different from newsletter voice but maintains authenticity:**
+
+### Therapeutic Voice Characteristics:
+- **Calm and soothing**: Gentle pacing, reassuring tone
+- **Present and grounding**: Uses "you are" rather than "you should be"
+- **Permission-giving**: Invites rather than directs
+- **Non-prescriptive**: Allows space for individual experience
+- **Compassionate**: Warm, accepting, non-judgmental
+- **Sensory-rich**: Uses concrete imagery and embodied language
+- **Paced for reflection**: Builds in natural pauses
+
+### What to AVOID in Therapeutic Scripts:
+- **Commands**: "You must", "You will", "You have to"
+- **Urgency**: Fast pacing, pressure, demands
+- **Judgment**: "Good/bad", "right/wrong", shame-inducing language
+- **Generic affirmations**: Hollow positive statements without grounding
+- **Medical claims**: Promises of healing or curing conditions
+- **Triggering content**: References to trauma, violence, or distressing scenarios
+- **Manipulative language**: Coercive suggestions, boundary violations
+
+### Socratic Elements in Therapeutic Context:
+- **Invitation to notice**: "What do you notice in your body right now?"
+- **Gentle exploration**: "Perhaps there's a memory or feeling emerging..."
+- **Permission for experience**: "Whatever comes up is welcome here"
+- **Space for insight**: Pauses for self-discovery
+- **Open-ended guidance**: Allows individual interpretation
+
+---
+
+## Phase 3: Script Structure Design
+
+### Standard Therapeutic Session Structure (15-20 minutes):
+
+**1. Grounding and Permission (2-3 minutes)**
+- Invite listener to settle
+- Establish safety and consent
+- Ground in present moment
+- Set intention
+
+**2. Relaxation and Deepening (3-4 minutes)**
+- Progressive relaxation (optional)
+- Breath awareness
+- Deepen relaxation state
+- Prepare for insight work
+
+**3. Core Learning Integration (8-10 minutes)**
+- Weave in learning objectives from curriculum
+- Use stories/metaphors from narrative arc
+- Pose reflective questions (with pause)
+- Guide toward insights from newsletter
+- Connect to user's personal context
+
+**4. Integration and Future Pacing (2-3 minutes)**
+- Invite insights to settle
+- Imagine applying learning in daily life
+- Reinforce empowerment and choice
+- Create sense of completion
+
+**5. Return and Closing (1-2 minutes)**
+- Gently bring awareness back
+- Ground in present
+- Express gratitude
+- Close session
+
+---
+
+## Phase 4: SSML Integration for Voice AI
+
+### SSML Tags for Voice Control:
+
+**Pacing and Pauses:**
+```xml
+<break time="2s"/> <!-- Short pause for reflection -->
+<break time="5s"/> <!-- Longer pause for deep reflection -->
+<prosody rate="slow">Speak this section more slowly</prosody>
+<prosody rate="x-slow">Very slow, meditative pacing</prosody>
+```
+
+**Tone and Emphasis:**
+```xml
+<prosody pitch="-5%">Slightly lower, calming pitch</prosody>
+<prosody volume="soft">Quieter, more intimate</prosody>
+<emphasis level="moderate">Gentle emphasis on key words</emphasis>
+```
+
+**Pronunciation and Breathing:**
+```xml
+<phoneme alphabet="ipa" ph="bɹiːð">breathe</phoneme> <!-- If needed -->
+<say-as interpret-as="spell-out">R-E-L-A-X</say-as> <!-- Rare use -->
+```
+
+### Voice Pacing Guidelines:
+- **Normal therapeutic pace**: ~120 words per minute
+- **Deep relaxation sections**: ~80-100 words per minute
+- **Reflection pauses**: 3-5 seconds between questions
+- **Transition pauses**: 2 seconds between sections
+- **Final grounding**: Return to normal conversational pace
+
+---
+
+## Phase 5: Write Therapeutic Script
+
+### Writing Guidelines:
+
+**Opening (Grounding and Permission):**
+```
+[Example - adapt to content]
+
+<prosody rate="slow" pitch="-3%">
+Find a comfortable position... where you can be fully present for the next few minutes.
+<break time="2s"/>
+
+Perhaps you're sitting... or lying down...
+allowing your body to be supported.
+<break time="2s"/>
+
+There's no need to do anything special here...
+no need to achieve any particular state.
+<break time="1s"/>
+Whatever you're experiencing right now... is exactly right.
+<break time="3s"/>
+</prosody>
+```
+
+**Core Learning Integration:**
+- Weave in key concepts from curriculum naturally
+- Use stories from narrative arc as guided imagery
+- Pose Socratic questions with generous pauses
+- Connect to user's personal context (from Step 0)
+- Maintain therapeutic voice (not didactic)
+
+**Example Socratic Element:**
+```xml
+<prosody rate="slow">
+And you might notice...
+<break time="2s"/>
+what happens when you bring gentle curiosity...
+<break time="1s"/>
+to [key concept from learning objectives].
+<break time="5s"/>
+
+There's no right answer here...
+<break time="1s"/>
+just an invitation to notice...
+<break time="2s"/>
+what feels true for you.
+<break time="5s"/>
+</prosody>
+```
+
+**Personalization (Based on User Context):**
+- Reference user's specific situation (without naming details)
+- Adapt pacing to style preference (practical, reflective, etc.)
+- Honor user's learning goals from Step 0
+- Use language that fits their context
+
+**Safety-First Writing:**
+- Never make promises of healing or outcomes
+- Always give permission to stop or disengage
+- Avoid triggering scenarios or imagery
+- Use inclusive, trauma-informed language
+- Respect boundaries and autonomy
+
+---
+
+## Phase 6: Self-Evaluation Before Output
+
+Before finalizing, check:
+
+**Safety (CRITICAL):**
+- [ ] No harmful suggestions or commands
+- [ ] No medical/psychological claims beyond scope
+- [ ] Trauma-informed language (avoids triggers)
+- [ ] Respects autonomy (permission, not coercion)
+- [ ] Appropriate for general audience
+- [ ] User can disengage safely at any time
+
+**Voice Authenticity:**
+- [ ] Sounds like BehaviorShift therapeutic voice (calm, compassionate, grounding)
+- [ ] Avoids generic meditation script language
+- [ ] Feels authentic and human (not formulaic)
+- [ ] Pacing is appropriate for reflection
+
+**Socratic Quality:**
+- [ ] Questions invite genuine exploration
+- [ ] Pauses allow space for insight
+- [ ] Guides discovery (doesn't prescribe experience)
+- [ ] Honors individual interpretation
+
+**Technical Quality:**
+- [ ] SSML tags properly formatted
+- [ ] Pauses are appropriate length (2-5s typical)
+- [ ] Pacing variations serve the content
+- [ ] Prosody tags enhance (not distract from) content
+
+**Content Integration:**
+- [ ] Learning objectives woven in naturally
+- [ ] Narrative stories used as guided imagery
+- [ ] Newsletter insights integrated therapeutically
+- [ ] User's personal context honored
+
+**If any safety check fails, REVISE IMMEDIATELY. Gate 3 will halt workflow if unsafe.**
+
+---
+
+## Phase 7: Format Output
+
+### Script Output Format:
+
+```xml
+<?xml version="1.0"?>
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+
+<!-- SECTION 1: Grounding and Permission (2-3 min) -->
+<prosody rate="slow" pitch="-3%">
+[Opening script with SSML tags]
+</prosody>
+
+<!-- SECTION 2: Relaxation and Deepening (3-4 min) -->
+<prosody rate="x-slow">
+[Relaxation script with generous pauses]
+</prosody>
+
+<!-- SECTION 3: Core Learning Integration (8-10 min) -->
+<prosody rate="slow">
+[Learning content woven with Socratic questions and stories]
+[User-specific personalization]
+[Reflection pauses]
+</prosody>
+
+<!-- SECTION 4: Integration and Future Pacing (2-3 min) -->
+<prosody rate="slow">
+[Integration script with application imagery]
+</prosody>
+
+<!-- SECTION 5: Return and Closing (1-2 min) -->
+<prosody rate="medium">
+[Grounding return to present, closing]
+</prosody>
+
+</speak>
+```
+
+### Metadata to Include:
+```json
+{
+  "script_duration_estimate": "15-20 minutes",
+  "word_count": [count],
+  "personalization_elements": [list of user-specific adaptations],
+  "learning_objectives_integrated": [list],
+  "safety_self_assessment": "PASS/REVIEW",
+  "voice_authenticity_score": "self-assessed rating",
+  "key_pauses": [list of major reflection moments]
+}
+```
+
+---
+
+## Phase 8: Safety and Quality Checklist
+
+**MANDATORY Safety Validation:**
+
+Before submitting to Gate 3, verify:
+
+**Content Safety:**
+- [ ] No promises of healing or medical outcomes
+- [ ] No suggestions that could be harmful if followed
+- [ ] No triggering imagery (trauma, violence, distress)
+- [ ] No coercive or manipulative language
+- [ ] No boundary violations or invasive suggestions
+- [ ] Appropriate for vulnerable populations
+
+**Ethical Standards:**
+- [ ] Respects user autonomy and consent
+- [ ] Allows user to disengage at any time
+- [ ] Doesn't exploit vulnerability
+- [ ] Maintains professional therapeutic boundaries
+- [ ] Culturally sensitive and inclusive
+- [ ] Age-appropriate for general adult audience
+
+**Therapeutic Quality:**
+- [ ] Grounding techniques are safe and standard
+- [ ] Pacing allows for processing
+- [ ] Questions are open-ended (not leading)
+- [ ] Suggestions are permissive (not directive)
+- [ ] Supports user's own wisdom and insight
+- [ ] Trauma-informed approach throughout
+
+**If ANY safety concern exists, flag for human review BEFORE Gate 3.**
+
+---
+
+## Implementation Notes
+
+**For Voice API Integration (ElevenLabs or similar):**
+- Send complete SSML-formatted script
+- Recommended voice: Warm, gender-neutral, medium pitch
+- Audio format: MP3 or WAV, high quality (256kbps+)
+- Expected output: 15-20 minute audio file
+- Include metadata for playback controls
+
+**For Streamlit UI:**
+- Display script preview (without SSML tags for readability)
+- Show estimated duration
+- Include "Safety Review" status indicator
+- Provide option for human review before audio generation
+- **CRITICAL**: Display Gate 3 safety validation result
+
+**Quality Assurance:**
+- Script must pass Gate 3 safety validation (100% requirement)
+- Voice authenticity should match BehaviorShift therapeutic standards
+- Personalization should be evident but not invasive
+- Learning integration should be seamless (not forced)
+
+---
+
+## Success Criteria
+
+**Excellent Therapeutic Script:**
+- Passes all safety checks (Gate 3 PASS)
+- BehaviorShift therapeutic voice is authentic and soothing
+- Learning objectives integrated naturally and therapeutically
+- Socratic elements invite genuine reflection
+- Personalization honors user context
+- SSML tags enhance voice delivery
+- Ready for audio generation with minimal human edits
+
+**Acceptable Script:**
+- Passes safety checks (Gate 3 PASS)
+- Generally good therapeutic voice
+- Learning content present but may feel slightly academic
+- Some Socratic elements present
+- Basic personalization
+- May need minor refinement before audio generation
+
+**Needs Revision (Gate 3 may FAIL):**
+- Any safety concerns present
+- Generic meditation script voice (not BehaviorShift)
+- Didactic/educational rather than therapeutic
+- Learning forced rather than integrated
+- Lacks personalization
+- SSML tags poorly implemented
+- Would require significant human rewriting
+
+---
+
+## Output Requirements
+
+- Complete SSML-formatted therapeutic script
+- Metadata JSON with duration, personalization notes, safety self-assessment
+- Section breakdown with timing estimates
+- Flagged concerns (if any) for Gate 3 review
+
+After completing this step, the script proceeds to:
+- **Gate 3: Therapeutic Safety Judge** (CRITICAL CHECKPOINT)
+- If Gate 3 PASS → Step 9: Voice Synthesis
+- If Gate 3 FAIL → HALT for mandatory human review
+
+**REMINDER: Safety is paramount. When in doubt, flag for human review.**
