@@ -17,7 +17,7 @@ session = SessionManager()
 context_collector = None
 module_generator = None
 
-def process_pdf(file) -> str:
+def process_pdf(file) -> list:
     """
     Process uploaded PDF and extract text.
 
@@ -25,18 +25,18 @@ def process_pdf(file) -> str:
         file: Gradio file upload object
 
     Returns:
-        Confirmation message or error
+        Chat history in Gradio chatbot format: [[user_msg, bot_msg], ...]
     """
     global session, context_collector, module_generator
 
     if file is None:
-        return "Please upload a PDF file."
+        return [[None, "Please upload a PDF file."]]
 
     # Extract text from PDF
     text = extract_text_from_pdf(file.name)
 
     if not text:
-        return "❌ Error: Could not extract text from PDF. Please try a different file."
+        return [[None, "❌ Error: Could not extract text from PDF. Please try a different file."]]
 
     # Get metadata
     metadata = get_paper_metadata(text)
@@ -48,13 +48,15 @@ def process_pdf(file) -> str:
     context_collector = ContextCollector(session)
     session.start_context_collection()
 
-    # Return welcome message
-    return f"""✅ **Paper uploaded successfully!**
+    # Return welcome message in chatbot format
+    welcome_msg = f"""✅ **Paper uploaded successfully!**
 
 **Title:** {metadata['title']}
 **Length:** ~{metadata['word_count']} words ({metadata['estimated_pages']} pages)
 
 {context_collector.get_initial_message()}"""
+
+    return [[None, welcome_msg]]
 
 def chat(message: str, history: list) -> str:
     """
@@ -120,7 +122,7 @@ def reset_session():
     session.reset()
     context_collector = None
     module_generator = None
-    return "Session reset. Please upload a new paper to start."
+    return [[None, "Session reset. Please upload a new paper to start."]]
 
 # Build Gradio interface
 with gr.Blocks(
