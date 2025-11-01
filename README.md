@@ -1,66 +1,86 @@
-# MITHRA - Research Learning Assistant (MVP)
+---
+title: MITHRA Research Assistant
+emoji: 📚
+colorFrom: blue
+colorTo: purple
+sdk: gradio
+sdk_version: 4.44.0
+app_file: app.py
+pinned: false
+license: mit
+---
 
-Machine Intelligence for Translating Human Research into Action
+# 📚 MITHRA - Research Learning Assistant
 
-## Setup Instructions for Replit
+**Machine Intelligence for Translating Human Research into Action**
 
-### 1. Create New Replit Project
-- Go to replit.com
-- Create new Repl, choose "Python" template
-- Upload all files from this directory
+MITHRA is your personalized AI tutor for understanding research papers. Upload any academic paper and get a customized learning experience tailored to your background and goals.
 
-### 2. Set Up API Key
-- In Replit, go to "Secrets" (Tools → Secrets, or lock icon)
-- Add secret: `ANTHROPIC_API_KEY` = your Claude API key
-- Get key from: https://console.anthropic.com/
+## 🎯 What It Does
 
-### 3. Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+Instead of spending 1-5 hours struggling through dense academic papers, MITHRA:
 
-### 4. Run the App
-```bash
-python main.py
-```
+1. **Understands You** - Asks about your role, background, and learning goals
+2. **Personalizes Content** - Creates learning modules matched to your expertise level
+3. **Teaches Interactively** - Conversational Q&A to deepen understanding
+4. **Saves Time** - Achieve deep comprehension in 45-75 minutes
 
-Replit will automatically expose the Gradio interface with a public URL.
+## 🚀 How to Use
 
-## How It Works
+1. **Upload a PDF** - Any research paper (works best with 10-50 page papers)
+2. **Answer 5 Questions** - About your background and what you want to learn
+3. **Learn!** - Work through personalized modules, ask questions anytime
+4. **Apply** - Connect concepts to your specific problems or projects
 
-### Current MVP Features (No Vector DB):
-1. **PDF Upload** - User uploads research paper
-2. **Context Collection** - AI asks about user's background, goals, time available
-3. **Module Generation** - Creates personalized learning modules based on paper
-4. **Session State** - Maintains conversation context
+## ✨ Features
 
-### Architecture:
-- **Gradio**: Web UI with chat + file upload
-- **Claude API**: LLM for personalization and generation
-- **PyPDF2**: Extract text from uploaded PDFs
-- **Session Manager**: Track conversation state
+- 📄 **PDF Upload** - Automatic text extraction
+- 🎓 **Personalized Learning** - Matched to your expertise
+- 💬 **Interactive Teaching** - Ask questions, request examples
+- 🔬 **Research-to-Practice** - Bridge academic → practical application
 
-### Workflow States:
-1. `INIT` - Waiting for paper upload
-2. `PAPER_RECEIVED` - Paper uploaded, ready for context collection
-3. `COLLECTING_CONTEXT` - Asking user questions
-4. `GENERATING_MODULES` - Creating personalized learning content
-5. `TEACHING` - Delivering modules, answering questions
-6. `COMPLETE` - Session finished
+## 🛠️ Tech Stack
 
-## Future Enhancements:
-- Vector DB (ChromaDB) for RAG best practices
-- Visualization script generation
-- Reflection/experiment design guidance
-- Multi-session persistence
+- **UI:** Gradio
+- **AI:** Claude (Anthropic API)
+- **PDF Processing:** PyPDF2
+- **Language:** Python 3.9+
 
-## Usage:
-1. Upload research paper PDF
-2. Answer questions about your background and goals
-3. Receive personalized learning modules
-4. Ask questions to deepen understanding
-5. Get guidance on applying concepts
+## 📊 Example Use Cases
+
+- ML engineer learning about new architectures
+- Data scientist exploring novel techniques
+- Product manager understanding AI capabilities
+- Researcher diving into adjacent fields
+
+## 💡 Tips for Best Results
+
+- Use PDFs with selectable text (not scanned images)
+- Be specific about your background and goals
+- Ask questions during learning - it's interactive!
+- Take your time - comprehension > speed
+
+## 🔒 Privacy & Security
+
+- Your API key is stored securely in Hugging Face Secrets
+- Uploaded papers are processed in-session only (not stored)
+- Conversations are not logged or saved
+
+## 📝 About
+
+Built for **Anthropic's AI Engineering Bootcamp 2025**
+
+MITHRA demonstrates personalized learning through:
+- Multi-turn conversational AI
+- Context-aware prompt engineering
+- Pedagogically-sound instruction design
+
+## 🔗 Links
+
+- **GitHub:** https://github.com/kiaurash/MITHRA
+- **Documentation:** See repo for full deployment guides
+- **License:** MIT
 
 ---
 
-**Built for Anthropic's AI Engineering Bootcamp 2025**
+**Ready to learn?** Upload a research paper to get started! 📚✨
