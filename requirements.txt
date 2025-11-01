@@ -1,4 +1,5 @@
 anthropic>=0.39.0
 gradio
 pypdf2
+python-dotenv
 huggingface_hub<0.20.0
