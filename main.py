@@ -230,8 +230,11 @@ if __name__ == "__main__":
     # Only launch if not on HF Spaces (HF Spaces launches automatically)
     # HF Spaces sets SPACE_ID environment variable
     if os.getenv("SPACE_ID") is None:
+        # Get port from environment (for Render, Railway, etc.) or use default
+        port = int(os.getenv("PORT", 7860))
+
         demo.launch(
-            server_name="0.0.0.0",  # Required for Replit
-            server_port=7860,
-            share=False  # Replit handles sharing automatically
+            server_name="0.0.0.0",  # Listen on all interfaces
+            server_port=port,
+            share=False
         )
