@@ -213,7 +213,10 @@ with gr.Blocks(
     *MITHRA helps practitioners understand research papers faster through personalized, pedagogically-sound learning.*
     """)
 
+# Only run launch() when executed directly (not imported by HF Spaces)
 if __name__ == "__main__":
+    import os
+
     # Check for API key
     if not ANTHROPIC_API_KEY:
         print("⚠️  WARNING: ANTHROPIC_API_KEY not found!")
@@ -224,8 +227,11 @@ if __name__ == "__main__":
     print("📚 Upload a research paper to begin your personalized learning session")
     print("")
 
-    demo.launch(
-        server_name="0.0.0.0",  # Required for Replit
-        server_port=7860,
-        share=False  # Replit handles sharing automatically
-    )
+    # Only launch if not on HF Spaces (HF Spaces launches automatically)
+    # HF Spaces sets SPACE_ID environment variable
+    if os.getenv("SPACE_ID") is None:
+        demo.launch(
+            server_name="0.0.0.0",  # Required for Replit
+            server_port=7860,
+            share=False  # Replit handles sharing automatically
+        )
