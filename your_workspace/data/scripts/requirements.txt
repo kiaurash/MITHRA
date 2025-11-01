@@ -1,0 +1,13 @@
+# RAG Knowledge Base Requirements
+
+# Vector Database
+chromadb==0.4.24
+
+# Embedding Model (automatically installed with chromadb)
+sentence-transformers>=2.2.2
+
+# Document Processing
+pyyaml>=6.0
+
+# Optional: For progress bars
+tqdm>=4.65.0

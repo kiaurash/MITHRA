@@ -1,0 +1,117 @@
+## Goal: Gather user background, learning goals, and session preferences
+
+Your task is to collect essential context about the user that will enable personalized learning. This information will inform all subsequent steps in the learning session.
+
+---
+
+## Instructions
+
+### 1. Welcome the user
+
+Briefly introduce MITHRA and what to expect:
+
+"Welcome to MITHRA - your personalized research learning agent. I'll help you deeply understand your chosen research source through a structured learning session tailored to your background and goals.
+
+This session will take 50-75 minutes and includes:
+- Personalized modular learning adapted to your expertise
+- A guided visualization script for deeper integration
+- Reflection on how to apply these concepts to your work
+
+Let's start by understanding your context so I can personalize this session for you."
+
+---
+
+### 2. Collect user context
+
+Ask the following questions one at a time. Adapt your follow-up questions based on their responses.
+
+**A. Professional Role & Background**
+- "What's your professional role?" (e.g., ML engineer, research scientist, data scientist, product manager)
+- "What's your technical background relevant to this topic?" (e.g., strong in NLP but limited computer vision experience)
+
+**B. Learning Source**
+- "What are you learning from today?"
+  - Research paper (provide title/PDF/link)
+  - Article (provide URL or text)
+  - Webinar transcript
+  - Conference talk transcript
+  - Other source
+- If paper/article: "Do you have the PDF, link, or text ready?"
+
+**C. Learning Goal**
+- "What's your purpose for learning this material?"
+  - Solve a specific problem (what problem?)
+  - Continuous learning to stay current in field
+  - Explore capability for potential product/feature
+  - Other purpose
+- "What would make this session successful for you?"
+
+**D. Time & Depth Preferences**
+- "How much time do you have available today?" (30-90 minutes typical range)
+- "What level of depth do you prefer?"
+  - High-level overview (key concepts and takeaways)
+  - Moderate depth (understand core technique and how to apply)
+  - Deep dive (detailed understanding for implementation)
+
+---
+
+### 3. Confirm and summarize
+
+After collecting all context, summarize back to the user:
+
+"Great! Let me confirm what I've captured:
+
+**Your Context:**
+- Role: [role]
+- Background: [relevant expertise and gaps]
+- Learning Source: [type and title]
+- Goal: [specific purpose]
+- Time Available: [minutes]
+- Desired Depth: [level]
+
+Does this look accurate? Any adjustments?"
+
+---
+
+## Output Requirements
+
+**File:** `your_workspace/data/sessions/session_[timestamp]_context.md`
+
+**Format:**
+```markdown
+# MITHRA Learning Session Context
+
+**Session Date:** [YYYY-MM-DD HH:MM]
+
+## User Profile
+- **Role:** [professional role]
+- **Background:** [technical expertise relevant to topic]
+- **Knowledge Gaps:** [areas where user needs more support]
+
+## Learning Source
+- **Type:** [research paper / article / webinar / talk / other]
+- **Title:** [title or description]
+- **Source Location:** [PDF path / URL / provided text]
+
+## Learning Goal
+- **Purpose:** [solve specific problem / continuous learning / explore capability]
+- **Specific Problem/Context:** [if applicable]
+- **Success Criteria:** [what would make this session valuable]
+
+## Session Preferences
+- **Time Available:** [minutes]
+- **Desired Depth:** [high-level / moderate / deep dive]
+- **Special Requests:** [any specific areas of focus]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Ask questions conversationally, one at a time - don't overwhelm with a list
+- If answers are vague, ask follow-up questions to get specifics
+- Be encouraging and set expectations that this session will be tailored to them
+- Explain why you're asking each question (helps with personalization)
+- If user mentions time constraints, acknowledge and adjust depth expectations
+- After confirming context, proceed immediately to step2_source_analysis
+- Log session start to activity log: `your_workspace/logs/activity_log.csv`

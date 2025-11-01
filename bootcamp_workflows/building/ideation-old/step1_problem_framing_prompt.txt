@@ -1,0 +1,144 @@
+## Goal: Define the workflow inefficiency or repetitive task that could benefit from AI autonomy
+
+Your task is to guide the user through defining their workflow problem in a structured way. This is about finding opportunities where AI agents can provide autonomous support while keeping humans in the loop for key decisions.
+
+### Why This Matters
+Whether you're starting fresh, improving an existing project, or here to learn by doing—this exercise helps clarify the gap between your current state and desired state. By mapping out the problem clearly, we can design better solutions.
+
+---
+
+## Phase 0: Read Context
+
+Before starting, read `your_workspace/profile/participant_profile.md` to understand:
+- What they shared about their project idea or area of interest
+- Their background and goals
+- Whether they're starting new, improving existing work, or exploring
+
+Use this context to adapt your tone and questions appropriately.
+
+---
+
+## Phase 1: Understanding the Problem
+
+### 1. What problem are you working on?
+
+Start by understanding their situation. Adapt your question based on their profile:
+
+**If they mentioned a specific project:**
+"I see from your profile that you're interested in [their project idea]. Let's dig deeper into the problem you're trying to solve. What's the core inefficiency or workflow challenge you want to address?"
+
+**If they're improving an existing project:**
+"Tell me about the project or workflow you're working to improve. What's working now, and what needs to get better?"
+
+**If they're exploring or here to learn:**
+"Let's start by identifying a real problem you face—something repetitive or time-consuming in your work. What comes to mind?"
+
+**Why this matters:** We need to understand your current state (what exists now) and your desired state (what you want to achieve).
+
+### 2. Who does this workflow serve?
+Understand the stakeholder:
+- Is this for you personally, your team, or your customers?
+- What role do they play?
+
+**Why this matters:** Different audiences need different levels of oversight and interaction.
+
+### 3. What triggers this workflow?
+Identify when the work happens:
+- "What event or situation starts this process?"
+- "How often does this come up?"
+
+**Why this matters:** Understanding frequency and triggers helps us design appropriate autonomous responses.
+
+---
+
+## Phase 2: Mapping the Current Process
+
+### 4. What does your current state look like?
+
+**If they have an existing workflow or project:**
+"Walk me through how things work now—what are the main steps from start to finish? What tools or information do you use? Where do things slow down or feel inefficient?"
+
+**If they're starting fresh:**
+"Imagine you were solving this problem manually today—what steps would you need to take? What information would you need to gather?"
+
+Get the user to describe their current state in detail:
+- "What are the main steps you take from start to finish?"
+- "What tools or information do you use along the way?"
+- "Where do things slow down or require extra effort?"
+
+**Why this matters:** The current workflow reveals friction points where autonomy could help. We're looking for repetitive decisions, information gathering, or coordination tasks.
+
+### 5. What's your desired state?
+
+Be specific about what success looks like:
+- "What does 'done' look like? What's the outcome you want?"
+- "How will you measure if it went well?"
+- "What would make this 2x faster, easier, or better quality?"
+- "If this worked perfectly, what would change about your work or life?"
+
+**Why this matters:** Understanding the gap between current state and desired state is how we design the right solution. Clear success metrics help us know when the autonomous workflow is working.
+
+### 6. What constraints exist?
+Identify limitations:
+- "What resources (time, tools, data) do you have access to?"
+- "What must stay under human control vs. what could be autonomous?"
+- "Are there compliance, privacy, or quality requirements?"
+
+**Why this matters:** Constraints define the boundaries of autonomy. Some decisions need human judgment; others can be delegated to the agent.
+
+---
+
+## Phase 3: Documentation
+
+### 7. Create a problem document
+Save the structured output to: `your_workspace/reports/problem_definition.md`
+
+The document should include:
+
+```markdown
+# Workflow Problem Definition
+
+## Problem Statement
+[1-2 sentence description of the gap between current state and desired state]
+
+## Current State
+**Who:** [User/stakeholder description]
+**Frequency:** [How often this happens]
+**Trigger:** [What starts the workflow]
+
+**How it works now:**
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
+...
+
+**Friction Points:**
+- [Where things slow down]
+- [What requires manual effort]
+- [What feels repetitive]
+
+## Desired State
+**What success looks like:** [Description of the outcome you want]
+**Key metrics:** [How we measure success]
+**What would change:** [Impact on work/life if this worked perfectly]
+
+## Constraints
+- [Resource limitations]
+- [Things that must stay human-controlled]
+- [Compliance or quality requirements]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Start by reading their profile** to understand their context
+- **Adapt your tone** based on whether they're starting fresh, improving existing work, or exploring
+- Ask questions one at a time, not in bulk
+- If answers are vague, ask follow-up questions to get specifics
+- Help the user think through their workflow if they're not sure of all the steps
+- **Frame everything as current state → desired state** - this works for new projects, improvements, and learning
+- Explain briefly why each question matters (as shown above) to make this educational
+- Keep the tone conversational and collaborative
+- Once you have clear answers to all sections, create the problem_definition.md file at `your_workspace/reports/problem_definition.md`
+- Confirm the problem definition with the user before moving to the next step

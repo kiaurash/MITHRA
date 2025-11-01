@@ -1,0 +1,56 @@
+---
+name: Evaluation Dataset Creation Workflow
+description: Systematic evaluation design for AI workflows through risk-driven test case creation
+initial_state: step1_progress_reflection
+states:
+  step1_progress_reflection:
+    description: |
+      Goal: Assess current evaluation progress and extract context from bootcamp activities
+      Input: Use get_participant_info.sh, get_recent_activity.sh, check_upcoming_tasks.sh for context + SVG homework status
+      Output: Contextual summary of where they are + key observations from informal testing
+    prompt_file: "step1_progress_reflection_prompt.txt"
+    on_success: step2_quality_risk_generation
+
+  step2_quality_risk_generation:
+    description: |
+      Goal: Generate quality risk hypotheses specific to their workflow
+      Input: Problem definition document + progress reflection insights + participant context
+      Output: 5-8 quality risk hypotheses about potential failure modes specific to their workflow
+    prompt_file: "step2_quality_risk_generation_prompt.txt"
+    on_success: step3_risk_prioritization
+
+  step3_risk_prioritization:
+    description: |
+      Goal: Prioritize and articulate top quality risks through guided Socratic dialogue
+      Input: Generated quality risk hypotheses
+      Output: 3-5 prioritized quality risks with clear articulation of why they matter for this specific workflow
+    prompt_file: "step3_risk_prioritization_prompt.txt"
+    on_success: step4_test_case_design
+
+  step4_test_case_design:
+    description: |
+      Goal: Collaboratively design test cases targeting each priority risk using systematic approaches
+      Input: Prioritized quality risks + test case generation approach selection (from repository)
+      Output: 3-5 test cases per risk area (15-25 total test cases) with detailed generation guidance
+    prompt_file: "step4_test_case_design_prompt.txt"
+    on_success: step5_learning_objectives
+
+  step5_learning_objectives:
+    description: |
+      Goal: Articulate what each test group should teach about workflow behavior and quality patterns
+      Input: Test cases organized by risk area
+      Output: Clear learning objectives for each test group that connect to actionable design insights
+    prompt_file: "step5_learning_objectives_prompt.txt"
+    on_success: step6_artifact_generation
+
+  step6_artifact_generation:
+    description: |
+      Goal: Create structured measurement artifacts for ongoing systematic evaluation
+      Input: Test cases, learning objectives, risk priorities, and participant context
+      Output: CSV evaluation matrix (data/evaluations_data.csv) + customized SVG usage guide (reports/)
+    prompt_file: "step6_artifact_generation_prompt.txt"
+    on_success: done
+
+  done:
+    description: "Evaluation dataset creation complete. Participant has systematic evaluation methodology and artifacts ready for ongoing measurement."
+---

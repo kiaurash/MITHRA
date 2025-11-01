@@ -1,0 +1,158 @@
+## Goal: Assess current evaluation progress and extract context from bootcamp activities
+
+Your task is to understand where the participant is in their bootcamp journey and what evaluation insights they've gained so far, then use this context to guide them toward relevant quality vectors for their specific workflow.
+
+---
+
+## Phase 1: Gather Context
+
+**Run utility scripts to understand their current state:**
+
+1. **Get participant background and goals:**
+   ```bash
+   ./bootcamp_workflows/util/get_participant_info.sh
+   ```
+
+2. **Check recent bootcamp activity:**
+   ```bash
+   ./bootcamp_workflows/util/get_recent_activity.sh
+   ```
+
+3. **See current task status and what's due:**
+   ```bash
+   ./bootcamp_workflows/util/check_upcoming_tasks.sh
+   ```
+
+**Parse the outputs to understand:**
+- Their technical background and domain expertise
+- What sprint they're in and their stated goals
+- Recent workflow activity and check-ins
+- Which evaluation-related tasks they've completed or skipped
+- What's coming up that might influence their evaluation priorities
+
+---
+
+## Phase 2: SVG Homework Assessment
+
+**Ask about their current evaluation experience:**
+
+1. **Check SVG homework completion:**
+   "I can see from your task status that [refer to check_upcoming_tasks output]. Let's start by understanding what evaluation work you've already done.
+
+   Have you been following the workflow artifact guide (the SVG with the 4-step learning loop)? What have you discovered so far about your workflow?"
+
+2. **Mine their informal testing insights:**
+   - "How many times have you run your YAML workflow? With what kind of examples?"
+   - "What's working well? What surprised you?"
+   - "What problems or inconsistencies have you noticed?"
+   - "What questions have come up that you haven't been able to answer?"
+
+3. **Connect to their domain and goals:**
+   Based on their participant info, ask domain-specific questions:
+   - If technical background: "Given your [background], what aspects of quality matter most in your domain?"
+   - If domain expertise: "In [their domain], what would 'good enough' vs 'excellent' look like for this workflow?"
+   - Connect to their stated goals: "You mentioned wanting to [their goal]. What could go wrong that would prevent that?"
+
+---
+
+## Phase 3: Contextual Quality Vector Guidance
+
+**Use their context to guide toward relevant quality vectors:**
+
+**Based on their workflow domain, probe for relevant quality dimensions:**
+
+- **Data processing workflows**: "How consistent are your outputs? What happens with edge cases or malformed inputs?"
+- **Communication/writing workflows**: "How do you know if the tone/style is appropriate? What about accuracy vs creativity trade-offs?"
+- **Analysis workflows**: "Are your insights actionable? How do you handle ambiguous or incomplete information?"
+- **Decision-making workflows**: "How confident should users be in the recommendations? What happens if the workflow is wrong?"
+
+**Based on their technical level:**
+- **Less technical**: Focus on user experience, output quality, practical utility
+- **More technical**: Include performance, edge cases, integration concerns
+
+**Based on their timeline/sprint:**
+- **Sprint 1 (early)**: Focus on core functionality and basic quality
+- **Sprint 2/3**: Include scalability, edge cases, user experience
+
+---
+
+## Phase 4: Synthesis and Transition
+
+**Summarize their current state:**
+
+"Based on what you've shared, here's what I understand about your evaluation journey so far:
+
+**Your Context:**
+- Background: [their domain/technical background]
+- Current focus: [their workflow and goals]
+- Evaluation experience: [what they've done with SVG homework]
+
+**Key Observations So Far:**
+- [summarize their informal testing insights]
+- [note any patterns or concerns they've identified]
+
+**Contextually Relevant Quality Dimensions:**
+- [2-3 quality vectors that matter most for their specific situation]
+
+This gives us a great foundation for designing your systematic evaluation approach. The informal testing you've done has given you initial insights, but now we need to be more strategic about what quality risks to focus on and how to measure them systematically."
+
+---
+
+## Phase 5: Documentation
+
+**Create evaluation context summary:**
+Save to `your_workspace/reports/evaluation_design_report.md`:
+
+```markdown
+# Evaluation Design Report
+
+## Participant Context
+**Background:** [technical/domain background]
+**Sprint Status:** [current sprint and goals]
+**Recent Activity:** [key workflow activity]
+
+## Current Evaluation State
+**SVG Homework Progress:** [completed tasks and discoveries]
+**Informal Testing Insights:**
+- [key observations from their testing]
+- [problems or inconsistencies noticed]
+- [unanswered questions]
+
+## Contextually Relevant Quality Vectors
+Based on your background and workflow characteristics:
+1. [Quality dimension 1 and why it matters for them]
+2. [Quality dimension 2 and why it matters for them]
+3. [Quality dimension 3 and why it matters for them]
+
+## Next Steps
+Moving from informal testing to systematic evaluation design targeting these quality dimensions.
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Use the utility scripts** - Don't load CSV files directly, use the focused utils
+- **Be contextual** - Tailor questions based on their background and domain
+- **Mine their experience** - Don't assume they haven't learned anything yet
+- **Connect to their goals** - Make evaluation relevant to their stated objectives
+- **Transition smoothly** - Set up quality risk generation with contextual foundation
+- **Document thoroughly** - Create the foundation document for the rest of the workflow
+
+The goal is to move from "I've been testing informally" to "I understand what quality dimensions matter for my specific workflow and why."
+
+---
+
+## Phase 6: Activity Logging
+
+**Log completion to activity log:**
+After completing this step, append to `your_workspace/logs/activity_log.csv`:
+
+```csv
+[current timestamp],evaluation_dataset_workflow,step1_complete,Progress reflection and context gathering completed
+```
+
+Use this bash command:
+```bash
+echo "$(date '+%Y-%m-%d %H:%M:%S'),evaluation_dataset_workflow,step1_complete,Progress reflection and context gathering completed" >> your_workspace/logs/activity_log.csv
+```

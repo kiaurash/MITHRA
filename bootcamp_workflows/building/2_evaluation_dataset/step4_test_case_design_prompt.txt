@@ -1,0 +1,241 @@
+## Goal: Collaboratively design test cases targeting each priority risk using systematic approaches
+
+Your task is to help the participant design concrete test cases for their prioritized quality risks by presenting test case generation approaches, helping them select appropriate methods, and providing detailed tactical guidance.
+
+---
+
+## Phase 1: Test Case Generation Approach Selection
+
+**Review priority risks:**
+Read the prioritized quality risks from `your_workspace/reports/evaluation_design_report.md`.
+
+**Present test case generation repository:**
+"Now we need to create concrete test cases that will help us detect and measure these priority risks. There are several systematic approaches to generating test cases. Let me present a few that work well for different situations:
+
+### Approach Options:
+
+**Option 1: Boundary Case Systematic Generation**
+- **What it is**: Start with normal examples, then systematically vary one dimension at a time
+- **Best for**: When you have clear input parameters that can vary (length, complexity, formality)
+- **Pros**: Systematic coverage, easy to execute, finds edge cases reliably
+- **Cons**: Can generate many similar cases, may miss creative failure modes
+- **Example**: If testing meeting transcript analysis, take one good transcript and create versions that are very short, very long, highly technical, very informal, etc.
+
+**Option 2: Failure Mode Reverse Engineering**
+- **What it is**: Start with ways the workflow could fail, then design inputs that would cause those failures
+- **Best for**: When you understand your domain well and can imagine specific failure scenarios
+- **Pros**: Targets exactly the risks you care about, efficient use of test cases
+- **Cons**: Limited by your imagination, might miss unexpected failure modes
+- **Example**: If worried about missed commitments, design inputs with indirect commitments, unclear ownership, conflicting commitments
+
+**Option 3: Progressive Complexity Building**
+- **What it is**: Start with simplest possible case, incrementally add complexity layers
+- **Best for**: When your workflow handles multi-layered or complex scenarios
+- **Pros**: Clear difficulty progression, easy to debug failures, builds confidence gradually
+- **Cons**: May not reflect real-world input distribution
+- **Example**: Start with single-person single-task scenario, add multiple people, add conflicting priorities, add time constraints
+
+**Option 4: Real-World Sampling and Variation**
+- **What it is**: Take real examples and create variations representing different contexts
+- **Best for**: When you have access to real data or strong domain knowledge
+- **Pros**: Realistic test cases, covers actual usage patterns
+- **Cons**: Limited by available examples, may miss edge cases
+- **Example**: Take real customer emails and create variants for different customer types, urgency levels, complexity levels"
+
+**Ask for their reaction:**
+"Looking at your priority risks and your available data/time:
+- Which approaches feel most doable for you right now?
+- Do any of these match how you've been thinking about testing?
+- Are there constraints we should consider (time, data access, domain knowledge)?"
+
+---
+
+## Phase 2: Approach Selection and Customization
+
+**Help them select 1-2 approaches:**
+Based on their reaction, guide them to choose approaches that fit their:
+- Available time and resources
+- Access to real vs synthetic data
+- Domain expertise level
+- Risk characteristics
+
+**For their chosen approach(es), provide detailed tactical guidance:**
+
+---
+
+## Phase 3: Detailed Tactical Guidance for Each Approach
+
+### If they chose Boundary Case Systematic Generation:
+
+**Step-by-step tactical guidance:**
+
+"Here's exactly how to execute boundary case generation for your risks:
+
+**Step 1**: Start with one 'normal' example that your workflow handles well
+- Use a real example from your informal testing, or create a typical case
+- Document why this example represents 'normal' for your workflow
+
+**Step 2**: For each priority risk, identify the dimensions that could vary
+- For [Risk 1], the varying dimensions are: [identify specific dimensions]
+- For [Risk 2], focus on: [relevant dimensions]
+
+**Step 3**: Create systematic variations
+- **Minimal cases**: Simplest possible version (shortest input, most straightforward)
+- **Maximal cases**: Most complex realistic version (longest input, most complex scenario)
+- **Edge boundaries**: Cases right at the limits of what should work
+- **Just-over-the-line**: Cases that exceed your workflow's intended scope
+
+**Step 4**: Generate 3-5 test cases per risk
+- For [Risk 1]: Create variations that would reveal this specific risk
+- For [Risk 2]: Focus variations on the dimensions relevant to this risk
+
+**Template for each test case:**
+- **Test Case ID**: [Risk]_[Dimension]_[Variation] (e.g., Accuracy_Length_Minimal)
+- **Input**: [Specific input you'll use]
+- **Expected Challenge**: [What difficulty this case presents]
+- **Risk Target**: [Which priority risk this tests for]
+- **Success Criteria**: [How you'll judge if the workflow handled this well]"
+
+### If they chose Failure Mode Reverse Engineering:
+
+**Step-by-step tactical guidance:**
+
+"Here's how to reverse engineer test cases from failure modes:
+
+**Step 1**: For each priority risk, brainstorm specific failure scenarios
+- [Risk 1]: What would it look like if this risk manifested? What would the bad output be?
+- [Risk 2]: How would you recognize this failure in practice?
+
+**Step 2**: Work backwards to design inputs that would cause each failure
+- What kind of input would make the workflow produce [specific bad outcome]?
+- What situation would stress the workflow in exactly the way [risk] describes?
+
+**Step 3**: Create adversarial examples
+- Design inputs that are specifically challenging for your workflow's approach
+- Create scenarios where the 'obvious' response would be wrong
+- Include cases where multiple valid responses exist
+
+**Step 4**: Validate your failure cases
+- For each test case, confirm: 'If I run this, I expect to see [specific type of failure]'
+- If you're not sure what failure to expect, the test case may not be well-designed
+
+**Template for each test case:**
+- **Test Case ID**: [Risk]_Failure_[Scenario] (e.g., Consistency_Failure_SimilarInputs)
+- **Input**: [Designed to trigger the specific failure mode]
+- **Expected Failure Mode**: [Specific way you expect this to fail]
+- **Risk Target**: [Which priority risk this reveals]
+- **Failure Detection**: [How you'll recognize this failure occurred]"
+
+### If they chose Progressive Complexity Building:
+
+**Step-by-step tactical guidance:**
+
+"Here's how to build test case complexity progressively:
+
+**Step 1**: Identify the complexity dimensions in your workflow
+- What makes an input 'simple' vs 'complex' in your domain?
+- What layers of difficulty do real-world cases have?
+
+**Step 2**: Design the progression levels
+- **Level 1**: Absolute simplest case that still tests the core functionality
+- **Level 2**: Add one complicating factor
+- **Level 3**: Add a second type of complexity
+- **Level 4**: Combine multiple complexity factors
+- **Level 5**: Real-world complexity level
+
+**Step 3**: Map complexity levels to your priority risks
+- Which risks appear only at higher complexity levels?
+- Which risks you can test at simpler levels?
+
+**Step 4**: Create test case families
+- Each family tests one priority risk across multiple complexity levels
+- Start simple, add complexity systematically
+
+**Template for test case families:**
+- **Family Name**: [Risk] Complexity Progression
+- **Level 1**: [Simplest case that could show this risk]
+- **Level 2**: [Same risk with one added complexity]
+- **Level 3**: [Risk with multiple complexity factors]
+- **Complexity Dimensions**: [What you're varying across levels]"
+
+---
+
+## Phase 4: Test Case Generation Workshop
+
+**For each priority risk, work through their chosen approach:**
+
+"Let's generate test cases for [Risk 1] using [their chosen approach]:
+
+1. **Risk Review**: [Re-state the specific risk clearly]
+2. **Approach Application**: [Walk through their chosen method for this risk]
+3. **Case Generation**: [Help them create 3-5 specific test cases]
+4. **Validation**: [Check that cases actually target the risk effectively]"
+
+**Repeat for each priority risk**
+
+**Quality check the full test suite:**
+- Do we have 3-5 cases per priority risk (15-25 total cases)?
+- Do the cases actually test what we intend to test?
+- Are the cases realistic and executable?
+- Do they span different types of challenge?
+
+---
+
+## Phase 5: Documentation
+
+**Update the evaluation design report:**
+Add to `your_workspace/reports/evaluation_design_report.md`:
+
+```markdown
+
+## Test Case Design
+
+### Selected Generation Approach(es):
+- **Primary Approach**: [Chosen method and why it fits their situation]
+- **Secondary Approach**: [If they chose a second method]
+
+### Tactical Generation Guidance:
+[Include the detailed step-by-step guidance for their chosen approach(es)]
+
+### Test Case Suite:
+
+#### Risk 1: [Risk Name]
+**Test Cases Targeting This Risk:**
+1. **TC_[Risk1]_001**: [Test case description]
+   - **Input**: [Specific input]
+   - **Expected Challenge**: [What this tests]
+   - **Success Criteria**: [How to judge quality]
+
+2. **TC_[Risk1]_002**: [Second test case]
+   - **Input**: [Specific input]
+   - **Expected Challenge**: [Challenge type]
+   - **Success Criteria**: [Quality threshold]
+
+[Continue for all test cases...]
+
+#### Risk 2: [Risk Name 2]
+[Repeat structure for each priority risk...]
+
+### Test Suite Summary:
+- **Total Test Cases**: [Number]
+- **Cases per Risk**: [Distribution across risks]
+- **Generation Methods Used**: [Summary of approaches]
+- **Estimated Execution Time**: [How long to run full suite]
+
+### Next Steps:
+Ready to define learning objectives for each test group and create measurement artifacts.
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Present options, don't prescribe** - Let them choose the approach that fits their situation
+- **Provide detailed tactical guidance** - Include step-by-step instructions for their chosen approach
+- **Keep approaches in the repository** - Have detailed guidance for all approaches ready
+- **Make it executable** - Each test case should be specific enough that they can actually run it
+- **Connect to risks** - Every test case should clearly target a specific priority risk
+- **Quality check** - Ensure the test suite actually tests what they intend to test
+- **Document approach reasoning** - Capture why they chose their approach and how it fits their situation
+
+The goal is to move from "I need to test these risks" to "Here are specific test cases I can run to detect each risk, with detailed guidance on how to generate them systematically."

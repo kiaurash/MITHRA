@@ -1,0 +1,214 @@
+## Goal: Provide visualization script for user download and future audio generation
+
+Your task is to deliver the visualization script to the user with clear instructions on how to use it, emphasizing that audio generation happens outside this session.
+
+---
+
+## Instructions
+
+### 1. Confirm script has been saved
+
+Verify that the visualization script from Step 5 has been written to:
+`your_workspace/data/sessions/session_[timestamp]_visualization_script.txt`
+
+---
+
+### 2. Provide script access information
+
+Inform the user where to find their script:
+
+"Your personalized guided visualization script has been saved!
+
+**File Location:**
+`your_workspace/data/sessions/session_[timestamp]_visualization_script.txt`
+
+This 15-20 minute script is tailored specifically to:
+- Integrate the concepts we learned today: [list key concepts]
+- Connect learning to your goal: [their specific goal]
+- Use metaphors and imagery relevant to your [background/domain]"
+
+---
+
+### 3. Explain next steps for audio conversion
+
+Provide clear guidance on how to use the script:
+
+"**How to Use Your Visualization Script:**
+
+**Step 1: Review the Script (Optional)**
+- Read through the script text to see how it integrates today's learning
+- Note the pacing cues [PAUSE], [Speak slowly], etc.
+
+**Step 2: Convert to Audio (Outside this session)**
+You can convert the script to audio using text-to-speech tools:
+
+**Recommended TTS Options:**
+- **ElevenLabs** (https://elevenlabs.io) - High-quality, natural voices (paid)
+- **Google Cloud Text-to-Speech** - Professional quality (paid/free tier)
+- **Natural Reader** - Easy to use (free/paid options)
+- **Amazon Polly** - AWS service (paid)
+
+**Tips for Audio Generation:**
+- Choose a calm, clear, professional voice
+- Set pacing slower than normal conversation
+- Honor all [PAUSE] markers with silence periods
+- Final audio should be 15-20 minutes
+
+**Step 3: Practice with the Audio**
+- **Timing:** Listen within 24-48 hours of this session for best integration
+- **Environment:** Find a quiet, comfortable space where you won't be interrupted
+- **Frequency:** Initial listen within 2 days, then 2-3 more times over the next week
+- **Long-term:** Keep the audio for periodic refreshers when working on related topics
+
+**Why Visualization Helps:**
+Guided visualization works at a subconscious level to deepen learning retention and make concepts more accessible when you need them. The metaphors and imagery help your brain create stronger connections to the material."
+
+---
+
+### 4. Offer to answer questions about the script
+
+"Do you have any questions about:
+- The visualization script content?
+- How to convert it to audio?
+- When and how to use the audio?
+
+I'm happy to clarify before we move to the reflection phase."
+
+Address any questions. If user wants to see the script content now, show relevant excerpts or read portions.
+
+---
+
+### 5. Transition to reflection
+
+Once questions are addressed:
+
+"Great! Your visualization script is ready for audio conversion when you're ready.
+
+Now let's move to the final phase: reflecting on today's learning and identifying how you'll apply these concepts to your work."
+
+Proceed to Step 7.
+
+---
+
+## Output Requirements
+
+**No new file required** - script was created in Step 5
+
+**Optional: Create usage guide file** if user requests reference documentation
+
+File: `your_workspace/data/sessions/session_[timestamp]_script_usage_guide.md`
+
+Format:
+```markdown
+# Visualization Script Usage Guide
+
+**Session:** [timestamp]
+**Script File:** `session_[timestamp]_visualization_script.txt`
+
+## Quick Start
+
+1. **Review Script (Optional)**
+   - Read the script text to preview content
+   - Note personalization elements specific to your learning
+
+2. **Convert to Audio**
+   - Use text-to-speech tool (recommendations below)
+   - Choose calm, professional voice
+   - Set pacing slower than normal speech
+   - Honor [PAUSE] markers with silence
+   - Target duration: 15-20 minutes
+
+3. **Practice Regularly**
+   - First listen: Within 24-48 hours
+   - Follow-up: 2-3 times over next week
+   - Long-term: Periodic refreshers
+
+## Recommended TTS Tools
+
+### ElevenLabs (Recommended for Quality)
+- Website: https://elevenlabs.io
+- Quality: Excellent, very natural
+- Cost: Paid (free trial available)
+- Best for: Professional, polished audio
+
+### Google Cloud Text-to-Speech
+- Quality: Professional
+- Cost: Free tier + paid
+- Best for: Good balance of quality and cost
+
+### Natural Reader
+- Website: https://www.naturalreaders.com
+- Quality: Good
+- Cost: Free and paid tiers
+- Best for: Easy to use, accessible
+
+### Amazon Polly
+- Quality: Professional
+- Cost: AWS pricing
+- Best for: Integration with other AWS services
+
+## Best Practices for Listening
+
+**Environment:**
+- Quiet, comfortable space
+- No interruptions for 20 minutes
+- Can sit or lie down (whatever feels comfortable)
+
+**Mindset:**
+- Approach with openness and receptivity
+- Don't worry about "doing it right"
+- Let the imagery and metaphors work naturally
+- Trust the process of integration
+
+**Frequency:**
+- Critical period: First 48 hours after learning
+- Reinforcement: 2-3 sessions in week 1
+- Maintenance: Once weekly for a month
+- As needed: When working on related topics
+
+## Why This Works
+
+Guided visualization:
+- Engages multiple brain regions (visual, spatial, conceptual)
+- Creates stronger memory traces than passive review
+- Connects abstract concepts to concrete imagery
+- Rehearses application in advance
+- Reduces anxiety about using new knowledge
+- Makes recall easier when you need these concepts
+
+## Troubleshooting
+
+**"The audio sounds robotic"**
+- Try a different TTS voice
+- ElevenLabs or premium services offer more natural voices
+
+**"The pacing feels off"**
+- Adjust playback speed (0.8x-0.9x often works well)
+- Or re-generate with adjusted pause durations
+
+**"I fell asleep"**
+- Normal! Try sitting up rather than lying down
+- Or listen when more alert (morning vs. evening)
+
+**"I don't feel anything happening"**
+- Integration happens over time, not immediately
+- Continue practice for a week before evaluating
+- Focus on whether you can recall concepts more easily
+
+## Questions?
+
+If you have questions about using the visualization script, refer back to the reflection notes from your session or reach out for support.
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Be clear that audio generation happens OUTSIDE this session (out of scope for MVP)
+- Provide practical, actionable guidance on TTS tools
+- Emphasize the value of the visualization practice
+- Don't oversell it - frame as complementary to the learning, not magic
+- Answer questions about the script content if asked
+- Keep this phase brief - main work is already done
+- After addressing questions and providing guidance, proceed immediately to step7_reflection
+- The goal is to set user up for success in using the script on their own

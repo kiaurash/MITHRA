@@ -1,0 +1,168 @@
+## Goal: Extract structure and key concepts from the learning source
+
+Your task is to analyze the user's learning source (research paper, article, webinar transcript, or talk) and extract the structure, core concepts, and complexity to inform the personalized learning strategy.
+
+---
+
+## Instructions
+
+### 1. Obtain the learning source
+
+Based on what the user provided in Step 1:
+
+**If they provided a PDF/link/text:**
+- Read or access the source material
+- Confirm receipt: "I've accessed [source title]. Let me analyze the structure and key concepts..."
+
+**If they haven't provided the source yet:**
+- Request it: "Please provide the [paper/article/transcript] you'd like to learn from. You can share a PDF, paste a link, or paste the text directly."
+- Wait for them to provide it before proceeding
+
+---
+
+### 2. Analyze source structure
+
+Depending on source type:
+
+**For Research Papers:**
+- Identify sections: Abstract, Introduction, Methodology, Results, Discussion, Conclusion
+- Note if any standard sections are missing or combined
+- Identify the core research question and main contribution
+
+**For Articles/Blog Posts:**
+- Identify introduction, main arguments/sections, examples, conclusion
+- Note the narrative structure (problem → solution, tutorial, opinion piece, etc.)
+
+**For Webinar/Talk Transcripts:**
+- Identify opening (context setting), main teaching sections, Q&A if present
+- Note speaking style and pedagogical approach
+- Extract slide/visual references if mentioned
+
+**For All Source Types:**
+- Assess overall length and density
+- Identify prerequisite knowledge assumed by author
+- Note key terminology and jargon used
+
+---
+
+### 3. Extract core concepts
+
+Identify 3-7 key concepts that are central to understanding this source:
+
+**For each concept, note:**
+- Concept name/label
+- Brief definition (1 sentence)
+- Why it's important to the overall topic
+- Prerequisites needed to understand it
+- Related concepts from the field
+
+**Example:**
+- **Concept:** "Attention Mechanism"
+- **Definition:** "A technique allowing models to focus on relevant parts of input when making predictions"
+- **Importance:** "Core innovation enabling Transformers to process sequences more effectively than RNNs"
+- **Prerequisites:** "Understanding of neural networks, sequence processing"
+- **Related:** "Self-attention, multi-head attention, Transformer architecture"
+
+---
+
+### 4. Assess complexity and gaps
+
+Based on user's background from Step 1:
+
+**Complexity Assessment:**
+- Is this source written for experts, practitioners, or general audience?
+- What math/technical background does it assume?
+- How dense is the notation and jargon?
+
+**User Knowledge Gaps:**
+- Which concepts will be familiar to the user (based on their background)?
+- Which concepts will be new and need extra explanation?
+- Are there prerequisite concepts not covered in the source that the user might need?
+
+---
+
+### 5. Create source analysis document
+
+Generate analysis and show key points to user:
+
+"I've analyzed [source title]. Here's what we're working with:
+
+**Source Structure:**
+[Brief description of how content is organized]
+
+**Core Concepts (3-7):**
+1. [Concept 1] - [why important]
+2. [Concept 2] - [why important]
+3. [...]
+
+**Complexity Assessment:**
+- Written for: [audience level]
+- Technical depth: [high/moderate/accessible]
+- Prerequisites assumed: [list]
+
+**Based on your background:**
+- Concepts you'll likely be familiar with: [list]
+- New concepts that will need focus: [list]
+
+This analysis will help me create a personalized learning path for you in the next step."
+
+---
+
+## Output Requirements
+
+**File:** `your_workspace/data/sessions/session_[timestamp]_source_analysis.md`
+
+**Format:**
+```markdown
+# Source Analysis
+
+**Source Title:** [title]
+**Source Type:** [paper/article/webinar/talk]
+**Date Analyzed:** [YYYY-MM-DD]
+
+## Structure
+[Description of how content is organized]
+
+### Sections/Components:
+- [Section 1 and its purpose]
+- [Section 2 and its purpose]
+- [...]
+
+## Core Concepts
+
+### Concept 1: [Name]
+- **Definition:** [1 sentence]
+- **Importance:** [Why this matters]
+- **Prerequisites:** [What user needs to know first]
+- **Related Concepts:** [Connected ideas]
+
+### Concept 2: [Name]
+[Same structure]
+
+[Continue for all 3-7 core concepts]
+
+## Complexity Assessment
+- **Target Audience:** [expert/practitioner/general]
+- **Technical Depth:** [high/moderate/accessible]
+- **Math/Notation Level:** [description]
+- **Prerequisites Assumed:** [list]
+
+## Personalization Notes (Based on User Context)
+- **User's Existing Knowledge:** [concepts user likely understands]
+- **Knowledge Gaps:** [concepts needing extra support]
+- **Special Focus Areas:** [concepts aligned with user's goal]
+- **Recommended Learning Path Approach:** [suggestion for strategy generation]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Be thorough but efficient - this is analysis, not teaching yet
+- If source is very long (>20 pages), focus on extracting core structure and concepts
+- Use the user's background from Step 1 to inform which concepts will need emphasis
+- If source is missing context that would help understanding, note it for later explanation
+- Don't teach the concepts yet - that happens in Step 4
+- Keep the tone analytical and informative
+- After completing analysis, proceed immediately to step3_strategy_generation
+- Store source content in session context for later steps to reference

@@ -1,0 +1,171 @@
+## Goal: Select the most promising solution and define its autonomous capabilities
+
+Your task is to guide the user through evaluating the solution hypotheses and selecting the one that best balances autonomy, feasibility, and impact. Then flesh out the chosen solution in detail.
+
+### Why This Matters
+Having multiple options is valuable, but now we need to make a decision. By explicitly comparing trade-offs, we choose the solution that's most likely to succeed given current constraints and capabilities.
+
+---
+
+## How to Facilitate Solution Selection
+
+### 1. Evaluate trade-offs for each hypothesis
+
+For each solution, guide the user to assess three key dimensions:
+
+**Trade-off Framework:**
+
+**A. Autonomy vs. Control**
+- More autonomy = Less human time required, but less oversight
+- Less autonomy = More human involvement, but more control
+- Question: *"Which level of autonomy feels right for this workflow's importance and risk?"*
+
+**B. Complexity vs. Impact**
+- Simple solutions are faster to implement but may have less impact
+- Complex solutions could have bigger impact but take longer and have more failure points
+- Question: *"What's the simplest version that would still make a meaningful difference?"*
+
+**C. Current Capability vs. Aspirational**
+- Can you implement this with available tools/skills now?
+- Or does it require learning new tools or capabilities?
+- Question: *"Can you realistically build and test this in the next 1-2 weeks?"*
+
+**Why this matters:** Explicit trade-off analysis prevents choosing solutions that sound good but aren't actually feasible.
+
+---
+
+### 2. Apply constraint mapping
+
+Compare each solution against the validated constraints from Step 2:
+- **Does this solution respect the non-negotiable constraints?**
+- **Does it work within available resources (time, tools, skills)?**
+- **Does it address the main friction points identified?**
+
+**Example questions:**
+- "Solution 2 requires API access to [system]. Do you have that?"
+- "Solution 3 needs the AI to make judgment calls on [topic]. Is that acceptable given your quality requirements?"
+- "Solution 1 is simpler but only addresses one friction point. Is that enough impact?"
+
+**Why this matters:** Constraints eliminate non-viable options and highlight which solutions are actually realistic.
+
+---
+
+### 3. Select the most promising hypothesis
+
+Based on the trade-off analysis and constraint mapping, guide the user to choose one solution to move forward with.
+
+**Selection prompt:**
+"Based on our analysis:
+- **Solution 1** offers [trade-off summary]
+- **Solution 2** offers [trade-off summary]
+- **Solution 3** offers [trade-off summary]
+
+Which approach feels like the right balance for your first autonomous workflow experiment?"
+
+**Why this matters:** A clear decision point moves us from exploration to execution.
+
+---
+
+### 4. Define the solution logic (causal reasoning)
+
+Once a solution is selected, validate the underlying logic by having the user complete this statement:
+
+**"If we implement [Solution], it will produce [Outcome] because [Mechanism]."**
+
+**Example:**
+"If we implement an **AI Research Assistant that gathers competitive intel and summarizes findings**, it will produce **5 hours saved per week and faster strategic decisions** because **the AI handles time-consuming data collection and synthesis, letting me focus on analysis and action**."
+
+**Why this matters:** This forces clarity on *why* the solution should work, not just *what* it does. If the mechanism is unclear, the solution might not deliver the expected outcome.
+
+---
+
+### 5. Detail the chosen solution
+
+Expand the selected solution with specific details:
+
+**A. Agent Capabilities**
+What can the AI agent do autonomously?
+- Specific tasks it can perform
+- Data sources it can access
+- Decisions it can make within boundaries
+
+**B. Human-in-the-Loop Touchpoints**
+When and how does the human interact?
+- Review points (e.g., "Review AI's draft before sending")
+- Decision points (e.g., "Choose from AI's recommended options")
+- Exception handling (e.g., "AI flags unusual cases for human judgment")
+
+**C. Interaction Pattern**
+How do they work together day-to-day?
+- Chat-based collaboration throughout?
+- AI works asynchronously, human reviews at set times?
+- AI initiates, human approves?
+
+**D. Success Metrics**
+How will you know it's working?
+- Time saved per week/month
+- Quality improvements
+- Reduced friction or errors
+
+---
+
+### 6. Document the chosen solution
+
+Append this section to `problem_definition.md`:
+
+```markdown
+## Chosen Solution
+
+### Solution Name: [Name of selected solution]
+
+### Solution Logic
+"If we implement **[Solution]**, it will produce **[Outcome]** because **[Mechanism]**."
+
+### Trade-offs Accepted
+- **Autonomy level chosen:** [Assistant/Collaborator/Agent]
+- **What we're optimizing for:** [Speed/Quality/Simplicity/Impact]
+- **What we're accepting:** [Trade-offs made - e.g., "Less oversight in exchange for speed"]
+
+### Detailed Design
+
+**Agent Autonomous Capabilities:**
+- [What AI does on its own - capability 1]
+- [Capability 2]
+- [Capability 3]
+
+**Human-in-the-Loop Touchpoints:**
+- [When human reviews - touchpoint 1]
+- [When human decides - touchpoint 2]
+- [Exception handling - touchpoint 3]
+
+**Interaction Pattern:**
+[Describe how the human and AI collaborate day-to-day]
+
+**Success Metrics:**
+- **Time saved:** [Specific estimate]
+- **Quality improvement:** [How measured]
+- **Other benefits:** [Additional outcomes]
+
+### Scope Boundaries
+**What this solution does:**
+- [Included feature 1]
+- [Included feature 2]
+
+**What this solution doesn't do:**
+- [Excluded scope 1]
+- [Excluded scope 2]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Walk through trade-offs systematically for each hypothesis
+- Ask focused questions to test feasibility against real constraints
+- Help the user choose based on evidence, not just intuition
+- Use the "If-Then-Because" framework to validate solution logic
+- Expand the chosen solution with specific, actionable details
+- Explain why each evaluation step matters for successful implementation
+- Keep the tone collaborative—you're helping them make a smart choice, not pushing an agenda
+- Document everything clearly before moving to experiment design
+- Confirm the solution design with the user before proceeding

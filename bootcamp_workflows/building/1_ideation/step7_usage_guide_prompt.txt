@@ -1,0 +1,74 @@
+You have just generated a YAML workflow with prompt files. Now create a CUSTOMIZED visual guide that explains how to USE this artifact effectively.
+
+CONTEXT FROM THE USER'S IDEATION SESSION:
+Review the problem definition document and extract:
+- **Data type**: What examples should they test with? (e.g., "meeting transcripts")
+- **System/source**: Where does test data come from? (e.g., "team huddles", "LangSmith traces")
+- **Workflow name**: What is the workflow called?
+- **Key dimensions**: What should they observe? (e.g., "commitment extraction accuracy", "evaluation scores")
+- **Failure modes**: What edge cases matter? (e.g., "missed commitments", "hallucinations")
+- **Refinement target**: What file/aspect to improve? (e.g., "step2_process_transcript_prompt.txt / task extraction")
+- **Future implementation**: Translation target? (e.g., "n8n/Python/Slack bot", "Python modules")
+
+YOUR TASK:
+1. Copy bootcamp_workflows/building/1_ideation/workflow_artifact_explainer.svg
+   to your_workspace/your_workflows/{workflow_name}/workflow_usage_guide.svg
+
+2. Find and replace all CUSTOMIZE markers in the SVG:
+
+   **CUSTOMIZE_STEP1_MAIN**: "Extract 5+ [DATA_TYPE] from [SYSTEM]"
+   Example: "Extract 5+ meeting transcripts from team huddles"
+
+   **CUSTOMIZE_STEP1_SUB**: "Use [REAL_SOURCE] OR ask Claude Code to generate synthetic [DATA_TYPE]"
+   Example: "Use Zoom recordings OR ask Claude Code to generate synthetic huddles"
+
+   **CUSTOMIZE_STEP2_MAIN**: "Run [WORKFLOW_NAME] 5+ times (once per [DATA_TYPE])"
+   Example: "Run Team Coordination Agent 5+ times (once per transcript)"
+
+   **CUSTOMIZE_STEP2_SUB**: "Check: [DIMENSION1]? [DIMENSION2]?"
+   Default: "Your examples should span the diversity of modes in which the workflow might struggle"
+   Example: "Check: Does it catch all commitments? Are inferred tasks relevant?"
+
+   **CUSTOMIZE_STEP3_MAIN**: "Document: [FAILURE_MODE1]? [FAILURE_MODE2]? Edge cases?"
+   Example: "Document: Missed commitments? Irrelevant inferred tasks? Edge cases?"
+
+   **CUSTOMIZE_STEP3_SUB**: "Track patterns: [PATTERN1], [PATTERN2], [PATTERN3]"
+   Default: "Note patterns and edge cases you discover through testing"
+   Example: "Track patterns: vague language, multi-person tasks, brainstorming vs. commitments"
+
+   **CUSTOMIZE_STEP4_SUB**: "Edit [SPECIFIC_PROMPT_FILE] OR ask Claude Code to improve [ASPECT]"
+   Example: "Edit step2_process_transcript_prompt.txt OR ask Claude Code to improve task extraction"
+
+   **CUSTOMIZE_READY1**: "✓  You have fixed 3-4 easy cases (e.g., [DOMAIN_EXAMPLE])"
+   Example: "✓  You have fixed 3-4 easy cases (e.g., improved task extraction from vague commitments)"
+
+   **CUSTOMIZE_READY2**: "✓  You have documented 3-4 hard cases (e.g., [DOMAIN_EXAMPLE])"
+   Example: "✓  You have documented 3-4 hard cases (e.g., multi-person task ownership requires negotiation)"
+
+   **CUSTOMIZE_FUTURE_IMPL**: "([IMPLEMENTATION_TARGET])"
+   Example: "(n8n workflow/Python/Slack bot)"
+
+3. Output this message:
+
+   ✅ Created your personalized workflow usage guide!
+
+   📍 Location: your_workspace/your_workflows/{workflow_name}/workflow_usage_guide.svg
+
+   👀 To view it:
+   - Drag and drop the SVG file into an empty browser window
+   - Or open it in any image viewer
+   - Or view it directly in VSCode/your editor
+
+   This visual guide shows you:
+   - What your YAML workflow artifact IS (a working prototype, not docs!)
+   - Specific examples for YOUR use case
+   - What to test, observe, and refine
+   - When you're ready to graduate to code
+
+   🚀 Next step: Start testing! Run your workflow 5+ times to discover what works and what needs refinement.
+
+REMEMBER:
+- Use Edit tool to replace text at each CUSTOMIZE marker
+- Keep all colors, layout, positioning, structure unchanged
+- Only modify the text content to be domain-specific
+- Keep text concise - this is a visual guide

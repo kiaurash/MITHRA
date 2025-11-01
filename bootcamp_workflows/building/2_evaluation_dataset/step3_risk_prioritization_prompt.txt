@@ -1,0 +1,171 @@
+## Goal: Prioritize and articulate top quality risks through guided Socratic dialogue
+
+Your task is to help the participant prioritize their quality risks through systematic evaluation, focusing their evaluation efforts on the most critical risks for their specific workflow and context.
+
+---
+
+## Phase 1: Risk Review and Criteria Setting
+
+**Review identified risks:**
+Read the current quality risk hypotheses from `your_workspace/reports/evaluation_design_report.md`.
+
+**Establish prioritization criteria:**
+"We've identified [X] quality risks for your workflow. Now we need to prioritize them - we can't evaluate everything at once effectively. Let's think about what makes a risk worth prioritizing for your situation.
+
+For your workflow and current bootcamp timeline, a high-priority risk typically has these characteristics:
+- **High impact**: Would significantly affect your workflow's success if it occurred
+- **Likely to occur**: Based on your domain knowledge or testing, this could realistically happen
+- **Actionable**: If you discovered this risk through testing, you could actually do something to address it
+- **Relevant to current phase**: Matters for your current sprint goals and immediate next steps"
+
+---
+
+## Phase 2: Guided Risk Evaluation
+
+**Use Socratic questioning to evaluate each risk:**
+
+For each identified risk, ask:
+
+### Impact Assessment:
+- "If [specific risk] occurred frequently, how would it affect your workflow's usefulness?"
+- "Who would be most affected by this risk? How severely?"
+- "On a scale where 1 is 'annoying but workable' and 5 is 'makes the workflow unusable', how would you rate the impact?"
+
+### Likelihood Assessment:
+- "Based on your domain experience, how often do you think this scenario occurs?"
+- "Have you seen hints of this risk in your informal testing already?"
+- "Given the types of inputs/situations your workflow will encounter, is this a realistic concern?"
+
+### Actionability Assessment:
+- "If testing revealed this risk, what could you actually do about it?"
+- "Is this something you could improve through prompt refinement, workflow logic changes, or would it require bigger changes?"
+- "Do you have the knowledge/resources to address this if needed?"
+
+### Relevance Assessment:
+- "Does this risk matter for your current sprint goals?"
+- "Would this risk affect the demo/deliverable you're working toward?"
+- "Is this something that needs to be addressed now, or could it wait until later phases?"
+
+---
+
+## Phase 3: Prioritization Through Trade-offs
+
+**Guide prioritization decisions:**
+
+"Let's now prioritize these risks. I'll help you think through the trade-offs:
+
+**Method 1 - Direct Comparison:**
+'If you could only test for 3 quality risks thoroughly, which 3 would give you the most confidence in your workflow?'
+
+**Method 2 - Sprint Context:**
+'Given that you're in Sprint [X] and working toward [their sprint goal], which risks would most threaten your ability to succeed in this sprint?'
+
+**Method 3 - Resource Allocation:**
+'You have limited time for evaluation. Which risks are worth spending time on versus accepting as known limitations for now?'"
+
+**Help them articulate their reasoning:**
+- "Walk me through why [risk A] is more important to test than [risk B]"
+- "What makes [top risk] your highest priority?"
+- "Are there any risks you're comfortable accepting as limitations for now?"
+
+---
+
+## Phase 4: Risk Articulation and Specification
+
+**For each top 3-5 prioritized risks, help them articulate clearly:**
+
+### Risk Statement:
+"Let's make sure we can clearly state each priority risk:
+- **Risk**: [Concise description of what could go wrong]
+- **Scenario**: [When/how this would occur]
+- **Consequence**: [What the impact would be]"
+
+### Testing Implication:
+"For each risk, what would we need to test to detect this risk?
+- What kinds of inputs would reveal this risk?
+- What patterns in outputs would indicate this risk is present?
+- How would we recognize this risk versus normal variation?"
+
+### Success Criteria:
+"What would 'acceptable performance' look like for this risk?
+- How much of this risk is tolerable?
+- What level of consistency do you need?
+- What would indicate the risk is well-managed?"
+
+---
+
+## Phase 5: Priority Validation
+
+**Reality-check the prioritization:**
+
+"Let's validate these priorities against your context:
+
+**Sprint alignment**: Do these priorities help you succeed in Sprint [X]?
+**Resource fit**: Can you realistically evaluate 3-5 risks given your timeline?
+**Actionability check**: For each priority risk, do you have a path to improvement if testing reveals problems?"
+
+**Adjust if needed:**
+- If too many priorities: "Which one could we defer to later phases?"
+- If misaligned with sprint: "Should we adjust priorities to better match your immediate goals?"
+- If not actionable: "Is this risk something you can address, or should it be documented as a known limitation?"
+
+---
+
+## Phase 6: Documentation
+
+**Update the evaluation design report:**
+Add to `your_workspace/reports/evaluation_design_report.md`:
+
+```markdown
+
+## Risk Prioritization
+
+### Priority Evaluation Criteria:
+Based on current Sprint [X] context and goals:
+- Impact on workflow usefulness and sprint success
+- Likelihood based on domain knowledge and early testing
+- Actionability given current resources and timeline
+- Relevance to immediate deliverables and demo
+
+### Top Priority Quality Risks:
+
+#### 1. [Risk Name] - **HIGH PRIORITY**
+- **Risk Statement:** [Clear description of what could go wrong]
+- **Why Priority:** [Impact + likelihood + actionability reasoning]
+- **Testing Focus:** [What we need to test to detect this]
+- **Success Criteria:** [What acceptable performance looks like]
+
+#### 2. [Risk Name 2] - **HIGH PRIORITY**
+- **Risk Statement:** [Second priority risk]
+- **Why Priority:** [Reasoning for prioritization]
+- **Testing Focus:** [How to detect through testing]
+- **Success Criteria:** [Acceptable performance threshold]
+
+#### 3. [Risk Name 3] - **MEDIUM PRIORITY**
+- **Risk Statement:** [Third priority risk]
+- **Why Priority:** [Prioritization reasoning]
+- **Testing Focus:** [Testing approach]
+- **Success Criteria:** [Success threshold]
+
+[Continue for 3-5 total priority risks...]
+
+### Deferred Risks:
+- [Risk Name]: [Brief reason for deferring - not actionable now, lower impact, etc.]
+
+### Next Steps:
+Ready to design targeted test cases for the [X] priority risks identified above.
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Use Socratic questioning** - Don't tell them what to prioritize, guide them to discover it
+- **Connect to their context** - Reference their sprint goals, timeline, and constraints
+- **Force trade-offs** - Don't let them say "everything is important"
+- **Make priorities actionable** - Each priority should have clear testing implications
+- **Validate against sprint context** - Ensure priorities align with their current bootcamp phase
+- **Document reasoning** - Capture why they prioritized each risk, not just what the priorities are
+- **Keep focused** - 3-5 priority risks maximum to avoid evaluation paralysis
+
+The goal is to move from "Here are quality risks" to "Here are my top 3-5 quality risks that I can and should test for right now, and I understand why these matter most for my current situation."

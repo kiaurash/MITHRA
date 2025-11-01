@@ -1,0 +1,112 @@
+## Goal: Capture user input for personalized behavioral learning content generation
+
+Your task is to collect all necessary information from the user to generate a personalized, high-quality learning experience on a relationship or soft skills topic.
+
+---
+
+## Phase 1: Present the Input Form
+
+Display a clear, user-friendly form (via Streamlit UI) with the following fields:
+
+### Required Fields:
+
+**1. Topic**
+- Label: "What topic would you like to learn about?"
+- Placeholder: "e.g., improving intimacy, active listening, emotional regulation, conflict resolution"
+- Input type: Text input
+- Validation: Must not be empty
+
+**2. Personal Context**
+- Label: "Tell us a bit about your situation (optional but recommended for better personalization)"
+- Placeholder: "e.g., In a long-term relationship, recently divorced, working on communication with partner, etc."
+- Input type: Text area (multi-line)
+- Validation: Optional
+
+**3. Learning Goals**
+- Label: "What do you hope to achieve by learning about this topic?"
+- Placeholder: "e.g., Better understand my partner's needs, reduce conflicts, feel more confident in conversations"
+- Input type: Text area (multi-line)
+- Validation: Optional
+
+**4. Style Preferences**
+- Label: "What kind of learning style resonates with you?"
+- Options (radio buttons or dropdown):
+  - Practical and action-oriented
+  - Reflective and introspective
+  - Story-driven and metaphorical
+  - Research-based and analytical
+- Default: "Story-driven and metaphorical"
+
+**5. Philosophical/Spiritual Preferences**
+- Label: "Are there any philosophical or spiritual traditions that resonate with you? (This helps us find relevant teaching stories)"
+- Placeholder: "e.g., Buddhism, Stoicism, Christianity, secular humanist, none in particular"
+- Input type: Text input
+- Validation: Optional
+
+---
+
+## Phase 2: Validate and Structure Input
+
+Once the user submits the form:
+
+1. **Validate required fields**
+   - Ensure Topic is not empty
+   - Display friendly error messages if validation fails
+
+2. **Structure the data** into a clean JSON format:
+
+```json
+{
+  "topic": "[user's topic]",
+  "personal_context": "[user's context or 'Not provided']",
+  "learning_goals": "[user's goals or 'Not specified']",
+  "style_preference": "[selected style]",
+  "philosophical_preferences": "[user's preferences or 'None specified']",
+  "timestamp": "[current timestamp]"
+}
+```
+
+---
+
+## Phase 3: Display Confirmation and Proceed
+
+Show a brief confirmation message:
+
+```
+Got it! Here's what we're working with:
+
+Topic: [topic]
+Your context: [context summary or "General guidance"]
+Learning style: [style]
+
+Generating your personalized learning plan...
+```
+
+Then automatically proceed to Step 1 (Knowledge Synthesis).
+
+---
+
+## Instructions for Implementation
+
+**For Streamlit Implementation:**
+- Use `st.text_input()` for Topic
+- Use `st.text_area()` for Personal Context and Learning Goals
+- Use `st.radio()` or `st.selectbox()` for Style Preferences
+- Use `st.text_input()` for Philosophical Preferences
+- Use `st.button("Generate Learning Plan")` to submit
+- Store results in `st.session_state` for access by subsequent steps
+
+**For Command-Line/Chat Implementation:**
+- Ask questions conversationally, one at a time
+- Store responses in a dictionary
+- Confirm understanding before proceeding
+
+---
+
+## Output Requirements
+
+- Structured JSON object containing all user inputs
+- Data validated and ready for Step 1 (Knowledge Synthesis)
+- User confirmation displayed
+
+After completing this step, proceed automatically to step1_knowledge_synthesis.

@@ -1,0 +1,190 @@
+{
+  "sources": [
+    {
+      "id": "oneness_philosophical_foundations",
+      "file": "oneness_philosophical_foundations.md",
+      "title": "The Nature of Oneness: Philosophical and Scientific Foundations",
+      "topics": ["oneness", "philosophy", "neuroscience", "connection", "interdependence", "ubuntu", "attachment", "mirror neurons"],
+      "relevance_tags": ["relationships", "personal_growth", "spirituality", "psychology"],
+      "key_concepts": [
+        "oneness as lived experience",
+        "advaita (non-duality)",
+        "interbeing",
+        "I-Thou relationship",
+        "relational being",
+        "ubuntu philosophy",
+        "social brain",
+        "attachment theory",
+        "mirror neurons",
+        "loneliness as physical condition"
+      ],
+      "use_for_queries_about": [
+        "what is oneness",
+        "philosophical foundations",
+        "scientific evidence for connection",
+        "neuroscience of relationships",
+        "ubuntu",
+        "brain and connection",
+        "attachment",
+        "why we need connection"
+      ]
+    },
+    {
+      "id": "oneness_separation_journey",
+      "file": "oneness_separation_journey.md",
+      "title": "The Journey to Separation: How We Forget Our Natural Oneness",
+      "topics": ["child development", "ego", "socialization", "trauma", "separation", "conditioning"],
+      "relevance_tags": ["personal_growth", "psychology", "relationships", "healing"],
+      "key_concepts": [
+        "children's natural generosity",
+        "development of self",
+        "ego emergence",
+        "social conditioning",
+        "competition and scarcity",
+        "trauma and defense",
+        "cultural ideology",
+        "costs of separation"
+      ],
+      "use_for_queries_about": [
+        "why do we feel separate",
+        "how children naturally connect",
+        "ego development",
+        "socialization",
+        "trauma impact on connection",
+        "cultural conditioning",
+        "individualism",
+        "costs of loneliness"
+      ]
+    },
+    {
+      "id": "oneness_relationship_ecology",
+      "file": "oneness_relationship_ecology.md",
+      "title": "The Ecology of Connection: Living in Relationship",
+      "topics": ["systems thinking", "relationships", "interdependence", "community", "network effects"],
+      "relevance_tags": ["leadership", "personal_growth", "social_change", "community_building"],
+      "key_concepts": [
+        "relationship as basic unit",
+        "systems thinking",
+        "network science",
+        "social contagion",
+        "circle dynamics",
+        "inclusion/exclusion",
+        "contact hypothesis",
+        "both/and thinking",
+        "dialectical thinking"
+      ],
+      "use_for_queries_about": [
+        "how we're interconnected",
+        "systems thinking",
+        "network effects",
+        "social influence",
+        "in-groups and out-groups",
+        "expanding circles of inclusion",
+        "holding paradox",
+        "autonomy and connection"
+      ]
+    },
+    {
+      "id": "oneness_crisis_breakthroughs",
+      "file": "oneness_crisis_breakthroughs.md",
+      "title": "Barriers and Breakthroughs: Crisis as Portal to Connection",
+      "topics": ["crisis", "vulnerability", "breakthrough", "healing", "barriers", "transformation"],
+      "relevance_tags": ["personal_growth", "relationships", "resilience", "healing"],
+      "key_concepts": [
+        "tyranny of thought",
+        "fear and threat response",
+        "trauma and disconnection",
+        "comparison mind",
+        "scarcity paradigm",
+        "illness as breakthrough",
+        "death reveals love",
+        "divorce paradox",
+        "collective crisis"
+      ],
+      "use_for_queries_about": [
+        "what blocks connection",
+        "barriers to oneness",
+        "how crisis creates breakthrough",
+        "illness and vulnerability",
+        "death and love",
+        "divorce and separation",
+        "collective crisis",
+        "post-traumatic growth"
+      ]
+    },
+    {
+      "id": "oneness_daily_practices",
+      "file": "oneness_daily_practices.md",
+      "title": "Practical Applications: The Practice of Dwelling in Oneness",
+      "topics": ["mindfulness", "practice", "daily_life", "habits", "meditation", "relationships"],
+      "relevance_tags": ["personal_growth", "relationships", "wellbeing", "spiritual_practice"],
+      "key_concepts": [
+        "dwelling concept",
+        "morning intention",
+        "common humanity pause",
+        "ego awareness",
+        "gratitude for interdependence",
+        "reliance without shame",
+        "express appreciation",
+        "vulnerability practice",
+        "repair over righteousness",
+        "oneness circles",
+        "crossing circles",
+        "mutual aid"
+      ],
+      "use_for_queries_about": [
+        "how to practice oneness",
+        "daily practices",
+        "mindfulness exercises",
+        "relationship practices",
+        "vulnerability",
+        "gratitude practice",
+        "asking for help",
+        "community practices",
+        "meditation on connection"
+      ]
+    },
+    {
+      "id": "oneness_leadership",
+      "file": "oneness_leadership.md",
+      "title": "Leading from Oneness: From Individual to Collective",
+      "topics": ["leadership", "collaboration", "systems_change", "ubuntu", "collective_intelligence"],
+      "relevance_tags": ["leadership_development", "organizational_change", "social_impact", "transformation"],
+      "key_concepts": [
+        "failure of heroic leadership",
+        "leadership as relationship",
+        "collective intelligence",
+        "distributed leadership",
+        "self-acceptance prerequisite",
+        "inquiry over answers",
+        "vulnerability in leadership",
+        "we-language",
+        "circle expansion",
+        "holding paradox",
+        "systemic awareness",
+        "moral courage",
+        "circular leadership",
+        "stewardship over ownership",
+        "truth and reconciliation"
+      ],
+      "use_for_queries_about": [
+        "leadership from connection",
+        "collaborative leadership",
+        "distributed leadership",
+        "self-acceptance and leadership",
+        "vulnerability in leadership",
+        "systems leadership",
+        "ubuntu leadership",
+        "truth and reconciliation",
+        "collective intelligence",
+        "emergence in organizations"
+      ]
+    }
+  ],
+  "usage_notes": {
+    "description": "This is a mock RAG (Retrieval-Augmented Generation) infrastructure for testing the Sprint 1 content generation pipeline. Instead of a vector database with semantic search, this uses structured metadata and simple keyword matching.",
+    "how_to_query": "The query script will match user topics/questions against 'topics', 'relevance_tags', 'key_concepts', and 'use_for_queries_about' fields to find the most relevant sources.",
+    "coverage": "These sources cover relationship soft skills, emotional intimacy, connection, leadership, personal growth, and community building—all relevant to the BehaviorShift content generation use case.",
+    "limitations": "This is a simplified mock system. A real RAG would use semantic embeddings and vector similarity search. This uses keyword/concept matching as a proxy."
+  }
+}

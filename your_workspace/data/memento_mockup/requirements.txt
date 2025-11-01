@@ -1,0 +1,6 @@
+numpy>=1.24.0
+# For production implementation, you would add:
+# sentence-transformers>=2.2.0  # For query embeddings
+# stable-baselines3>=2.0.0      # For SAC RL implementation
+# pinecone-client>=2.2.0        # For vector database
+# openai>=1.0.0                 # For embeddings API

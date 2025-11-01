@@ -1,0 +1,180 @@
+## Goal: Teach core concepts through personalized learning modules
+
+Your task is to deliver the learning modules defined in Step 3, adapting explanations to the user's background and maintaining engagement through the learning session.
+
+---
+
+## Instructions
+
+### 1. Set expectations for the learning phase
+
+Brief transition message:
+
+"Great! Let's begin the learning session. I'll guide you through [X] modules covering the core concepts from [source title].
+
+Feel free to:
+- Ask questions anytime for clarification
+- Request examples or analogies
+- Ask me to slow down or speed up
+- Pause for reflection
+
+Let's start with Module 1..."
+
+---
+
+### 2. Deliver each module sequentially
+
+For each module in the learning strategy:
+
+#### A. Introduce the module
+- State the module name and learning objective
+- Connect to previous module (if not first) or user's existing knowledge
+- Set expectations for what you'll cover
+
+**Example:**
+"**Module 2: Attention Mechanisms**
+
+Now that we've covered the limitations of RNNs, let's explore how attention mechanisms solve these problems. By the end of this module, you'll understand how attention allows models to focus on relevant information and why this was a breakthrough for sequence processing."
+
+#### B. Teach the concept(s)
+
+Use the teaching approach defined in Step 3:
+
+**Personalization Techniques:**
+- **Build from familiar:** "You mentioned expertise in [domain]. Think of this like [familiar concept from their domain]..."
+- **Fill knowledge gaps:** "Since this is new to you, let me start with the foundational idea..."
+- **Use appropriate depth:** Adjust technical detail based on user's desired depth from Step 1
+- **Provide examples:** Technical examples, code snippets, or real-world applications relevant to their goal
+
+**Teaching Methods (from RAG best practices):**
+- Analogies and metaphors
+- Visual/conceptual explanations (describe diagrams if source has them)
+- Step-by-step walkthroughs
+- Contrast with related approaches ("Unlike X, this approach...")
+- Connect abstract concepts to concrete applications
+
+**Interactive Elements:**
+- Check understanding: "Does this explanation make sense so far?"
+- Invite questions: "Any questions before we move to [next topic]?"
+- Encourage reflection: "How might this apply to [their goal/problem]?"
+
+#### C. Provide opportunities for engagement
+
+After explaining each major concept:
+- Pause for user questions or comments
+- If user asks questions, answer them before proceeding
+- If user seems unclear, offer alternative explanations
+- User can request more depth or ask to move faster
+
+#### D. Transition to next module
+
+Brief summary and bridge:
+
+"To recap Module [X]: [key takeaway in 1-2 sentences]
+
+Next, we'll explore [next module topic], which builds on this by [connection]."
+
+---
+
+### 3. Adapt pacing in real-time
+
+**Watch for signals:**
+- User asks many questions → slow down, provide more examples
+- User says "got it" or "makes sense" quickly → can move at current or faster pace
+- User requests more depth → expand on current topic
+- User mentions time constraints → summarize remaining content at higher level
+
+**Adaptation strategies:**
+- If running over time: Offer to condense remaining modules or focus on most critical concepts
+- If ahead of schedule: Ask if user wants to go deeper on any topics
+- If user seems confused: Rephrase, use different analogy, or break into smaller steps
+
+---
+
+### 4. Maintain connection to user's goal
+
+Throughout module delivery, regularly connect concepts back to the user's purpose:
+
+- **Problem-solving:** "This technique could help with [their problem] by..."
+- **Continuous learning:** "This is an active area of research. Recent work includes..."
+- **Capability exploration:** "For your product idea, this capability would enable..."
+
+---
+
+### 5. Complete the learning phase
+
+After delivering all modules:
+
+"We've completed all [X] modules! Let me quickly summarize what we've covered:
+
+**Key Concepts Learned:**
+1. [Concept 1] - [key insight]
+2. [Concept 2] - [key insight]
+3. [...]
+
+**How these connect to [their goal]:**
+[Brief synthesis of how concepts apply to their specific context]
+
+Before we move to the visualization script, any final questions about the concepts we covered?"
+
+Address any final questions, then transition to next step.
+
+---
+
+## Output Requirements
+
+**File:** `your_workspace/data/sessions/session_[timestamp]_learning_notes.md`
+
+**Format:**
+```markdown
+# Learning Session Notes
+
+**Session:** [timestamp]
+**Source:** [title]
+**Duration:** [actual time spent]
+
+## Modules Delivered
+
+### Module 1: [Name]
+**Concepts Covered:**
+- [Concept with key insight]
+
+**User Questions/Interactions:**
+- [Question asked and response provided]
+
+**Personalization Applied:**
+- [How explanations were adapted to user's background]
+
+### Module 2: [Name]
+[Same structure]
+
+[Continue for all modules]
+
+## Key Takeaways
+1. [Main insight 1]
+2. [Main insight 2]
+3. [Main insight 3]
+
+## Connection to User's Goal
+[How the learned concepts apply to their specific context/problem]
+
+## User Engagement Summary
+- Questions asked: [count and topics]
+- Pace adjustments: [any changes made]
+- Depth modifications: [any deep dives or simplifications]
+- Overall engagement: [assessment]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- This is the heart of the learning experience - be engaging and adaptive
+- Don't just dump information - teach conversationally
+- Use the user's context from Step 1 throughout (their role, background, goal)
+- Reference the source material directly when helpful
+- If user asks questions beyond the scope, acknowledge and offer to discuss after completing modules
+- Keep track of time - if running long, offer to adjust remaining content
+- Be responsive to user's energy and engagement level
+- After completing all modules and addressing final questions, proceed immediately to step5_visualization_script_generation
+- The goal is deep understanding, not just information transfer

@@ -1,0 +1,302 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#f8f9fa"/>
+
+  <!-- Title (left-aligned) -->
+  <text x="40" y="45" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1a1a1a">
+    Understanding Your YAML Workflow Artifact
+  </text>
+
+  <!-- Subtitle (left-aligned) -->
+  <text x="40" y="70" font-family="Arial, sans-serif" font-size="14" fill="#666">
+    A Novel Artifact: Design + Implementation + Specification in One
+  </text>
+
+  <!-- Section 1: What It Is (Left side, with more detail) -->
+  <g transform="translate(40, 100)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2563eb">
+      What This Artifact IS:
+    </text>
+
+    <!-- Four properties in a 2x2 grid -->
+    <g transform="translate(0, 20)">
+      <!-- Executable Prototype -->
+      <rect x="0" y="0" width="280" height="120" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="140" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#1e40af">
+        ⚡ Executable NOW
+      </text>
+      <text x="140" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1e40af">
+        Runs in Claude Code today
+      </text>
+      <text x="140" y="68" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#1e40af">
+        with your real data
+      </text>
+      <text x="140" y="86" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#3b82f6">
+        Uses LLM as the execution engine
+      </text>
+      <text x="140" y="104" font-family="Arial, sans-serif" font-size="11" font-style="italic" text-anchor="middle" fill="#3b82f6">
+        (not just documentation!)
+      </text>
+
+      <!-- Living Specification -->
+      <rect x="300" y="0" width="280" height="120" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="440" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#15803d">
+        📝 Living Specification
+      </text>
+      <text x="440" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#15803d">
+        Evolves as you learn from
+      </text>
+      <text x="440" y="68" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#15803d">
+        experimentation
+      </text>
+      <text x="440" y="86" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#16a34a">
+        Prompts AND YAML logic both adapt
+      </text>
+      <text x="440" y="104" font-family="Arial, sans-serif" font-size="11" font-style="italic" text-anchor="middle" fill="#16a34a">
+        (not frozen design docs)
+      </text>
+    </g>
+
+    <g transform="translate(0, 150)">
+      <!-- Learning Tool -->
+      <rect x="0" y="0" width="280" height="120" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="140" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#92400e">
+        🔬 Learning Tool
+      </text>
+      <text x="140" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#92400e">
+        Discovers constraints,
+      </text>
+      <text x="140" y="68" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#92400e">
+        edge cases, what works
+      </text>
+      <text x="140" y="86" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#d97706">
+        Goal: Break it to find failure modes
+      </text>
+      <text x="140" y="104" font-family="Arial, sans-serif" font-size="11" font-style="italic" text-anchor="middle" fill="#d97706">
+        (run 5+ times minimum)
+      </text>
+
+      <!-- Future Code Spec -->
+      <rect x="300" y="0" width="280" height="120" rx="8" fill="#f3e8ff" stroke="#9333ea" stroke-width="2"/>
+      <text x="440" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#6b21a8">
+        🎯 Future Code Spec
+      </text>
+      <text x="440" y="50" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6b21a8">
+        After refinement through testing,
+      </text>
+      <text x="440" y="68" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#6b21a8">
+        translate to production code
+      </text>
+      <text x="440" y="86" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#9333ea">
+        Refined logic becomes implementation
+      </text>
+      <text x="440" y="104" font-family="Arial, sans-serif" font-size="11" font-style="italic" text-anchor="middle" fill="#9333ea">
+        (Python modules + Flask API)
+      </text>
+    </g>
+  </g>
+
+  <!-- Section 2: The Learning Loop (Right side) -->
+  <g transform="translate(800, 100)">
+    <text x="200" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="#2563eb">
+      The Learning Loop:
+    </text>
+
+    <!-- Circular diagram -->
+    <g transform="translate(200, 160)">
+      <!-- Center circle -->
+      <circle cx="0" cy="0" r="45" fill="#2563eb" opacity="0.1" stroke="#2563eb" stroke-width="2"/>
+      <text x="0" y="-5" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e40af">
+        YAML
+      </text>
+      <text x="0" y="10" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e40af">
+        Workflow
+      </text>
+
+      <!-- Step 1: Run -->
+      <g transform="translate(0, -95)">
+        <rect x="-65" y="-28" width="130" height="56" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+        <text x="0" y="-5" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#1e40af">
+          1. Run 5+ times
+        </text>
+        <text x="0" y="11" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#3b82f6">
+          with real/synthetic data
+        </text>
+      </g>
+
+      <!-- Arrow down-right -->
+      <path d="M 50 -55 L 100 -30" stroke="#2563eb" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+
+      <!-- Step 2: Observe -->
+      <g transform="translate(140, 0)">
+        <rect x="-65" y="-28" width="130" height="56" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+        <text x="0" y="-5" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#15803d">
+          2. Observe
+        </text>
+        <text x="0" y="11" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#16a34a">
+          what works/fails
+        </text>
+      </g>
+
+      <!-- Arrow down -->
+      <path d="M 100 30 L 50 55" stroke="#16a34a" stroke-width="3" fill="none" marker-end="url(#arrowhead2)"/>
+
+      <!-- Step 3: Document -->
+      <g transform="translate(0, 95)">
+        <rect x="-65" y="-28" width="130" height="56" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+        <text x="0" y="-5" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#92400e">
+          3. Document
+        </text>
+        <text x="0" y="11" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#d97706">
+          learnings &amp; patterns
+        </text>
+      </g>
+
+      <!-- Arrow left -->
+      <path d="M -50 55 L -100 30" stroke="#d97706" stroke-width="3" fill="none" marker-end="url(#arrowhead3)"/>
+
+      <!-- Step 4: Refine -->
+      <g transform="translate(-140, 0)">
+        <rect x="-65" y="-28" width="130" height="56" rx="8" fill="#f3e8ff" stroke="#9333ea" stroke-width="2"/>
+        <text x="0" y="-5" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#6b21a8">
+          4. Refine
+        </text>
+        <text x="0" y="11" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#9333ea">
+          prompts + YAML logic
+        </text>
+      </g>
+
+      <!-- Arrow up -->
+      <path d="M -100 -30 L -50 -55" stroke="#9333ea" stroke-width="3" fill="none" marker-end="url(#arrowhead4)"/>
+    </g>
+  </g>
+
+  <!-- Section 3: Your Next Steps -->
+  <g transform="translate(40, 420)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2563eb">
+      Your Next Steps (Don't Skip These!):
+    </text>
+
+    <!-- Goal statement -->
+    <g transform="translate(0, 15)">
+      <rect x="0" y="0" width="630" height="40" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+      <text x="315" y="26" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#991b1b">
+        🎯 Your Goal: Break the system to find its failure modes
+      </text>
+    </g>
+
+    <g transform="translate(0, 55)">
+      <!-- Step 1 -->
+      <rect x="0" y="0" width="630" height="65" rx="6" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+      <circle cx="25" cy="32" r="12" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+      <text x="25" y="37" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e40af">1</text>
+      <text x="50" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">
+        Extract 5+ research papers/articles from different domains
+      </text>
+      <text x="50" y="45" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        Use papers from arXiv/conferences OR ask Claude to generate synthetic sources
+      </text>
+
+      <!-- Step 2 -->
+      <rect x="0" y="75" width="630" height="70" rx="6" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+      <circle cx="25" cy="110" r="12" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+      <text x="25" y="115" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#15803d">2</text>
+      <text x="50" y="100" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">
+        Run mithra_learning 5+ times (once per paper/article)
+      </text>
+      <text x="50" y="120" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        Check: Personalization quality? Module relevance? Visualization script quality?
+      </text>
+
+      <!-- Step 3 -->
+      <rect x="0" y="155" width="630" height="70" rx="6" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+      <circle cx="25" cy="190" r="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="25" y="195" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#92400e">3</text>
+      <text x="50" y="180" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">
+        Document: Personalization failures? Missing concepts? Poor metaphors?
+      </text>
+      <text x="50" y="200" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        Track: Dense math explanations, missing prerequisites, weak context connection
+      </text>
+
+      <!-- Step 4 -->
+      <rect x="0" y="235" width="630" height="70" rx="6" fill="white" stroke="#e5e7eb" stroke-width="1"/>
+      <circle cx="25" cy="270" r="12" fill="#f3e8ff" stroke="#9333ea" stroke-width="2"/>
+      <text x="25" y="275" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#6b21a8">4</text>
+      <!-- CUSTOMIZE_STEP4_MAIN: Keep as-is, this is universal -->
+      <text x="50" y="260" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1a1a1a">
+        Refine workflow prompts and YAML logic based on learnings
+      </text>
+      <text x="50" y="280" font-family="Arial, sans-serif" font-size="12" fill="#666">
+        Edit step4_module_delivery_prompt.txt OR ask Claude to improve personalization logic
+      </text>
+    </g>
+  </g>
+
+  <!-- Section 4: When to Graduate -->
+  <g transform="translate(710, 420)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2563eb">
+      When to Graduate to Next Step:
+    </text>
+
+    <g transform="translate(0, 15)">
+      <rect x="0" y="0" width="630" height="325" rx="8" fill="white" stroke="#e5e7eb" stroke-width="2"/>
+
+      <!-- NOT READY section -->
+      <rect x="15" y="15" width="600" height="145" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+
+      <text x="315" y="40" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#991b1b">
+        ⚠️  NOT READY YET IF:
+      </text>
+
+      <text x="30" y="70" font-family="Arial, sans-serif" font-size="13" fill="#991b1b">
+        ❌  You haven't explored at least 5-10 different ways your app might fail
+      </text>
+      <text x="30" y="95" font-family="Arial, sans-serif" font-size="13" fill="#991b1b">
+        ❌  You're discovering new edge cases with every run
+      </text>
+      <text x="30" y="120" font-family="Arial, sans-serif" font-size="13" fill="#991b1b">
+        ❌  Prompts or YAML structure is still evolving significantly
+      </text>
+      <text x="30" y="145" font-family="Arial, sans-serif" font-size="13" fill="#991b1b">
+        ❌  You can't articulate what works vs what doesn't
+      </text>
+
+      <!-- READY section -->
+      <rect x="15" y="175" width="600" height="135" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+
+      <text x="315" y="200" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#15803d">
+        ✅  READY WHEN:
+      </text>
+
+      <text x="30" y="230" font-family="Arial, sans-serif" font-size="13" fill="#15803d">
+        ✓  Fixed 3-4 easy cases (e.g., improved metaphor selection for technical concepts)
+      </text>
+      <text x="30" y="255" font-family="Arial, sans-serif" font-size="13" fill="#15803d">
+        ✓  Documented hard cases (e.g., users with mixed backgrounds need multi-level explanations)
+      </text>
+      <text x="30" y="280" font-family="Arial, sans-serif" font-size="13" fill="#15803d">
+        ✓  You understand the constraints and limitations clearly
+      </text>
+      <text x="30" y="305" font-family="Arial, sans-serif" font-size="13" fill="#15803d">
+        ✓  Refinements are minor tweaks, not major restructuring
+      </text>
+    </g>
+  </g>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#2563eb"/>
+    </marker>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#16a34a"/>
+    </marker>
+    <marker id="arrowhead3" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#d97706"/>
+    </marker>
+    <marker id="arrowhead4" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#9333ea"/>
+    </marker>
+  </defs>
+</svg>

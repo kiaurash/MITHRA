@@ -1,0 +1,185 @@
+## Goal: Synthesize high-quality, grounded research on the user's topic
+
+Your task is to combine insights from your internal knowledge base (Vector DB) with deep research from curated external sources to create a comprehensive, well-researched article on the user's topic.
+
+---
+
+## Phase 1: Retrieve Context from Step 0
+
+Load the structured input from Step 0:
+- Topic
+- Personal context
+- Learning goals
+- Style preference
+- Philosophical preferences
+
+---
+
+## Phase 2: RAG Agent - Query Internal Knowledge Base
+
+**Task**: Search your local Vector DB for relevant content about the topic.
+
+**Implementation Steps**:
+
+1. **Formulate search queries**
+   - Primary query: The exact topic from user input
+   - Secondary queries: Related concepts, synonyms, broader/narrower terms
+   - Example: Topic "improving intimacy" → Queries: ["intimacy", "emotional closeness", "relationship connection", "vulnerability in relationships"]
+
+2. **Query Vector DB**
+   - Search your curated collection of relationship/soft skills content
+   - Retrieve top 10-15 most relevant chunks
+   - Include metadata: source title, author, publication date
+
+3. **Filter and rank results**
+   - Prioritize content that matches user's philosophical preferences
+   - Consider user's personal context when ranking relevance
+   - Discard low-relevance results (similarity score < 0.7)
+
+**Output**: Collection of relevant passages from internal knowledge base with source citations.
+
+---
+
+## Phase 3: Deep Research Agent - External Web Search
+
+**Task**: Conduct targeted research on curated, high-quality websites.
+
+**Curated Website List** (configure these in your system):
+- Academic sources: Google Scholar, ResearchGate
+- Relationship expertise: Gottman Institute, Psychology Today
+- Evidence-based resources: NCBI/PubMed (for psychology research)
+- Trusted thought leaders: specific blogs/sites based on your domain
+
+**Implementation Steps**:
+
+1. **Formulate research queries**
+   - Use topic + specific angles based on user's learning goals
+   - Example: "improving intimacy research studies", "intimacy exercises evidence-based"
+
+2. **Execute searches**
+   - Search curated websites only (don't do open web search for MVP)
+   - Extract relevant passages from top 5-10 results per query
+   - Capture: title, URL, excerpt, publication date
+
+3. **Assess source quality**
+   - Prioritize peer-reviewed research, expert practitioners, evidence-based approaches
+   - Note limitations or biases in sources
+
+**Output**: Collection of relevant external research with full citations.
+
+---
+
+## Phase 4: Synthesis - Create Research Article
+
+**Task**: Combine RAG and Deep Research findings into a coherent, well-structured research article.
+
+**Article Structure**:
+
+### 1. Introduction (2-3 paragraphs)
+- Define the topic in accessible language
+- Explain why this topic matters (address user's learning goals if provided)
+- Preview key insights from the research
+
+### 2. Core Insights (3-5 sections)
+Organize findings thematically. For each theme:
+- **Key Insight**: Main finding or principle
+- **Supporting Evidence**: Cite specific sources (internal + external)
+- **Practical Implications**: What does this mean in real life?
+
+Example themes for "improving intimacy":
+- The role of vulnerability in deepening connection
+- Communication patterns that foster intimacy
+- The importance of consistent small gestures
+- Addressing barriers to intimacy (fear, past trauma, etc.)
+
+### 3. Synthesis & Integration (1-2 paragraphs)
+- How do these insights connect to each other?
+- Are there common threads across sources?
+- What's the "big picture" understanding?
+
+### 4. References
+- Full citation list for all sources used
+- Format: [Source Title] by [Author] - [URL or DB reference]
+
+---
+
+## Phase 5: Quality Checks (Self-Assessment)
+
+Before proceeding to Gate 1, assess:
+
+**Groundedness Checklist**:
+- [ ] Every major claim is supported by at least one source
+- [ ] Sources are cited inline (e.g., "According to Gottman Institute research...")
+- [ ] No unsupported generalizations or personal opinions presented as fact
+
+**Relevance Checklist**:
+- [ ] Article directly addresses the user's topic
+- [ ] Content connects to user's learning goals (if provided)
+- [ ] Information is appropriate for user's context
+
+**Quality Checklist**:
+- [ ] Writing is clear and accessible (not overly academic)
+- [ ] Article flows logically from introduction → insights → synthesis
+- [ ] Length is substantial but not overwhelming (1500-2500 words target)
+
+---
+
+## Output Requirements
+
+**Deliverable**: A complete research article in markdown format containing:
+- Title: "Understanding [Topic]: A Research-Based Guide"
+- All 4 sections: Introduction, Core Insights, Synthesis, References
+- Inline citations throughout
+- Full reference list at the end
+
+**Metadata to Track**:
+```json
+{
+  "sources_used": {
+    "internal_sources": [count],
+    "external_sources": [count]
+  },
+  "word_count": [number],
+  "research_time": "[timestamp]"
+}
+```
+
+---
+
+## Instructions for Implementation
+
+**RAG Implementation**:
+- Use your Vector DB client (e.g., Pinecone, Weaviate, ChromaDB)
+- Embedding model: Use same model as you used to create embeddings
+- Retrieval strategy: Semantic search with similarity threshold
+
+**Deep Research Implementation**:
+- For MVP: Use web scraping with BeautifulSoup or Scrapy
+- For production: Consider Exa AI, Tavily, or Perplexity API
+- Respect robots.txt and rate limits
+
+**LLM Synthesis**:
+- Use a strong reasoning model (GPT-4, Claude 3.5 Sonnet, etc.)
+- Prompt to maintain academic rigor while being accessible
+- Include explicit instruction to cite sources inline
+
+---
+
+## Error Handling
+
+**If RAG returns no results**:
+- Broaden search terms
+- Check if topic is in your knowledge base scope
+- Notify user: "This topic may be outside our curated knowledge base. Relying more heavily on external research."
+
+**If Deep Research fails**:
+- Fall back to RAG results only
+- Note limitation in the article
+- Recommend user seek additional sources
+
+**If both fail**:
+- Return error to user: "Unable to find sufficient research on this topic. Please try a related topic or check your database connection."
+
+---
+
+After completing this step, proceed automatically to gate1_groundedness_judge for validation.

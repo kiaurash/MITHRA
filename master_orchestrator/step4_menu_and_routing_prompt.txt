@@ -89,7 +89,7 @@ Present options based on context:
 4. Log the interaction
 
 **For building workflows:**
-1. Check if workflow exists at `bootcamp2510/bootcamp_workflows/building/[X]_[workflow_name]/[workflow_name]_workflow.md`
+1. Check if workflow exists at `bootcamp2510/bootcamp_workflows/building/[X]_[workflow_name]/[workflow_name]_workflow.yaml`
 2. If yes: "Great! Let me launch the [workflow name] workflow for you..." and execute it
 3. If no (just README placeholder): "The [workflow name] workflow will be available soon. Here's what it will help with: [read from README if exists]"
 4. "In the meantime, I can help you think through [topic] if you'd like?"

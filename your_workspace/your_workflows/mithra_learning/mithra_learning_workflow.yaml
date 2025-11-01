@@ -1,0 +1,64 @@
+---
+name: MITHRA - Personalized Research Learning Agent
+description: Machine Intelligence for Translating Human Research into Action - Personalized learning through modular instruction and guided visualization
+initial_state: step1_context_collection
+states:
+  step1_context_collection:
+    description: |
+      Goal: Gather user background, learning goals, and session preferences
+      Input: User's initial request to learn from a research source
+      Output: Structured user context profile (role, background, goal, time/depth preferences)
+    prompt_file: "step1_context_collection_prompt.txt"
+    on_success: step2_source_analysis
+
+  step2_source_analysis:
+    description: |
+      Goal: Extract structure and key concepts from the learning source
+      Input: Research paper, article, webinar transcript, or conference talk (user-provided)
+      Output: Source analysis with structure breakdown, core concepts, and complexity assessment
+    prompt_file: "step2_source_analysis_prompt.txt"
+    on_success: step3_strategy_generation
+
+  step3_strategy_generation:
+    description: |
+      Goal: Create personalized learning strategy using RAG best practices and user context
+      Input: User context profile + Source analysis
+      Output: Personalized learning plan with module structure tailored to user's background and goals
+    prompt_file: "step3_strategy_generation_prompt.txt"
+    on_success: step4_module_delivery
+
+  step4_module_delivery:
+    description: |
+      Goal: Teach core concepts through personalized learning modules
+      Input: Learning strategy + Source content + User context
+      Output: Interactive learning session with personalized explanations adapted to user's background
+    prompt_file: "step4_module_delivery_prompt.txt"
+    on_success: step5_visualization_script_generation
+
+  step5_visualization_script_generation:
+    description: |
+      Goal: Generate personalized guided visualization script for learning integration
+      Input: Learned concepts + User context + RAG visualization best practices
+      Output: Personalized guided visualization script file ready for audio conversion
+    prompt_file: "step5_visualization_script_generation_prompt.txt"
+    on_success: step6_script_delivery
+
+  step6_script_delivery:
+    description: |
+      Goal: Provide visualization script for user download and future audio generation
+      Input: Generated visualization script
+      Output: Script file delivered to user with usage instructions (audio generation out of scope)
+    prompt_file: "step6_script_delivery_prompt.txt"
+    on_success: step7_reflection
+
+  step7_reflection:
+    description: |
+      Goal: Help user identify key takeaways and applications to their context
+      Input: Learning session experience + User's goal/problem context
+      Output: Reflection summary with actionable insights and next steps
+    prompt_file: "step7_reflection_prompt.txt"
+    on_success: done
+
+  done:
+    description: "MITHRA learning session complete. User has deep comprehension, visualization script, and actionable insights for applying learnings to their context."
+---

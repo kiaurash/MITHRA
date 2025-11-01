@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(./bootcamp_workflows/util/check_upcoming_tasks.sh:*)",
+      "Bash(./bootcamp_workflows/util/get_participant_info.sh:*)",
+      "Bash(./bootcamp_workflows/util/get_task_stats.sh:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(python:*)",
+      "Bash(test:*)",
+      "Bash(./bootcamp_workflows/util/sync_tasks.sh:*)",
+      "Bash(./bootcamp_workflows/util/get_recent_activity.sh:*)",
+      "Bash(where grep:*)",
+      "Bash(dir:*)",
+      "Bash(your_workspace/logs/activity_log.csv)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

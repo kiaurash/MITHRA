@@ -53,7 +53,7 @@ Create all files in: `your_workspace/your_workflows/[workflow_name]/`
 
 ### 3A. Create the YAML workflow file
 
-File: `[workflow_name]_workflow.md`
+File: `[workflow_name]_workflow.yaml`
 
 Structure:
 ```yaml
@@ -170,7 +170,7 @@ Copy and paste each prompt file in sequence:
 **Now create all files in `your_workspace/your_workflows/[workflow_name]/`:**
 
 1. Create the directory
-2. Write `[workflow_name]_workflow.md` with complete YAML
+2. Write `[workflow_name]_workflow.yaml` with complete YAML
 3. Write each `step[N]_[name]_prompt.txt` file with detailed instructions
 4. Write `README.md` with usage instructions
 
@@ -186,7 +186,7 @@ After creating all files, show the user:
 ✓ Workflow package created at: your_workspace/your_workflows/[workflow_name]/
 
 Files created:
-- [workflow_name]_workflow.md (YAML structure)
+- [workflow_name]_workflow.yaml (YAML structure)
 - step1_[name]_prompt.txt
 - step2_[name]_prompt.txt
 - [list all step prompts]

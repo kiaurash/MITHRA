@@ -1,0 +1,13 @@
+# Simple Python RAG Requirements (No C++ compiler needed!)
+
+# Embedding Model
+sentence-transformers>=2.2.2
+
+# Vector math
+numpy>=1.22.0
+
+# Document Processing
+pyyaml>=6.0
+
+# Progress bars (optional)
+tqdm>=4.65.0

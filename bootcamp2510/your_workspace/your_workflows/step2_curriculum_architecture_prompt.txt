@@ -1,0 +1,348 @@
+## Goal: Transform validated research into structured learning objectives and lesson plans
+
+Your task is to take the validated research article from Gate 1 and architect it into a clear, actionable curriculum with learning objectives and detailed lesson plans.
+
+---
+
+## Phase 1: Load Inputs
+
+Retrieve:
+1. **Validated research article** from Gate 1
+2. **User's topic** from Step 0
+3. **User's learning goals** from Step 0
+4. **User's style preference** from Step 0
+
+---
+
+## Phase 2: Extract Core Concepts
+
+**Task**: Identify the key concepts and insights from the research article that should be taught.
+
+**Process**:
+1. Review the research article's "Core Insights" section
+2. Identify 3-5 main concepts that form the foundation of understanding this topic
+3. For each concept, note:
+   - The core idea
+   - Why it matters (practical implications)
+   - Supporting evidence from the research
+
+**Example** (for topic "improving intimacy"):
+- **Concept 1**: Vulnerability as the foundation of intimacy
+- **Concept 2**: Small, consistent gestures matter more than grand gestures
+- **Concept 3**: Emotional safety enables deeper connection
+- **Concept 4**: Communication patterns either build or erode intimacy
+
+---
+
+## Phase 3: Create Learning Objectives
+
+**Task**: Transform core concepts into clear, measurable learning objectives using Bloom's Taxonomy.
+
+### Learning Objective Formula:
+**[Action Verb] + [Content/Concept] + [Context/Condition]**
+
+### Bloom's Taxonomy Levels to Include:
+
+**Level 1 - Remember/Understand** (Cognitive Foundation):
+- "Explain the role of [concept] in [topic]"
+- "Describe how [concept] manifests in relationships"
+
+**Level 2 - Apply** (Practical Application):
+- "Apply [concept] in [specific situation]"
+- "Demonstrate [skill] in daily interactions"
+
+**Level 3 - Analyze** (Deep Understanding):
+- "Identify patterns of [concept] in your own relationships"
+- "Analyze how [concept] affects [outcome]"
+
+**Level 4 - Evaluate/Create** (Integration & Transformation):
+- "Design personal practices to cultivate [concept]"
+- "Evaluate your progress in developing [skill]"
+
+### Output Format:
+
+```markdown
+## Learning Objectives
+
+By the end of this learning module, you will be able to:
+
+### Understanding (Cognitive):
+1. [Objective 1 - Remember/Understand level]
+2. [Objective 2 - Remember/Understand level]
+
+### Application (Practical):
+3. [Objective 3 - Apply level]
+4. [Objective 4 - Apply level]
+
+### Integration (Transformation):
+5. [Objective 5 - Analyze/Evaluate/Create level]
+6. [Objective 6 - Analyze/Evaluate/Create level]
+```
+
+**Quality Check**:
+- [ ] Each objective is specific and measurable
+- [ ] Objectives progress from foundational to transformational
+- [ ] All core concepts are covered
+- [ ] Objectives align with user's learning goals (if provided)
+
+---
+
+## Phase 4: Design Lesson Plan Structure
+
+**Task**: Organize the learning journey into a logical, progressive sequence of lessons.
+
+### Curriculum Structure:
+
+#### Module Overview
+- **Title**: [Topic] - A Practical Learning Journey
+- **Duration**: [Estimated time: typically 4-6 weeks for behavioral change]
+- **Core Theme**: [One-sentence theme that ties everything together]
+
+#### Lesson Breakdown (typically 4-6 lessons)
+
+For each lesson, structure as follows:
+
+```markdown
+### Lesson [Number]: [Compelling Lesson Title]
+
+**Focus Concept**: [Which core concept this lesson addresses]
+
+**Learning Objectives** (from Phase 3):
+- [Objective 1 aligned with this lesson]
+- [Objective 2 aligned with this lesson]
+
+**Lesson Flow**:
+
+1. **Engage** (5-10 min)
+   - Hook: [Relatable scenario or question to spark curiosity]
+   - Purpose: [Why this lesson matters]
+
+2. **Explore** (15-20 min)
+   - **Key Teaching**: [Core concept explained clearly]
+   - **Research Insight**: [Cite specific finding from the validated article]
+   - **Why It Matters**: [Practical implications]
+
+3. **Reflect** (10-15 min)
+   - **Personal Inquiry**: [3-4 reflection questions]
+   - Example: "Think about a recent interaction. How did [concept] show up?"
+
+4. **Apply** (15-20 min)
+   - **Practice Activity**: [Specific, actionable exercise]
+   - Example: "This week, try [specific behavior] and notice what changes"
+
+5. **Integrate** (5-10 min)
+   - **Key Takeaways**: [2-3 main points]
+   - **Commitment**: [One small action to practice this week]
+
+**Resources Referenced**:
+- [List sources from research article that support this lesson]
+
+**Estimated Time**: [Total time commitment for this lesson]
+```
+
+---
+
+## Phase 5: Add Progression and Coherence
+
+**Task**: Ensure lessons build on each other logically.
+
+**Check**:
+1. **Scaffolding**: Does each lesson prepare students for the next?
+2. **Cognitive Load**: Is complexity introduced gradually?
+3. **Spiral Learning**: Are concepts revisited with increasing depth?
+4. **Practical Application**: Does each lesson include hands-on practice?
+
+**Add Connecting Tissue**:
+- Write brief "bridges" between lessons that show how they connect
+- Example: "Now that you understand [Concept A] from Lesson 1, we'll explore how it interacts with [Concept B]..."
+
+---
+
+## Phase 6: Personalize Based on User Input
+
+**Task**: Adapt the curriculum based on user's context and preferences.
+
+**Style Preference Adaptations**:
+
+- **Practical and action-oriented**:
+  - Emphasize "Apply" sections
+  - Include more exercises, fewer reflections
+  - Focus on concrete behaviors
+
+- **Reflective and introspective**:
+  - Expand "Reflect" sections
+  - Add journaling prompts
+  - Include meditation or contemplation practices
+
+- **Story-driven and metaphorical**:
+  - Use metaphors to explain concepts
+  - Include storytelling in "Explore" sections
+  - Reference narrative examples (will be enhanced in Sprint 2)
+
+- **Research-based and analytical**:
+  - Include more citations and research details
+  - Add "Further Reading" sections
+  - Explain the science behind concepts
+
+**Personal Context Adaptations**:
+- If user provided context, tailor examples and scenarios to their situation
+- Adjust language and framing to resonate with their experience
+
+---
+
+## Phase 7: Format Final Output
+
+### Output Structure (JSON format):
+
+```json
+{
+  "curriculum_metadata": {
+    "topic": "[user's topic]",
+    "created_date": "[timestamp]",
+    "estimated_duration": "[e.g., 4-6 weeks]",
+    "style_adaptation": "[user's preference]"
+  },
+  "learning_objectives": {
+    "understanding": ["objective 1", "objective 2"],
+    "application": ["objective 3", "objective 4"],
+    "integration": ["objective 5", "objective 6"]
+  },
+  "lessons": [
+    {
+      "lesson_number": 1,
+      "title": "[Lesson Title]",
+      "focus_concept": "[Core concept]",
+      "learning_objectives": ["obj 1", "obj 2"],
+      "lesson_flow": {
+        "engage": { "hook": "...", "purpose": "..." },
+        "explore": { "key_teaching": "...", "research_insight": "...", "why_it_matters": "..." },
+        "reflect": { "personal_inquiry": ["q1", "q2", "q3"] },
+        "apply": { "practice_activity": "..." },
+        "integrate": { "key_takeaways": ["..."], "commitment": "..." }
+      },
+      "resources": ["source 1", "source 2"],
+      "estimated_time": "[minutes]"
+    }
+    // ... more lessons
+  ],
+  "lesson_bridges": {
+    "lesson_1_to_2": "[connecting text]",
+    "lesson_2_to_3": "[connecting text]"
+    // ... more bridges
+  }
+}
+```
+
+### Alternative Output (Markdown format for readability):
+
+```markdown
+# [Topic]: A Practical Learning Journey
+
+**Estimated Duration**: [duration]
+**Learning Style**: Adapted for [style preference]
+
+---
+
+## Learning Objectives
+
+[From Phase 3]
+
+---
+
+## Curriculum Overview
+
+[One paragraph describing the learning journey and how lessons connect]
+
+---
+
+## Lessons
+
+[Full lesson structures from Phase 4]
+
+---
+
+## Additional Resources
+
+[List of all sources cited from the research article]
+```
+
+---
+
+## Phase 8: Quality Assurance
+
+**Self-Check Rubric**:
+- [ ] All learning objectives are clear and measurable
+- [ ] Each lesson has all 5 components (Engage, Explore, Reflect, Apply, Integrate)
+- [ ] Lessons progress logically and build on each other
+- [ ] Practical activities are specific and actionable
+- [ ] Content is grounded in the validated research
+- [ ] Curriculum is adapted to user's style preference
+- [ ] Total estimated time is realistic (not overwhelming)
+- [ ] Output format is valid JSON (if using JSON) or well-structured markdown
+
+---
+
+## Sprint 1 Deliverable Checkpoint
+
+**This is the final output of Sprint 1!**
+
+The user should now have:
+✅ A validated research article (from Step 1 + Gate 1)
+✅ Clear learning objectives mapped to Bloom's Taxonomy
+✅ Detailed lesson plans with 5-part structure
+✅ Personalized curriculum adapted to their style
+✅ Actionable output in JSON or markdown format
+
+**Display Success Message**:
+```
+🎉 Sprint 1 Complete!
+
+Your personalized learning curriculum is ready:
+
+Topic: [topic]
+Learning Objectives: [count] objectives across 3 levels
+Lessons: [count] lessons with full structure
+Estimated Duration: [duration]
+
+You can now:
+- Review and refine the curriculum
+- Share with team members for feedback
+- Prepare for Sprint 2 (adding narrative and stories)
+
+Would you like to save this curriculum or continue to Sprint 2?
+```
+
+---
+
+## Instructions for Implementation
+
+**LLM Curriculum Architect Setup**:
+- Use a strong reasoning model with good instruction-following (GPT-4, Claude 3.5 Sonnet)
+- Provide the full validated research article + user preferences
+- Use structured output (JSON mode) for consistency
+
+**Bloom's Taxonomy Reference**:
+- Remember: define, list, recall, recognize
+- Understand: explain, describe, summarize, interpret
+- Apply: demonstrate, apply, use, practice
+- Analyze: identify, analyze, examine, distinguish
+- Evaluate: assess, evaluate, judge, critique
+- Create: design, construct, develop, formulate
+
+**Output Format**:
+- Primary: JSON for programmatic use
+- Secondary: Generate markdown version for human readability
+- Save both versions to user's workspace
+
+---
+
+## Output Requirements
+
+- Complete curriculum with learning objectives and lesson plans
+- Output in both JSON and markdown formats
+- Activity log entry marking Sprint 1 completion
+- Success message displayed to user
+
+After completing this step, Sprint 1 is done! The workflow can either:
+- **End here** (for Sprint 1 demo)
+- **Continue to Step 3** (if implementing Sprint 2 immediately)

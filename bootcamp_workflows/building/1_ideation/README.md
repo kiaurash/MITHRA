@@ -152,7 +152,7 @@ By the end of this workflow, you'll have created:
    - Experiment plan
 
 2. **your_workspace/your_workflows/[workflow_name]/** - A complete workflow folder with:
-   - YAML workflow structure (`[workflow_name]_workflow.md`)
+   - YAML workflow structure (`[workflow_name]_workflow.yaml`)
    - Prompt files for each step
    - README with usage instructions
 

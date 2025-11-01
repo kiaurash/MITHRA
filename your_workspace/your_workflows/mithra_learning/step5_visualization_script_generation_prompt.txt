@@ -1,0 +1,223 @@
+## Goal: Generate personalized guided visualization script for learning integration
+
+Your task is to create a guided visualization script that helps the user internalize and integrate the concepts learned, making them more accessible for future application. This script will be provided as text for the user to convert to audio.
+
+---
+
+## Instructions
+
+### 1. Query RAG corpus for visualization best practices
+
+Retrieve guidance from the RAG corpus:
+
+**RAG Query Areas:**
+- `rag_corpus/hypnosis_scripts/` - Guided visualization script templates and techniques
+- `rag_corpus/best_practices/` - Principles for effective visualization
+- `rag_corpus/language_patterns/` - Linguistic patterns that enhance integration
+- `rag_corpus/neuroscience/` - How visualization supports learning retention
+
+**What to retrieve:**
+- Script structure (induction → deepening → content integration → suggestions → emergence)
+- Pacing and language patterns
+- Metaphor/imagery techniques for abstract concepts
+- Methods for personalization based on user context
+
+---
+
+### 2. Prepare script content
+
+**A. Identify key concepts to integrate**
+From Step 4 learning session:
+- 3-5 most important concepts learned
+- How they connect to each other
+- How they relate to user's specific goal/problem
+
+**B. Select appropriate metaphors and imagery**
+Based on:
+- User's background (use familiar domains for analogies)
+- Nature of concepts (abstract vs. concrete)
+- User's learning goal (problem-solving, exploration, etc.)
+
+**Technical concepts need accessible metaphors:**
+- Complex algorithms → natural processes or familiar systems
+- Mathematical relationships → spatial or physical analogies
+- Abstract principles → concrete scenarios from user's domain
+
+---
+
+### 3. Generate the guided visualization script
+
+Create a complete script with these sections:
+
+#### Section 1: Induction (2-3 minutes)
+- Welcome and settling in
+- Breathing and relaxation instructions
+- Focus and receptivity preparation
+
+**Key elements:**
+- Gentle, calming language
+- Progressive relaxation (body scan or breathing)
+- Set intention for integration of learning
+
+#### Section 2: Learning Integration (8-10 minutes)
+- Review key concepts using visualization and metaphor
+- Create mental imagery that represents the concepts
+- Connect concepts to user's specific context/problem
+- Deepen understanding through multi-sensory engagement
+
+**For each key concept:**
+- State the concept clearly
+- Provide visual/spatial metaphor
+- Connect to user's goal
+- Allow time for mental processing (pauses)
+
+**Personalization:**
+- Reference user's specific problem/goal explicitly
+- Use imagery from user's domain when possible
+- Connect abstract concepts to their concrete applications
+
+#### Section 3: Future Application (2-3 minutes)
+- Visualization of successfully applying these concepts
+- Rehearsal of using knowledge in user's context
+- Positive suggestions for retention and recall
+- Confidence building for implementation
+
+**Key elements:**
+- "See yourself successfully using [concept] to [their goal]..."
+- "Notice how easily you can recall this understanding when needed..."
+- "Feel confident in your ability to apply these insights..."
+
+#### Section 4: Emergence (1-2 minutes)
+- Gradual return to alert state
+- Integration affirmation
+- Positive closure
+
+**Key elements:**
+- Count-up or gentle emergence technique
+- Feeling refreshed and energized
+- Knowledge accessible and integrated
+
+---
+
+### 4. Format the script properly
+
+**Script formatting guidelines:**
+
+**Voice/Pacing Cues:**
+- [PAUSE 5 seconds] - for reflection points
+- [Speak slowly] - for induction and deepening
+- [Normal pace] - for content delivery
+- [Gentle tone] - for relaxation
+- [Confident tone] - for suggestions
+
+**Content Structure:**
+- Clear section markers
+- Pacing instructions for audio conversion
+- Estimated timing for each section
+- Total duration: 15-20 minutes
+
+---
+
+### 5. Present the script to user
+
+Brief introduction:
+
+"I've created a personalized guided visualization script to help you integrate today's learning at a deeper level. This script:
+
+- Incorporates the key concepts we covered: [list 3-5 concepts]
+- Uses metaphors and imagery tailored to your background
+- Connects the learning to your specific goal: [their goal]
+- Takes approximately 15-20 minutes when recorded as audio
+
+**How to use this script:**
+
+1. **For now:** Review the script text to see how it integrates today's learning
+2. **Next step (outside this session):** Convert the script to audio using text-to-speech tools (e.g., ElevenLabs, Google TTS, etc.)
+3. **Regular practice:** Listen to the audio in a quiet space, ideally within 24-48 hours of this session and then periodically to reinforce learning
+
+I'll save this script for you now. Would you like to review it before we move to the reflection phase?"
+
+If user wants to review, show key excerpts. If not, proceed to saving.
+
+---
+
+## Output Requirements
+
+**File:** `your_workspace/data/sessions/session_[timestamp]_visualization_script.txt`
+
+**Format:**
+```
+MITHRA GUIDED VISUALIZATION SCRIPT
+Personalized for: [User Name/Role]
+Source Material: [Title]
+Learning Goal: [User's specific goal]
+Duration: 15-20 minutes
+Date Created: [YYYY-MM-DD]
+
+===============================================
+
+SECTION 1: INDUCTION (2-3 minutes)
+[Speak slowly and gently]
+
+[Full induction script with pacing cues]
+
+[PAUSE 10 seconds]
+
+===============================================
+
+SECTION 2: LEARNING INTEGRATION (8-10 minutes)
+[Normal pace, confident tone]
+
+Key Concept 1: [Concept Name]
+[Visualization and metaphor script]
+
+[PAUSE 5 seconds]
+
+Key Concept 2: [Concept Name]
+[Visualization and metaphor script]
+
+[PAUSE 5 seconds]
+
+[Continue for all key concepts]
+
+Connecting to Your Goal: [User's specific goal]
+[Integration script linking concepts to their context]
+
+===============================================
+
+SECTION 3: FUTURE APPLICATION (2-3 minutes)
+[Confident, encouraging tone]
+
+[Rehearsal and positive suggestions script]
+
+===============================================
+
+SECTION 4: EMERGENCE (1-2 minutes)
+[Gentle, uplifting tone]
+
+[Emergence script with count-up]
+
+===============================================
+
+AUDIO CONVERSION NOTES:
+- Recommended voice: [Calm, clear, professional tone]
+- Pacing: Slower than normal conversation
+- Honor all [PAUSE] markers with silence
+- Total recorded length: 15-20 minutes
+
+===============================================
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Query the RAG corpus for hypnosis/visualization best practices (don't guess)
+- If RAG is not yet implemented, state that you're using general visualization principles
+- The script must be personalized - include user's specific goal and context explicitly
+- Use appropriate metaphors for technical concepts (make abstract ideas concrete)
+- Pacing cues are essential for audio conversion
+- The script should feel professionally crafted, not generic
+- Maintain ethical standards: no manipulative language, only supportive learning integration
+- After generating and presenting the script, proceed immediately to step6_script_delivery
+- Save the script file for user download

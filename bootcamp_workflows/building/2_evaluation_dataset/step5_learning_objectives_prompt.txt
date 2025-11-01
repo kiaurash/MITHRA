@@ -1,0 +1,246 @@
+## Goal: Articulate what each test group should teach about workflow behavior and quality patterns
+
+Your task is to help the participant define clear learning objectives for each test group, connecting systematic testing to actionable design insights and workflow improvements.
+
+---
+
+## Phase 1: Learning Objectives Framework
+
+**Explain the purpose:**
+"We've designed test cases to detect your priority risks. Now we need to be explicit about what we're trying to learn from each group of test cases. This turns testing from 'run and see what happens' into 'run and answer specific questions about workflow behavior.'
+
+Good learning objectives help you:
+- Know what to look for in the outputs
+- Recognize patterns across multiple test runs
+- Connect test results to actionable improvements
+- Understand when you've learned enough vs when you need more data"
+
+**Learning objective categories:**
+For each test group (organized by risk), we want to understand:
+1. **Behavioral Patterns**: How does the workflow behave under these conditions?
+2. **Quality Boundaries**: What are the limits of acceptable performance?
+3. **Failure Modes**: What specific ways does it fail, and how often?
+4. **Improvement Insights**: What could we change to address issues we find?
+
+---
+
+## Phase 2: Risk-Specific Learning Objectives
+
+**For each priority risk, define learning objectives:**
+
+Read the test cases from `your_workspace/reports/evaluation_design_report.md` and work through each risk:
+
+### Risk 1: [Risk Name]
+
+**Ask guiding questions:**
+"For [Risk 1], you've created [X] test cases. Let's think about what we want to learn:
+
+**Behavioral Questions:**
+- How does your workflow behave when [risk scenario occurs]?
+- Are there patterns in how it handles [specific challenging dimension]?
+- Does performance degrade gradually or suddenly under stress?
+
+**Quality Boundary Questions:**
+- At what point does quality become unacceptable for this risk?
+- How much variability in [quality dimension] is tolerable?
+- What distinguishes 'good enough' from 'excellent' for this risk area?
+
+**Failure Mode Questions:**
+- What are the specific ways the workflow fails when [risk occurs]?
+- Are failures predictable or random?
+- Do failures follow patterns that suggest root causes?
+
+**Improvement Questions:**
+- If testing reveals this risk is real, what could you adjust?
+- Which part of your workflow (prompts, logic, structure) would need refinement?
+- What would you need to learn more about to address this risk?"
+
+**Synthesize into learning objectives:**
+"Based on your answers, here are the learning objectives for [Risk 1] test cases:
+
+1. **Understand [specific behavioral pattern]**: [What behavior pattern you want to understand]
+2. **Define quality boundaries for [dimension]**: [What quality thresholds you need to establish]
+3. **Identify failure modes when [condition]**: [What failure patterns to look for]
+4. **Determine improvement approach for [aspect]**: [What improvement insights you need]"
+
+### Repeat for each priority risk
+
+---
+
+## Phase 3: Cross-Risk Learning Objectives
+
+**Identify learning objectives that span multiple risks:**
+
+"Some learning objectives apply across your test suite:
+
+**Overall Workflow Understanding:**
+- How consistent is your workflow's performance across different types of challenges?
+- Are there input characteristics that predict quality issues across multiple risk areas?
+- What is the overall reliability/confidence level you can have in this workflow?
+
+**Systematic Improvement Insights:**
+- Which types of improvements (prompt refinement, logic changes, scope adjustments) have the biggest impact?
+- Are there patterns in what your workflow handles well vs poorly?
+- What would you prioritize for the next iteration of workflow development?"
+
+**Meta-Learning Objectives:**
+- How effective is your evaluation methodology itself?
+- What additional test cases would strengthen your evaluation?
+- What quality dimensions might you have missed?"
+
+---
+
+## Phase 4: Success Metrics and Measurement Approach
+
+**For each learning objective, define how you'll measure progress:**
+
+"For each learning objective, let's define what 'learned enough' looks like:
+
+### Measurement Approaches:
+
+**For Behavioral Pattern Objectives:**
+- What patterns will you track across test runs?
+- How many examples do you need to see a reliable pattern?
+- What would indicate the pattern is consistent vs variable?
+
+**For Quality Boundary Objectives:**
+- How will you measure quality for this dimension?
+- What scale or criteria will you use?
+- What sample size do you need to establish reliable boundaries?
+
+**For Failure Mode Objectives:**
+- How will you categorize different types of failures?
+- What frequency of failure is acceptable vs concerning?
+- What level of detail do you need about root causes?
+
+**For Improvement Insight Objectives:**
+- What level of specificity do you need for actionable insights?
+- How will you prioritize multiple potential improvements?
+- What would indicate you're ready to make changes vs need more testing?"
+
+---
+
+## Phase 5: Learning Plan Integration
+
+**Connect learning objectives to their bootcamp timeline:**
+
+"Let's make sure your learning objectives fit your bootcamp context:
+
+**Sprint Alignment:**
+- Which learning objectives are critical for your current sprint goals?
+- Which insights do you need before your next demo/deliverable?
+- What can be learned incrementally over time vs needs immediate answers?
+
+**Resource Planning:**
+- How much time should you spend on each learning objective?
+- Which objectives require deep analysis vs quick pattern recognition?
+- What's the minimum learning needed to make progress vs ideal complete understanding?
+
+**Iteration Planning:**
+- Which learning objectives will inform your next workflow iteration?
+- What insights would trigger major changes vs minor refinements?
+- How will you track learning progress over multiple testing cycles?"
+
+---
+
+## Phase 6: Documentation
+
+**Update the evaluation design report:**
+Add to `your_workspace/reports/evaluation_design_report.md`:
+
+```markdown
+
+## Learning Objectives
+
+### Purpose:
+Transform systematic testing into targeted learning about workflow behavior, quality boundaries, and improvement opportunities.
+
+### Risk-Specific Learning Objectives:
+
+#### Risk 1: [Risk Name]
+**Test Cases**: [List of test case IDs for this risk]
+**Learning Objectives**:
+1. **Behavioral Pattern**: Understand how the workflow handles [specific scenario]
+   - **What to observe**: [Specific behaviors to track]
+   - **Success metric**: [How to measure pattern understanding]
+
+2. **Quality Boundary**: Define acceptable performance thresholds for [dimension]
+   - **What to measure**: [Specific quality measures]
+   - **Success metric**: [How to establish reliable boundaries]
+
+3. **Failure Mode**: Identify specific failure patterns when [condition]
+   - **What to categorize**: [Types of failures to track]
+   - **Success metric**: [Understanding of failure predictability]
+
+4. **Improvement Insight**: Determine what to adjust if issues are found
+   - **What to analyze**: [Root cause patterns]
+   - **Success metric**: [Specificity of actionable recommendations]
+
+[Repeat for each priority risk...]
+
+### Cross-Risk Learning Objectives:
+
+#### Overall Workflow Reliability
+- **Objective**: Understand consistency of performance across different challenge types
+- **Measurement**: [How to assess overall reliability]
+- **Success Criteria**: [What indicates sufficient reliability understanding]
+
+#### Systematic Improvement Patterns
+- **Objective**: Identify which improvement approaches are most effective
+- **Measurement**: [How to prioritize improvements]
+- **Success Criteria**: [Clear improvement prioritization]
+
+#### Evaluation Methodology Refinement
+- **Objective**: Assess and improve the evaluation approach itself
+- **Measurement**: [How to evaluate evaluation effectiveness]
+- **Success Criteria**: [Confidence in evaluation completeness]
+
+### Learning Plan:
+
+#### Sprint Priority Learning:
+- [Learning objectives critical for current sprint]
+- [Insights needed before next deliverable]
+
+#### Resource Allocation:
+- **High Priority**: [Learning objectives requiring most attention]
+- **Medium Priority**: [Important but not time-critical]
+- **Continuous**: [Objectives to track over time]
+
+#### Iteration Triggers:
+- **Major Changes**: Learning that would trigger significant workflow revision
+- **Minor Refinements**: Learning that suggests small adjustments
+- **Documentation**: Learning to capture as known limitations
+
+### Next Steps:
+Ready to create structured measurement artifacts (CSV matrix + usage guide) that operationalize these learning objectives.
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Make learning explicit** - Don't let them just "run tests and see what happens"
+- **Connect to actionability** - Each objective should lead to potential improvements
+- **Be specific about measurement** - Define what "learned enough" means for each objective
+- **Align with bootcamp context** - Consider their sprint timeline and constraints
+- **Balance depth with practicality** - Some objectives need deep analysis, others just pattern recognition
+- **Prepare for iteration** - Learning objectives should inform next workflow iteration
+- **Document reasoning** - Capture why each learning objective matters for their specific situation
+
+The goal is to move from "I'll test these cases and see what happens" to "I have specific questions about workflow behavior that these test groups will answer, and I know how to recognize when I've learned enough to make informed improvements."
+
+---
+
+## Phase 7: Activity Logging
+
+**Log completion to activity log:**
+After completing this step, append to `your_workspace/logs/activity_log.csv`:
+
+```csv
+[current timestamp],evaluation_dataset_workflow,step5_complete,Learning objectives defined for all test groups
+```
+
+Use this bash command:
+```bash
+echo "$(date '+%Y-%m-%d %H:%M:%S'),evaluation_dataset_workflow,step5_complete,Learning objectives defined for all test groups" >> your_workspace/logs/activity_log.csv
+```

@@ -1,0 +1,265 @@
+---
+name: BehaviorShift Complete Learning Experience Workflow
+description: End-to-end pipeline from topic input to personalized multi-modal learning experience (lesson plans, narrative, newsletter, guided audio)
+initial_state: step0_user_context_ingestion
+
+states:
+  # ============================================================================
+  # SPRINT 1: The Core Knowledge and Curriculum Engine
+  # ============================================================================
+
+  step0_user_context_ingestion:
+    description: |
+      Goal: Capture user input including topic, personal context, and style preferences
+      Input: User interaction via Streamlit UI (control panel)
+      Output: Structured input data containing {Topic}, user context, style preferences, philosophical preferences
+      Implementation: Streamlit UI form with fields for topic, context, and preferences
+    prompt_file: "step0_user_context_ingestion_prompt.txt"
+    on_success: step1_knowledge_synthesis
+
+  step1_knowledge_synthesis:
+    description: |
+      Goal: Synthesize relevant knowledge from internal corpus and external research
+      Input: Topic and context from Step 0
+      Output: Research article combining RAG results and deep research findings
+      Implementation:
+        - RAG agent queries local Vector DB with curated relationship content
+        - Deep Research agent searches curated list of high-quality websites
+        - Combine and synthesize findings into coherent research article
+    prompt_file: "step1_knowledge_synthesis_prompt.txt"
+    on_success: gate1_groundedness_judge
+
+  gate1_groundedness_judge:
+    description: |
+      Goal: Validate research output for groundedness and relevance
+      Input: Research article from Step 1
+      Output: Pass/Fail status with reasoning (displayed in UI)
+      Implementation: LLM-as-a-Judge evaluates:
+        - Groundedness: Claims supported by sources
+        - Relevance: Content addresses the input topic
+        - Quality: Information is coherent and useful
+      Decision: If Pass -> proceed to step2, If Fail -> return to step1 with feedback
+    prompt_file: "gate1_groundedness_judge_prompt.txt"
+    on_success: step2_curriculum_architecture
+    on_failure: step1_knowledge_synthesis
+
+  step2_curriculum_architecture:
+    description: |
+      Goal: Transform validated research into structured learning objectives and lesson plans
+      Input: Validated research article from Gate 1
+      Output: Structured lesson plan with:
+        - Clear learning objectives
+        - Lesson structure and flow
+        - Key concepts and teaching points
+        - Practice activities aligned with objectives
+      Format: JSON or structured text output
+      Sprint 1 Deliverable: Functional application outputs structured, validated lesson plan
+    prompt_file: "step2_curriculum_architecture_prompt.txt"
+    on_success: step3_illustrative_story_finding
+
+  # ============================================================================
+  # SPRINT 2: Weaving the Narrative Core
+  # ============================================================================
+
+  step3_illustrative_story_finding:
+    description: |
+      Goal: Find relevant teaching stories that illustrate the learning objectives
+      Input: Learning objectives from Step 2, user's philosophical preferences from Step 0
+      Output: Curated collection of teaching stories from Vector DB
+      Implementation: Query dedicated "teaching stories" collection in Vector DB
+    prompt_file: "step3_illustrative_story_finding_prompt.txt"
+    on_success: gate2_narrative_relevance_judge
+
+  gate2_narrative_relevance_judge:
+    description: |
+      Goal: Validate that teaching stories are thematically appropriate for lessons
+      Input: Teaching stories from Step 3, Learning objectives from Step 2
+      Output: Pass/Fail status with reasoning
+      Implementation: LLM-as-a-Judge evaluates:
+        - Thematic alignment with learning objectives
+        - Relevance to lesson content
+        - Prevention of narrative non-sequiturs
+      Decision: If Pass -> proceed to step5, If Fail -> return to step3 with feedback
+    prompt_file: "gate2_narrative_relevance_judge_prompt.txt"
+    on_success: step5_narrative_weaving
+    on_failure: step3_illustrative_story_finding
+
+  step5_narrative_weaving:
+    description: |
+      Goal: Construct overarching Arch Story connecting all learning modules
+      Input: Validated teaching stories from Gate 2, Lesson plan structure from Step 2
+      Output: Complete narrative arc that weaves together all learning modules
+      Implementation: Use classic storytelling structures via prompt engineering
+      Sprint 2 Deliverable: Lesson plan augmented with relevant stories and cohesive narrative
+    prompt_file: "step5_narrative_weaving_prompt.txt"
+    on_success: step6_content_repurposing
+
+  # ============================================================================
+  # SPRINT 3: Multi-Modal and Therapeutic Delivery
+  # ============================================================================
+
+  step6_content_repurposing:
+    description: |
+      Goal: Create engaging newsletter article from educational and narrative content
+      Input: Lesson plan (Step 2), Learning objectives (Step 2), Arch Story (Step 5)
+      Output: Well-formatted, shareable newsletter article
+      Implementation: Synthesize content into engaging written format
+    prompt_file: "step6_content_repurposing_prompt.txt"
+    on_success: step8_personalized_therapeutic_scripting
+
+  step8_personalized_therapeutic_scripting:
+    description: |
+      Goal: Generate personalized hypnosis/meditation script with voice AI cues
+      Input: User context from Step 0, complete learning content from previous steps
+      Output: Personalized therapeutic script with embedded SSML tags for voice synthesis
+      Implementation: Integrate user context and embed technical voice AI cues
+    prompt_file: "step8_personalized_therapeutic_scripting_prompt.txt"
+    on_success: gate3_therapeutic_safety_judge
+
+  gate3_therapeutic_safety_judge:
+    description: |
+      Goal: CRITICAL SAFETY CHECK - Validate therapeutic content is safe and appropriate
+      Input: Therapeutic script from Step 8
+      Output: Pass/Fail status with reasoning (WORKFLOW HALTS ON FAILURE)
+      Implementation: LLM-as-a-Judge evaluates:
+        - Safety: No harmful suggestions or triggering content
+        - Appropriateness: Content suitable for therapeutic context
+        - Ethics: Follows therapeutic best practices
+      Decision: If Pass -> proceed to step9, If Fail -> HALT for human review (CRITICAL)
+      Note: This is the most important quality gate in the entire workflow
+    prompt_file: "gate3_therapeutic_safety_judge_prompt.txt"
+    on_success: step9_voice_synthesis
+    on_failure: human_review_required
+
+  step9_voice_synthesis:
+    description: |
+      Goal: Generate audio file from safety-validated therapeutic script
+      Input: Safety-validated script from Gate 3
+      Output: Ready-to-play guided audio session file
+      Implementation:
+        - Integrate with third-party voice API (e.g., ElevenLabs)
+        - Send script to API and save returned audio file
+        - Display embedded audio player in UI for review
+      Sprint 3 Deliverable: Complete end-to-end prototype with all outputs
+    prompt_file: "step9_voice_synthesis_prompt.txt"
+    on_success: done
+
+  human_review_required:
+    description: |
+      CRITICAL GATE FAILURE: Therapeutic safety check did not pass.
+      Action Required: Human review before proceeding.
+      Workflow halted pending manual approval.
+    prompt_file: "human_review_required_prompt.txt"
+    on_success: done
+
+  done:
+    description: "Complete learning experience generated. Deliverables: structured lesson plan, narrative arc, newsletter article, and guided audio session."
+---
+
+## Sprint Breakdown and Deliverables
+
+### Sprint 1: The Core Knowledge and Curriculum Engine
+**Sprint Goal**: Build the foundational pipeline that can ingest a user's request and generate a structured, high-quality, and personalized educational plan.
+
+**User Story**: As an internal user, I want to input a relationship topic and my personal context, and receive a well-researched, validated set of learning objectives and lesson plans.
+
+**Components**:
+- **Step 0: User Context Ingestion**
+  - Streamlit UI control panel
+  - Inputs: Topic, user context, style preferences
+
+- **Step 1: Knowledge Synthesis**
+  - RAG agent + Deep Research agent
+  - Data sources: Local Vector DB + curated websites
+
+- **Gate 1: Groundedness & Relevance Judge**
+  - LLM-as-a-Judge validation
+  - UI displays Pass/Fail with reasoning
+
+- **Step 2: Curriculum Architecture**
+  - Structures research into learning objectives and lesson plans
+  - Output: JSON or text format
+
+**✅ Sprint 1 Deliverable**: A functional application where a team member can enter a topic and receive a structured, validated lesson plan as a JSON or text output.
+
+---
+
+### Sprint 2: Weaving the Narrative Core
+**Sprint Goal**: Enrich the logical curriculum from Sprint 1 with emotionally resonant stories, creating a cohesive and engaging narrative journey.
+
+**User Story**: As an internal user, I want the system to automatically find relevant teaching stories for each lesson and weave them into a single, compelling narrative arc.
+
+**Components**:
+- **Step 3: Illustrative Story Finding**
+  - Query dedicated Vector DB collection for teaching stories
+  - Based on learning objectives and philosophical preferences
+
+- **Gate 2: Narrative Relevance Judge**
+  - LLM-as-a-Judge ensures thematic appropriateness
+  - Prevents narrative non-sequiturs
+
+- **Step 5: Narrative Weaving (Arch Story)**
+  - Constructs overarching narrative arc
+  - Uses classic storytelling structures via prompt engineering
+
+**✅ Sprint 2 Deliverable**: The application now augments the Sprint 1 output with a set of relevant stories and a complete narrative that connects all the learning modules for a given topic.
+
+---
+
+### Sprint 3: Multi-Modal and Therapeutic Delivery
+**Sprint Goal**: Transform the educational and narrative content into its final, deliverable formats: a written article and a personalized, safe, guided audio experience.
+
+**User Story**: As an internal user, I want the system to generate a shareable newsletter and a safe, high-quality guided hypnosis audio file based on the completed learning module.
+
+**Components**:
+- **Step 6: Content Repurposing (Newsletter)**
+  - Synthesizes lesson plan, objectives, and arch story
+  - Output: Well-formatted, engaging newsletter article
+
+- **Step 8: Personalized Therapeutic Scripting**
+  - Creates personalized hypnosis/meditation script
+  - Integrates user context and SSML tags for voice AI
+
+- **Gate 3: Therapeutic Safety Judge (CRITICAL)**
+  - Essential safety-checking LLM agent
+  - Workflow HALTS on failure, pending human review
+  - Most important quality gate in the entire process
+
+- **Step 9: Voice Synthesis**
+  - Integration with third-party voice API (ElevenLabs)
+  - Generates audio file from safety-validated script
+  - UI includes embedded audio player for review
+
+**✅ Sprint 3 Deliverable**: A complete, end-to-end prototype. The user can input a topic and receive a structured lesson plan, a narrative arc, an email newsletter, and a ready-to-play guided audio session.
+
+---
+
+## Implementation Roadmap
+
+### Week 1-2 (Sprint 1):
+1. Set up Streamlit UI (Step 0)
+2. Implement RAG agent with local Vector DB
+3. Implement Deep Research agent with curated websites
+4. Build Gate 1 LLM-as-a-Judge
+5. Create curriculum architecture agent
+6. Test and validate end-to-end Sprint 1 pipeline
+
+### Week 3-4 (Sprint 2):
+1. Create teaching stories collection in Vector DB
+2. Build illustrative story finding agent (Step 3)
+3. Implement Gate 2 narrative relevance judge
+4. Develop narrative weaving agent with storytelling structures
+5. Test story integration and narrative coherence
+
+### Week 5-6 (Sprint 3):
+1. Build newsletter generation agent (Step 6)
+2. Develop therapeutic scripting agent with SSML integration (Step 8)
+3. Implement Gate 3 safety judge (CRITICAL)
+4. Integrate voice synthesis API (ElevenLabs)
+5. Add audio player to UI
+6. End-to-end testing with focus on safety validation
+
+### Week 7 (Final Demo):
+- Polish UI/UX
+- Prepare demo showcasing complete pipeline
+- Document known limitations and future enhancements

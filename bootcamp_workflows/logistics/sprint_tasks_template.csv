@@ -15,3 +15,7 @@ share_profile,1,Share participant_profile.md on Slack with cohort,backlog,2025-1
 share_project,1,Share problem_definition.md on Slack with cohort,backlog,2025-10-24,building/1_ideation,
 book_mentor,1,Book first mentorship call,backlog,2025-10-24,logistics/program_information,
 test_workflow,1,Test the generated YAML workflow,backlog,2025-10-27,building/1_ideation/step6,
+eval_progress,1,Assess current evaluation progress and context,backlog,2025-10-27,building/2_evaluation_dataset/step1,your_workspace/reports/evaluation_design_report.md
+eval_risks,1,Generate and prioritize quality risks for workflow,backlog,2025-10-28,building/2_evaluation_dataset/step2-3,your_workspace/reports/evaluation_design_report.md
+eval_testcases,2,Design systematic test cases targeting priority risks,backlog,2025-10-31,building/2_evaluation_dataset/step4-5,your_workspace/reports/evaluation_design_report.md
+eval_artifacts,2,Create evaluation measurement artifacts and usage guide,backlog,2025-10-31,building/2_evaluation_dataset/step6,your_workspace/data/evaluations_data.csv

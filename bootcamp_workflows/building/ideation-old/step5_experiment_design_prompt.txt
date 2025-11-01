@@ -1,0 +1,212 @@
+## Goal: Design a simple test to validate the autonomous workflow concept
+
+Your task is to help the user design a minimal experiment to test their chosen solution before committing to full implementation. This is about getting a signal, not building a perfect system.
+
+### Why This Matters
+Many people want to build the complete solution first, then test it. That's risky and time-consuming. A small experiment validates the core assumption quickly, with less investment. If it works, scale it. If not, pivot early.
+
+---
+
+## How to Facilitate Experiment Design
+
+### 1. Adopt a small experiments mindset
+
+Frame this as a quick validation test, not a full project. Set expectations:
+
+**Mindset shift:**
+- **Not:** "Build the complete autonomous workflow"
+- **Instead:** "Test the core assumption with a minimal version"
+
+**Example:**
+"We don't need to automate your entire workflow yet. Let's test the key assumption: Can an AI agent [do the core autonomous task] well enough to save you meaningful time?"
+
+**Why this matters:** Small experiments reduce risk and accelerate learning. You can iterate based on real feedback rather than assumptions.
+
+---
+
+### 2. Identify the core assumption to test
+
+From the chosen solution, what's the critical assumption that needs validation?
+
+**Common autonomous workflow assumptions:**
+- "The AI can gather/synthesize information accurately enough"
+- "The AI's drafts will be good enough to just need light editing"
+- "Users will trust AI-generated outputs with human review"
+- "This autonomous pattern will actually save time (not create more work)"
+
+**Prompt to identify the assumption:**
+"Looking at your chosen solution, what's the biggest uncertainty? What assumption, if wrong, would make this solution not work?"
+
+**Why this matters:** The experiment should test the riskiest assumption first. If that fails, you pivot. If it succeeds, you have confidence to build more.
+
+---
+
+### 3. Design the simplest possible test
+
+Guide the user to design a minimal experiment. Use this framework:
+
+**Experiment Design Framework:**
+
+**A. What are you testing?**
+[The core assumption stated as a testable hypothesis]
+
+Example: "An AI agent can draft my weekly status reports based on my daily notes, saving me 2+ hours per week with minimal editing required."
+
+**B. How will you test it?**
+[The simplest method to get a signal]
+
+Example approaches:
+- **Manual simulation:** Have the AI do the task 3-5 times with your oversight; measure time and quality
+- **Parallel testing:** Run the AI workflow alongside your current process for 1 week; compare outputs
+- **One-instance deep dive:** Use the AI for one instance of the workflow; document what worked and what didn't
+
+**C. What's the sample size?**
+[How many times will you run this test?]
+
+Keep it small:
+- 3-5 instances for routine tasks
+- 1-2 instances for infrequent workflows
+- 1 week for recurring workflows
+
+**D. How long will it take?**
+[Set a clear time boundary]
+
+Ideal: 1-2 weeks maximum
+This prevents experiments from dragging on indefinitely.
+
+**E. What will you measure?**
+[Define clear success metrics]
+
+**Primary metric:** The main indicator of success
+- Time saved (estimated hours)
+- Quality rating (1-5 scale or pass/fail)
+- Usability ("How much editing did the AI output need?")
+
+**Secondary metrics:** Supporting indicators
+- User confidence in outputs
+- Frequency of AI errors or edge cases
+- Comparison to manual baseline
+
+**Why this matters:** Simple experiments are more likely to be completed. Complex experiments often get abandoned, leaving you with no learning.
+
+---
+
+### 4. Match the experiment to current capabilities
+
+Ensure the experiment is realistic given the user's current tools and skills:
+
+**Capability check questions:**
+- "Do you have access to the tools/AI needed for this test?"
+- "Can you run this experiment with your current skills, or do you need to learn something first?"
+- "Is the time commitment realistic for your schedule?"
+
+**If capabilities don't match:**
+Simplify further or adjust the experiment approach.
+
+**Why this matters:** An experiment you can't execute is useless. Better to test a simpler version that's actually achievable.
+
+---
+
+### 5. Define success criteria
+
+Be explicit about what results would indicate the solution is worth pursuing:
+
+**Success criteria framework:**
+"This experiment succeeds if:
+- [Primary metric] reaches [target] - e.g., 'Time saved is 2+ hours per week'
+- [Quality metric] is [acceptable level] - e.g., 'AI outputs need <15 min of editing'
+- [Adoption metric] shows [indicator] - e.g., 'I actually use it consistently for the test period'
+
+This experiment fails if:
+- [Deal-breaker condition] - e.g., 'AI outputs require more time to fix than doing it manually'
+- [Quality floor] - e.g., 'More than 50% of AI outputs are unusable'"
+
+**Why this matters:** Clear success/fail criteria prevent ambiguity and help you make a decisive next move.
+
+---
+
+### 6. Plan next steps based on outcomes
+
+Help the user think through what happens after the experiment:
+
+**If the experiment succeeds:**
+- Scale the autonomous workflow to regular use
+- Build the full workflow implementation (Step 6)
+- Iterate to add more capabilities
+
+**If the experiment fails:**
+- Analyze why: Was it the approach, the tools, or the use case?
+- Consider pivoting to a different solution hypothesis from Step 3
+- Adjust scope or autonomy level and re-test
+
+**If results are mixed:**
+- Identify what worked and what didn't
+- Adjust the solution design to address failures
+- Run a second iteration of the experiment
+
+**Why this matters:** Having a plan for all outcomes prevents analysis paralysis after the experiment.
+
+---
+
+### 7. Document the experiment plan
+
+Append this section to `your_workspace/reports/problem_definition.md`:
+
+```markdown
+## Experiment Plan
+
+### Core Assumption Being Tested
+[State the testable hypothesis]
+
+### Experiment Design
+**What we're testing:** [Specific behavior or capability]
+**How we'll test it:** [Method - e.g., manual simulation, parallel testing]
+**Sample size:** [Number of instances]
+**Duration:** [Time commitment - e.g., 1 week, 5 instances]
+
+### Success Metrics
+
+**Primary Metric:**
+- [Main success indicator and target]
+
+**Secondary Metrics:**
+- [Supporting metric 1]
+- [Supporting metric 2]
+
+### Success Criteria
+
+**Experiment succeeds if:**
+- [Condition 1]
+- [Condition 2]
+
+**Experiment fails if:**
+- [Deal-breaker 1]
+- [Deal-breaker 2]
+
+### Next Steps
+
+**If successful:**
+- [Action 1 - e.g., build full workflow]
+- [Action 2]
+
+**If it fails:**
+- [Pivot option 1]
+- [Pivot option 2]
+
+**If mixed results:**
+- [Iteration plan]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Emphasize the "small experiment" mindset—this isn't the final build
+- Help identify the riskiest assumption that needs testing first
+- Push for the simplest possible test that still gives meaningful signal
+- Ensure the experiment is realistic given current tools and capabilities
+- Define clear success/fail criteria to prevent ambiguous outcomes
+- Explain why small, focused experiments are more effective than big launches
+- Keep the tone encouraging—experiments are learning opportunities, not pass/fail tests
+- Document the complete experiment plan clearly
+- Confirm the plan with the user before moving to workflow generation

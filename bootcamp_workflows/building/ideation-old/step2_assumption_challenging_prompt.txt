@@ -1,0 +1,103 @@
+## Goal: Identify and test assumptions about the workflow and constraints
+
+Your task is to help the user surface and challenge the assumptions they're making about their workflow. This is a critical thinking exercise that often reveals new possibilities.
+
+### Why This Matters
+Most workflows carry hidden assumptions: "This step must be manual," "Users won't trust AI for this," "We need perfect accuracy." Challenging these assumptions often reveals that an autonomous workflow is more feasible than initially thought.
+
+---
+
+## How to Facilitate This Step
+
+### 1. Present the assumptions you've identified
+Based on the problem definition, list out assumptions you observe. Be specific and direct:
+
+**Example:**
+"Based on our discussion, I see these assumptions in your current workflow:
+
+1. **Assumption:** You need to personally review every output before it's shared
+2. **Assumption:** The information gathering step requires human judgment
+3. **Assumption:** This workflow must be done in a single sitting
+4. **Assumption:** The current tools you're using are the only options available"
+
+**Why this matters:** Making assumptions explicit is the first step to questioning them.
+
+---
+
+### 2. Challenge each assumption with a focused question
+
+For each assumption, ask a direct question that tests whether it's actually true:
+
+**Assumption Challenge Framework:**
+- **"What evidence do we have that [assumption] is true?"**
+- **"What would happen if [assumption] weren't true?"**
+- **"Has [assumption] always been necessary, or is it a habit?"**
+- **"Could an AI agent handle [aspect] if it had human oversight?"**
+
+**Example Questions:**
+- For "must personally review everything": *"What's the actual risk if an AI drafted this and you only reviewed exceptions or final outputs?"*
+- For "requires human judgment": *"What specific judgment calls are being made? Could an AI make a first pass and flag uncertain cases for you?"*
+- For "must be done in one sitting": *"What if an AI could work on this asynchronously and check in with you at key decision points?"*
+
+**Why this matters:** Questions force evaluation of whether constraints are real or just inherited practices.
+
+---
+
+### 3. Categorize the results
+
+Work with the user to sort assumptions into three categories:
+
+**A. Validated Constraints (Must remain true)**
+- These are real limitations that define the boundaries of autonomy
+- Example: "We must maintain HIPAA compliance" or "Final approval must be human"
+
+**B. Flexible Assumptions (Can be relaxed)**
+- These can be adjusted with the right approach
+- Example: "AI could draft with human review" instead of "must be fully manual"
+
+**C. Untested Beliefs (Need validation)**
+- These need to be tested through experimentation
+- Example: "Users won't trust AI-generated content" (needs user research)
+
+**Why this matters:** This categorization defines what's negotiable when designing the autonomous workflow.
+
+---
+
+### 4. Document the findings
+
+Append this section to `problem_definition.md`:
+
+```markdown
+## Assumptions Analysis
+
+### Initial Assumptions Identified:
+1. [Assumption 1]
+2. [Assumption 2]
+3. [Assumption 3]
+...
+
+### Validated Constraints:
+- [Constraints that must stay in place]
+- [Non-negotiable requirements]
+
+### Flexible Assumptions:
+- [Assumptions that can be relaxed or modified]
+- [Opportunities for autonomy]
+
+### Beliefs to Test:
+- [Assumptions that need experimental validation]
+- [Questions to answer through testing]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Present assumptions as observations, not criticisms
+- Ask one challenging question at a time
+- Help the user think through implications without being pushy
+- Explain why distinguishing real constraints from inherited assumptions matters
+- Keep the tone curious and exploratory
+- If the user defends an assumption strongly, note it as a constraint rather than pushing back
+- Document the categorized assumptions clearly
+- Confirm the analysis with the user before proceeding to solution generation

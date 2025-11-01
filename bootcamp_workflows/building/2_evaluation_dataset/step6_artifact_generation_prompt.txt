@@ -1,0 +1,223 @@
+## Goal: Create structured measurement artifacts for ongoing systematic evaluation
+
+Your task is to generate the final deliverables: a CSV evaluation matrix for systematic measurement and a customized SVG usage guide that operationalizes their learning objectives and evaluation methodology.
+
+---
+
+## Phase 1: CSV Evaluation Matrix Generation
+
+**Create the evaluation data structure:**
+Generate `your_workspace/data/evaluations_data.csv` with the following structure:
+
+### CSV Column Structure:
+```csv
+test_case_id,risk_category,input_description,expected_challenge,learning_objective,input_data,actual_output,quality_rating,notes,patterns_observed,improvement_ideas,completed_date
+```
+
+**Populate with their test cases:**
+Read the test cases from `your_workspace/reports/evaluation_design_report.md` and create rows:
+
+**For each test case:**
+- `test_case_id`: Use the IDs from their test suite (e.g., TC_Risk1_001)
+- `risk_category`: Which priority risk this targets
+- `input_description`: Brief description of the test case
+- `expected_challenge`: What difficulty this case presents
+- `learning_objective`: Which learning objective this case serves
+- `input_data`: The actual input they will use (or template if they need to generate)
+- `actual_output`: [Empty - they'll fill during testing]
+- `quality_rating`: [Empty - they'll rate 1-5 during testing]
+- `notes`: [Empty - they'll add observations during testing]
+- `patterns_observed`: [Empty - they'll note patterns across similar cases]
+- `improvement_ideas`: [Empty - they'll capture actionable insights]
+- `completed_date`: [Empty - they'll timestamp when tested]
+
+**Include measurement guidance in the CSV:**
+Add comment rows or header notes explaining:
+- How to use the quality_rating scale (1=poor, 5=excellent, tailored to their context)
+- What to look for in patterns_observed (connect to learning objectives)
+- How to frame improvement_ideas (specific, actionable changes)
+
+---
+
+## Phase 2: SVG Usage Guide Customization
+
+**Base template approach:**
+1. Copy the template from `bootcamp_workflows/building/2_evaluation_dataset/evaluation_artifact_explainer.svg`
+2. Customize all the CUSTOMIZE markers with their specific evaluation context
+3. Save as `your_workspace/reports/evaluation_usage_guide.svg`
+
+**Key customizations based on their context:**
+
+### Replace CUSTOMIZE markers with their specifics:
+
+**CUSTOMIZE_TEST_COUNT**: "[X] targeted test cases designed"
+Example: "18 targeted test cases designed"
+
+**CUSTOMIZE_FUTURE_IMPL**: "([their intended implementation target])"
+Example: "(Python automation/Slack integration)"
+
+**CUSTOMIZE_EXECUTION_INSTRUCTION**: "Run workflow on test inputs"
+Example: "Run workflow on meeting transcripts/customer emails/data samples"
+
+**CUSTOMIZE_QUALITY_DIMENSIONS**: "Rate accuracy, consistency, etc."
+Example: "Rate accuracy, relevance, consistency using 1-5 scale"
+
+**CUSTOMIZE_PATTERN_FOCUS**: "Look for failure modes & triggers"
+Example: "Look for input patterns that cause missed commitments"
+
+**CUSTOMIZE_IMPROVEMENT_FOCUS**: "Refine prompts & logic"
+Example: "Refine task extraction prompts & scope boundaries"
+
+**CUSTOMIZE_EVALUATION_GOAL**: "Systematically test your priority quality risks"
+Example: "Systematically test accuracy, consistency, and scope boundary risks"
+
+**CUSTOMIZE_CSV_INSTRUCTION**: "Review your XX test cases organized by quality risk categories"
+Example: "Review your 18 test cases organized by accuracy, consistency, and scope risks"
+
+**CUSTOMIZE_EXECUTION_MAIN**: "Run your YAML workflow on each test case input"
+Example: "Run your meeting analysis workflow on each transcript sample"
+
+**CUSTOMIZE_EXECUTION_SUB**: "For each result, rate quality (1-5) and document what you observe"
+Example: "For each result, rate task extraction accuracy and note missed commitments"
+
+**CUSTOMIZE_PATTERN_MAIN**: "Look for patterns across similar test cases"
+Example: "Look for patterns in when commitments are missed or tasks are unclear"
+
+**CUSTOMIZE_PATTERN_SUB**: "Track: What triggers failures? What predicts good performance?"
+Example: "Track: Do indirect commitments cause failures? Does transcript length affect accuracy?"
+
+**CUSTOMIZE_IMPROVEMENT_SUB**: "Focus on high-impact changes: prompt clarity, scope boundaries, logic flow"
+Example: "Focus on: commitment detection prompts, task clarity criteria, scope validation"
+
+**CUSTOMIZE_READY1**: "✓ You understand your workflow's quality patterns and limitations"
+Example: "✓ You understand when your workflow misses commitments and why"
+
+**CUSTOMIZE_READY2**: "✓ You can predict performance based on input characteristics"
+Example: "✓ You can predict accuracy based on transcript clarity and length"
+
+**CUSTOMIZE_READY3**: "✓ You have specific, tested improvements that address key risks"
+Example: "✓ You have prompt refinements that improve commitment detection by 40%"
+
+---
+
+## Phase 3: Comprehensive Evaluation Package
+
+**Create the complete evaluation package:**
+
+### 1. Final Evaluation Design Report
+Update `your_workspace/reports/evaluation_design_report.md` with:
+
+```markdown
+
+## Evaluation Artifacts Generated
+
+### CSV Evaluation Matrix: `data/evaluations_data.csv`
+**Purpose**: Systematic measurement tracking for all test cases
+**Structure**: [X] test cases across [Y] priority risks with measurement columns
+**Usage**: Run each test case, document results, track patterns over time
+
+### Visual Usage Guide: `reports/evaluation_usage_guide.svg`
+**Purpose**: Step-by-step guide for using evaluation artifacts effectively
+**Customizations**: Tailored to your specific risks, test cases, and learning objectives
+**Usage**: Reference when conducting evaluation cycles
+
+### Evaluation Methodology Summary:
+- **Approach**: Risk-driven evaluation targeting [their priority risks]
+- **Test Cases**: [X] cases using [their chosen generation methods]
+- **Learning Focus**: [their key learning objectives]
+- **Measurement**: Systematic tracking in CSV with quality ratings and pattern documentation
+- **Iteration**: Use insights to refine workflow prompts and logic
+
+## Next Steps After Evaluation
+
+### Immediate (This Sprint):
+1. Run evaluation cycles using the CSV matrix
+2. Fill in results, ratings, and observations for each test case
+3. Identify patterns and improvement opportunities
+4. Refine workflow based on key insights
+
+### Ongoing:
+1. Re-run evaluation after workflow changes to measure improvements
+2. Add new test cases as you discover additional risk areas
+3. Use evaluation methodology for future workflow iterations
+4. Reference this approach when transitioning to implementation phases
+
+### Bootcamp Integration:
+- Use evaluation insights for sprint demo preparation
+- Reference evaluation methodology in architecture design phase
+- Apply systematic evaluation thinking to component-level testing later
+- Share evaluation learnings with cohort for mutual learning
+
+## Evaluation Success Criteria
+
+You'll know your evaluation is successful when:
+- [ ] You can articulate specific quality patterns in your workflow behavior
+- [ ] You have actionable improvement priorities based on systematic measurement
+- [ ] You feel confident about your workflow's capabilities and limitations
+- [ ] You can apply this evaluation methodology to future workflow iterations
+- [ ] Your sprint demo reflects data-driven insights about workflow performance
+```
+
+---
+
+## Phase 4: Usage Instructions and Handoff
+
+**Provide clear next-step instructions:**
+
+"🎉 **Your evaluation methodology is ready!**
+
+### What You Now Have:
+1. **Systematic Evaluation Plan**: Complete methodology tailored to your workflow and risks
+2. **Measurement Infrastructure**: CSV matrix ready for data collection
+3. **Visual Guide**: Step-by-step instructions for effective evaluation execution
+4. **Learning Framework**: Clear objectives connecting testing to workflow improvements
+
+### Immediate Next Steps:
+1. **Review your artifacts**: Check that the CSV and SVG match your understanding
+2. **Run your first evaluation cycle**: Start with a subset of test cases to validate the approach
+3. **Refine as needed**: Adjust test cases or measurement approach based on initial results
+4. **Scale up**: Run full evaluation suite once you're confident in the methodology
+
+### Integration with Bootcamp:
+- **This week**: Begin evaluation cycles, document initial patterns
+- **Sprint demo prep**: Use evaluation insights to demonstrate workflow capabilities and limitations
+- **Next phases**: Apply this systematic evaluation thinking to architecture and implementation
+
+### Getting Help:
+- **Stuck on specific test cases**: Use the tactical guidance in your evaluation report
+- **Unclear about patterns**: Focus on your learning objectives - what specific questions are you trying to answer?
+- **Need to iterate**: Use the improvement ideas column to capture and prioritize refinements
+
+Your evaluation methodology is now a reusable asset that will serve you throughout the bootcamp and beyond. The systematic thinking you've developed here will transfer directly to evaluating your eventual Python/n8n implementation."
+
+---
+
+## Instructions for the AI Assistant
+
+- **Generate complete CSV structure** - Include all test cases with proper columns for measurement
+- **Customize SVG thoroughly** - Replace all CUSTOMIZE markers with their specific context
+- **Provide comprehensive handoff** - Clear instructions for using the artifacts
+- **Connect to bootcamp timeline** - Reference how this fits into their current sprint and future phases
+- **Make it actionable** - Everything should be ready to execute immediately
+- **Document the complete methodology** - Comprehensive summary of their evaluation approach
+- **Set success criteria** - Clear indicators of evaluation effectiveness
+- **Emphasize transferability** - This methodology applies to future workflow iterations
+
+The goal is to deliver a complete evaluation toolkit that transforms them from "I need to test this" to "I have a systematic methodology for evaluating any AI workflow I build, with concrete artifacts ready to use right now."
+
+---
+
+## Phase 5: Activity Logging
+
+**Log completion to activity log:**
+After completing this step and generating all artifacts, append to `your_workspace/logs/activity_log.csv`:
+
+```csv
+[current timestamp],evaluation_dataset_workflow,step6_complete,Evaluation artifacts generated (CSV matrix and SVG guide)
+[current timestamp],evaluation_dataset_workflow,complete,Evaluation dataset creation workflow completed
+```
+
+Use this bash command:
+```bash
+echo "$(date '+%Y-%m-%d %H:%M:%S'),evaluation_dataset_workflow,step6_complete,Evaluation artifacts generated (CSV matrix and SVG guide)" >> your_workspace/logs/activity_log.csv && echo "$(date '+%Y-%m-%d %H:%M:%S'),evaluation_dataset_workflow,complete,Evaluation dataset creation workflow completed" >> your_workspace/logs/activity_log.csv
+```

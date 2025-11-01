@@ -47,10 +47,10 @@ Think of it as your personal GPS for the bootcamp—always knows where you are a
 
 **Command:**
 ```bash
-Execute workflow: workflows/bootcamp2510/master_orchestrator/master_orchestrator_workflow.md
+Execute workflow: workflows/bootcamp2510/master_orchestrator/master_orchestrator_workflow.yaml
 ```
 
-**Entry Point:** `master_orchestrator_workflow.md`
+**Entry Point:** `master_orchestrator_workflow.yaml`
 
 **Execution Time:**
 - First run: ~30-45 minutes (includes orientation)
@@ -144,7 +144,7 @@ The workflow adapts its menu and recommendations based on:
 
 **Orientation not triggering:**
 - Delete `your_workspace/profile/participant_profile.md` to force re-initialization
-- Or manually run orientation: `../bootcamp_workflows/logistics/orientation/orientation_workflow.md`
+- Or manually run orientation: `../bootcamp_workflows/logistics/orientation/orientation_workflow.yaml`
 
 **Activity log issues:**
 - Check CSV format and permissions

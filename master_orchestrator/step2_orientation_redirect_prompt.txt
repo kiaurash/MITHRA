@@ -25,7 +25,7 @@ Let's get started...
 
 After displaying the welcome message, automatically launch the orientation workflow:
 
-**Execute:** `logistics/orientation/orientation_workflow.md` (relative to master_orchestration folder)
+**Execute:** `logistics/orientation/orientation_workflow.yaml` (relative to master_orchestration folder)
 
 The orientation workflow will handle:
 1. Workspace setup
@@ -40,7 +40,7 @@ After orientation completes and returns control to master orchestration, the wor
 ## Instructions for the AI Assistant
 
 - Display brief welcome message
-- Immediately launch the orientation workflow using relative path: `logistics/orientation/orientation_workflow.md`
+- Immediately launch the orientation workflow using relative path: `logistics/orientation/orientation_workflow.yaml`
 - The orientation workflow takes over from here
 - After orientation completes, master orchestration automatically continues to progress_assessment (the lock file now exists)
 

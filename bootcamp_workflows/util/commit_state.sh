@@ -44,7 +44,7 @@ fi
 # Show what will be committed
 echo "=== Changes to be committed ==="
 echo ""
-git status --short --cached
+git status --short
 echo ""
 
 # Commit the changes

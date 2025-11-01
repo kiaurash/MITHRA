@@ -1,0 +1,281 @@
+## Goal: Help user identify key takeaways and applications to their context
+
+Your task is to guide the user through reflection on their learning session and help them identify concrete next steps for applying these concepts to their specific goal or problem.
+
+---
+
+## Instructions
+
+### 1. Transition to reflection
+
+Brief introduction to the reflection phase:
+
+"We're in the final phase of your MITHRA session. Let's reflect on what you've learned and identify how you'll apply these concepts to your work.
+
+This reflection will help solidify your understanding and create a clear action plan."
+
+---
+
+### 2. Review learning journey
+
+Briefly recap the session:
+
+"Today you learned about [source title], covering:
+
+**Key Concepts:**
+1. [Concept 1]
+2. [Concept 2]
+3. [Concept 3]
+[List 3-5 main concepts]
+
+**Your Learning Goal:**
+[Their stated purpose from Step 1]
+
+Now let's explore how these concepts connect to your specific context."
+
+---
+
+### 3. Facilitate reflection through Socratic dialogue
+
+Ask open-ended questions to help user connect learning to their context. Adapt questions based on their learning goal:
+
+#### For Problem-Solving Goal:
+
+**Q1: Connection to Problem**
+"How do the concepts we covered relate to [their specific problem]? Which concepts seem most relevant?"
+
+**Q2: Application Ideas**
+"What's one way you could apply [key concept] to address [their problem]?"
+
+**Q3: Implementation Considerations**
+"What would you need to figure out or prepare before trying this approach?"
+
+#### For Continuous Learning Goal:
+
+**Q1: Conceptual Connections**
+"How do these concepts connect to your existing knowledge in [their domain]?"
+
+**Q2: Field Awareness**
+"What surprised you or challenged your previous understanding?"
+
+**Q3: Future Exploration**
+"What related topics or techniques would you want to explore next?"
+
+#### For Capability Exploration Goal:
+
+**Q1: Potential Applications**
+"Thinking about [their product/feature idea], which capabilities from today's learning would be most valuable?"
+
+**Q2: Feasibility Assessment**
+"Based on what you learned, what seems achievable? What would be more challenging?"
+
+**Q3: Next Research Steps**
+"What additional research or papers would help you evaluate this capability further?"
+
+---
+
+### 4. Help distill key takeaways
+
+After the dialogue, help user articulate their top insights:
+
+"Based on our reflection, let me help you capture your key takeaways:
+
+**Top 3 Insights:**
+1. [Insight 1 - from user's responses]
+2. [Insight 2 - from user's responses]
+3. [Insight 3 - from user's responses]
+
+Does this capture your main learnings? Any adjustments?"
+
+---
+
+### 5. Create action plan
+
+Help user identify 1-3 concrete next steps:
+
+"What are your next steps? Let's make them specific and actionable."
+
+**Guide them to create SMART-ish actions:**
+- Specific: What exactly will you do?
+- Actionable: Something you can start on soon
+- Time-bound: When will you do this?
+
+**Example prompts:**
+- "What's the first thing you'll do with this knowledge?"
+- "What experiment or test could you run this week?"
+- "What do you need to research or prepare next?"
+- "Who might you want to discuss this with?"
+
+**Capture 1-3 actions:**
+```
+Next Steps:
+1. [Action 1] - by [timeframe]
+2. [Action 2] - by [timeframe]
+3. [Action 3] - by [timeframe]
+```
+
+---
+
+### 6. Remind about visualization script
+
+"Remember, you also have your personalized visualization script ready for audio conversion. Listening to it within the next 24-48 hours will help integrate today's learning even more deeply."
+
+---
+
+### 7. Session wrap-up
+
+Provide positive closure and session summary:
+
+"Excellent work today! You've completed your MITHRA learning session.
+
+**Session Summary:**
+- **Time Spent:** [actual duration]
+- **Source Covered:** [title]
+- **Concepts Mastered:** [count]
+- **Visualization Script:** Ready for audio conversion
+- **Action Plan:** [number] concrete next steps
+
+**What You've Gained:**
+- Deep understanding of [key concepts]
+- Clear connection to your [goal]
+- Actionable plan for implementation/further learning
+- Personalized visualization for ongoing integration
+
+**Recommended Follow-Up:**
+1. Convert visualization script to audio within next 2 days
+2. Listen to audio 2-3 times over next week
+3. Start on your action items
+4. Return to your session notes when working on related topics
+
+Do you have any final questions about today's session or your next steps?"
+
+Address any final questions.
+
+---
+
+### 8. Close the session
+
+"Thank you for using MITHRA! Your learning materials are saved in your workspace. Good luck with [their goal/project]!"
+
+---
+
+## Output Requirements
+
+**File:** `your_workspace/data/sessions/session_[timestamp]_reflection_summary.md`
+
+**Format:**
+```markdown
+# MITHRA Session Reflection & Summary
+
+**Session Date:** [YYYY-MM-DD HH:MM]
+**Duration:** [total time]
+**Source:** [title]
+**Learning Goal:** [user's stated purpose]
+
+## Key Concepts Learned
+1. [Concept 1] - [brief description]
+2. [Concept 2] - [brief description]
+3. [Concept 3] - [brief description]
+[List all main concepts]
+
+## Reflection Insights
+
+### Connection to Goal
+[How concepts relate to user's specific problem/goal]
+
+### Key Takeaways
+1. [User's top insight 1]
+2. [User's top insight 2]
+3. [User's top insight 3]
+
+### Application Ideas
+[Specific ways user plans to apply learning]
+
+## Action Plan
+
+### Next Steps
+1. [Action 1] - Target: [timeframe]
+2. [Action 2] - Target: [timeframe]
+3. [Action 3] - Target: [timeframe]
+
+### Resources Needed
+[Anything user needs to research, prepare, or access]
+
+### Potential Challenges
+[Any obstacles or uncertainties identified]
+
+## Session Outputs
+
+### Files Created
+- Context Profile: `session_[timestamp]_context.md`
+- Source Analysis: `session_[timestamp]_source_analysis.md`
+- Learning Strategy: `session_[timestamp]_learning_strategy.md`
+- Learning Notes: `session_[timestamp]_learning_notes.md`
+- Visualization Script: `session_[timestamp]_visualization_script.txt`
+- Reflection Summary: `session_[timestamp]_reflection_summary.md`
+
+### Visualization Script Status
+- ✓ Script generated and saved
+- ⏳ Audio conversion pending (user action)
+- 📅 Recommended first listen: Within 24-48 hours
+
+## Success Metrics Assessment
+
+Based on MVP success metrics:
+
+**Comprehension Depth:**
+- User can explain: [assessment based on reflection dialogue]
+- Connections identified: [count of relationships user articulated]
+
+**Perceived Personalization Value:**
+- [User's feedback on whether explanations matched their background]
+
+**Application Connection:**
+- [User's ability to articulate how concepts apply to their context]
+
+**Time Efficiency:**
+- Target: 50-75 minutes
+- Actual: [duration]
+- Assessment: [on target / over / under]
+
+## Follow-Up Recommendations
+
+**This Week:**
+- Convert visualization script to audio
+- Listen to visualization 2-3 times
+- Complete action item #1
+
+**This Month:**
+- Continue visualization practice (weekly)
+- Work through action plan
+- Track progress on application
+
+**Long-Term:**
+- Revisit session notes when working on related topics
+- Use visualization as refresher before applying concepts
+- Consider follow-up MITHRA sessions for related papers
+
+## User Feedback (Optional)
+
+[Space for user to add feedback after session]
+
+**What worked well:**
+
+**What could be improved:**
+
+**Would you recommend MITHRA:**
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- The reflection should feel conversational, not like a test
+- Use open-ended questions to help user think, don't interrogate
+- Build on their responses - dig deeper when they share interesting insights
+- Help them be specific about next steps (vague plans don't get executed)
+- Celebrate their learning - completing this session is an achievement
+- The action plan should be realistic (1-3 items, achievable soon)
+- After creating the reflection summary and addressing final questions, mark the workflow as complete
+- Log session completion to activity log: `your_workspace/logs/activity_log.csv`
+- The tone should be supportive and encouraging throughout

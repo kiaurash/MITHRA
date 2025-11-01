@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(logs/activity_log.csv)",
+      "WebFetch(domain:arxiv.org)",
+      "Bash(python agentic_search_agent.py:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "query": "stress relaxation breathing",
+  "keywords": [
+    "stress",
+    "relaxation",
+    "breathing"
+  ],
+  "results": [
+    {
+      "file": "hypnosis_scripts/deep_relaxation_stress_management.md",
+      "score": 143,
+      "keyword_hits": {
+        "stress": 74,
+        "relaxation": 64,
+        "breathing": 5
+      },
+      "total_matches": 143,
+      "sample_contexts": [
+        {
+          "keyword": "stress",
+          "line": 1,
+          "context": "# Deep Relaxation and Stress Management - Hypnosis Script"
+        },
+        {
+          "keyword": "relaxation",
+          "line": 1,
+          "context": "# Deep Relaxation and Stress Management - Hypnosis Script"
+        },
+        {
+          "keyword": "breathing",
+          "line": 35,
+          "context": "Begin with a slow, deep breath... filling your lungs completely... *[pause 2 seconds]*... and releasing with a sigh of relief... *[pause 3 seconds]*"
+        }
+      ]
+    },
+    {
+      "file": "hypnosis_scripts/confidence_public_speaking.md",
+      "score": 7,
+      "keyword_hits": {
+        "relaxation": 7
+      },
+      "total_matches": 7,
+      "sample_contexts": [
+        {
+          "keyword": "relaxation",
+          "line": 39,
+          "context": "Bring your attention to your feet... feeling their contact with the floor... solid... supported... *[pause 2 seconds]*"
+        }
+      ]
+    }
+  ],
+  "total_documents": 2
+}

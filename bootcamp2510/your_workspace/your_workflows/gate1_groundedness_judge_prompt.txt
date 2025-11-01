@@ -1,0 +1,248 @@
+## Goal: Validate the research article for groundedness and relevance using LLM-as-a-Judge
+
+Your task is to critically evaluate the research article from Step 1 to ensure it meets quality standards before proceeding to curriculum architecture. This is a critical quality gate.
+
+---
+
+## Phase 1: Load Inputs
+
+Retrieve:
+1. **Research article** from Step 1
+2. **User's original topic** from Step 0
+3. **User's learning goals** from Step 0 (if provided)
+
+---
+
+## Phase 2: Groundedness Evaluation
+
+**Definition**: Groundedness means every major claim in the article is supported by cited sources, with no unsupported generalizations or opinions presented as facts.
+
+### Evaluation Criteria:
+
+**1. Source Citation Coverage**
+- Are all major claims backed by specific sources?
+- Are citations provided inline (not just a reference list)?
+- Are sources credible and appropriate for the claims made?
+
+**2. Evidence Quality**
+- Are the sources authoritative (research studies, expert practitioners, reputable organizations)?
+- Is the evidence directly relevant to the claims being made?
+- Are there any logical leaps or unsupported inferences?
+
+**3. Absence of Unsupported Content**
+- Are there generalizations without evidence?
+- Are personal opinions or speculation presented as fact?
+- Are statistics or "facts" provided without sources?
+
+### Scoring Rubric:
+
+For each major claim in the article, assign:
+- **Pass**: Claim is clearly supported by cited, credible source
+- **Weak**: Claim has citation but connection is indirect or source is weak
+- **Fail**: Claim is unsupported or citation is missing
+
+**Overall Groundedness Score**:
+- **PASS**: 90%+ of major claims score "Pass", no "Fail" scores
+- **MARGINAL**: 70-89% "Pass", some "Weak" scores but no "Fail"
+- **FAIL**: <70% "Pass" OR any "Fail" scores
+
+---
+
+## Phase 3: Relevance Evaluation
+
+**Definition**: Relevance means the article directly addresses the user's topic and learning goals, with appropriate scope and depth.
+
+### Evaluation Criteria:
+
+**1. Topic Alignment**
+- Does the article's content directly address the user's specified topic?
+- Is the scope appropriate (not too narrow or too broad)?
+- Are the most important aspects of the topic covered?
+
+**2. Learning Goals Alignment** (if goals were provided)
+- Does the content help the user achieve their stated learning goals?
+- Are practical implications or applications discussed?
+- Is the depth appropriate for the user's expressed needs?
+
+**3. Coherence and Structure**
+- Is the information organized logically?
+- Does the article flow from introduction → insights → synthesis?
+- Are key takeaways clear and actionable?
+
+### Scoring Rubric:
+
+- **PASS**: Article directly addresses topic, covers key aspects, aligns with learning goals (if provided)
+- **MARGINAL**: Article addresses topic but misses some important aspects or doesn't fully align with goals
+- **FAIL**: Article is off-topic, misses critical aspects, or doesn't address user's needs
+
+---
+
+## Phase 4: Generate Judge Report
+
+Create a structured evaluation report:
+
+```markdown
+# Quality Gate 1: Groundedness & Relevance Evaluation
+
+**Article Title**: [title from Step 1]
+**Topic**: [user's topic]
+**Evaluation Date**: [timestamp]
+
+---
+
+## Groundedness Assessment
+
+### Major Claims Analysis:
+[For each major claim:]
+1. **Claim**: "[quote from article]"
+   - **Source Cited**: [yes/no - which source]
+   - **Evidence Quality**: [strong/weak/none]
+   - **Score**: [Pass/Weak/Fail]
+
+### Summary Statistics:
+- Total major claims evaluated: [number]
+- Pass: [number] ([percentage]%)
+- Weak: [number] ([percentage]%)
+- Fail: [number] ([percentage]%)
+
+### Groundedness Issues Found:
+[List specific problems, if any:]
+- [Issue 1: e.g., "Paragraph 3 claims X without citation"]
+- [Issue 2: e.g., "Source Y doesn't actually support claim Z"]
+
+**Groundedness Verdict**: [PASS / MARGINAL / FAIL]
+
+---
+
+## Relevance Assessment
+
+### Topic Alignment:
+- **Addresses user's topic**: [yes/no - explanation]
+- **Appropriate scope**: [yes/no - explanation]
+- **Key aspects covered**: [list what's covered and what's missing]
+
+### Learning Goals Alignment:
+- **Goal 1**: [user's goal] - [how article addresses it]
+- **Goal 2**: [user's goal] - [how article addresses it]
+[If no goals provided: "No specific learning goals provided"]
+
+### Structure & Coherence:
+- **Logical organization**: [yes/no - explanation]
+- **Clear takeaways**: [yes/no - what they are]
+
+**Relevance Verdict**: [PASS / MARGINAL / FAIL]
+
+---
+
+## Overall Decision
+
+**Final Status**: [PASS / FAIL]
+
+**Reasoning**:
+[2-3 sentences explaining the overall decision based on both groundedness and relevance]
+
+**Recommended Action**:
+[If PASS]: "Proceed to Step 2: Curriculum Architecture"
+[If FAIL]: "Return to Step 1 for revision. Focus on: [specific issues to address]"
+
+---
+
+## Feedback for Step 1 (if returning):
+
+[Specific, actionable feedback to improve the article:]
+1. [Feedback item 1]
+2. [Feedback item 2]
+3. [Feedback item 3]
+```
+
+---
+
+## Phase 5: Display Results in UI
+
+**For Streamlit UI**:
+- Display a clear status indicator:
+  - ✅ **PASS** (green) - "Research article validated. Proceeding to curriculum design..."
+  - ❌ **FAIL** (red) - "Quality check failed. Regenerating research with improvements..."
+
+- Show expandable section with full judge report
+- If FAIL, display specific issues and show "Retrying..." status
+
+**For Command-Line/Chat**:
+- Display verdict clearly
+- Summarize key issues if FAIL
+- Show that system is automatically retrying
+
+---
+
+## Phase 6: Route Based on Decision
+
+**If PASS**:
+- Log success to activity log
+- Proceed automatically to Step 2 (Curriculum Architecture)
+
+**If FAIL**:
+- Log failure with specific issues to activity log
+- Pass feedback to Step 1
+- **Retry Step 1 with feedback incorporated**
+- Maximum retries: 2 (if still failing after 2 retries, require human review)
+
+---
+
+## Instructions for Implementation
+
+**LLM-as-a-Judge Setup**:
+- Use a strong reasoning model (GPT-4, Claude 3.5 Sonnet, Gemini 1.5 Pro)
+- Provide the full research article + evaluation criteria in the prompt
+- Ask the LLM to output structured JSON for easy parsing
+
+**Example Judge Prompt Structure**:
+```
+You are an expert evaluator assessing a research article for groundedness and relevance.
+
+[Include full evaluation criteria from above]
+
+Research Article to Evaluate:
+---
+[paste full article]
+---
+
+User's Original Topic: [topic]
+User's Learning Goals: [goals]
+
+Please evaluate this article and provide your assessment in the following JSON format:
+{
+  "groundedness": {
+    "score": "PASS/MARGINAL/FAIL",
+    "claims_evaluated": [list of claim objects],
+    "issues": [list of issues],
+    "reasoning": "explanation"
+  },
+  "relevance": {
+    "score": "PASS/MARGINAL/FAIL",
+    "topic_alignment": "explanation",
+    "goals_alignment": "explanation",
+    "issues": [list of issues],
+    "reasoning": "explanation"
+  },
+  "overall_decision": "PASS/FAIL",
+  "feedback_for_revision": [list of specific improvements needed]
+}
+```
+
+**Decision Logic**:
+- If groundedness = FAIL OR relevance = FAIL → Overall = FAIL
+- If groundedness = MARGINAL AND relevance = PASS → Overall = PASS (with logged warning)
+- If both MARGINAL → Overall = FAIL (require improvement)
+
+---
+
+## Output Requirements
+
+- Complete judge report in markdown format
+- JSON verdict for programmatic routing
+- UI display of PASS/FAIL status
+- Activity log entry
+
+After completing this step:
+- If PASS → proceed to step2_curriculum_architecture
+- If FAIL → return to step1_knowledge_synthesis with feedback

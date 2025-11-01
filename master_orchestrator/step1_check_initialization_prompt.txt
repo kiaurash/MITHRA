@@ -20,8 +20,11 @@ Check if `bootcamp2510/your_workspace/.workflow_initialized` exists.
 
 ## Instructions for the AI Assistant
 
-- Use a simple file existence check: `test -f bootcamp2510/your_workspace/.workflow_initialized`
-- Do NOT display any messages to the user yet
+- Use the helper script: `./bootcamp_workflows/util/check_initialization.sh`
+- The script outputs either "INITIALIZED" or "NOT_INITIALIZED" on the first line
+- The script handles finding the bootcamp root from any launch location
+- If the script exits with error (exit code 1), show the error message to the user
+- Do NOT display any messages to the user if check succeeds
 - Just determine the path and route accordingly
 - This is a silent routing step
 

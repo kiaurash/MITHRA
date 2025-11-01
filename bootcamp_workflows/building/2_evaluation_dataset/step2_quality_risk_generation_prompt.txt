@@ -1,0 +1,153 @@
+## Goal: Generate quality risk hypotheses specific to their workflow
+
+Your task is to help the participant generate quality risk hypotheses by analyzing their problem definition and evaluation context, then collaboratively identifying potential failure modes specific to their workflow.
+
+---
+
+## Phase 1: Review Foundation Materials
+
+**Load their context:**
+1. **Read their problem definition:** `your_workspace/reports/problem_definition.md`
+2. **Review evaluation context:** `your_workspace/reports/evaluation_design_report.md` (from Step 1)
+
+**Extract key risk factors:**
+- What is their workflow supposed to do (core functionality)?
+- What are the inputs and expected outputs?
+- What domains/contexts will it operate in?
+- What are the success criteria they defined?
+- What quality dimensions matter in their specific context?
+
+---
+
+## Phase 2: Quality Risk Hypothesis Generation
+
+**Explain the approach:**
+"Now that we understand your context and what you've learned from informal testing, let's systematically think about quality risks - ways your workflow might not meet your quality standards or might behave inconsistently.
+
+Quality risks fall into several categories. I'll suggest some hypotheses based on your specific workflow, and we'll discuss which ones resonate and identify others."
+
+**Generate workflow-specific hypotheses across key categories:**
+
+### Input Variability Risks
+- "Your workflow might struggle with [specific input variations relevant to their domain]"
+- "Edge cases in input format/content might cause [specific failure mode]"
+- Example: For meeting transcripts - "Workflow might miss commitments when they're stated indirectly or use domain-specific jargon"
+
+### Output Quality Risks
+- "Output quality might be inconsistent when [specific conditions based on their workflow]"
+- "The workflow might produce [specific type of incorrect output] in [specific scenarios]"
+- Example: For analysis workflows - "Analysis might be superficial when dealing with complex multi-layered problems"
+
+### Context Sensitivity Risks
+- "The workflow might not adapt appropriately to [context factors relevant to their domain]"
+- "Performance might degrade in [specific situations they'll encounter]"
+- Example: For customer service - "Responses might be inappropriate for different customer emotion states"
+
+### Boundary/Scope Risks
+- "The workflow might try to handle cases outside its intended scope and fail poorly"
+- "It might miss cases that should be within scope due to [specific characteristics]"
+- Example: For document processing - "Might attempt to process non-text documents and produce nonsensical outputs"
+
+### Consistency Risks
+- "Similar inputs might produce inconsistent outputs due to [specific factors]"
+- "Quality might vary based on [timing/context/other variables]"
+- Example: For creative workflows - "Tone and style might be inconsistent across similar requests"
+
+---
+
+## Phase 3: Collaborative Risk Identification
+
+**Present hypotheses and gather reactions:**
+
+"Based on your workflow [summarize their workflow briefly], here are quality risk hypotheses I think we should consider:
+
+1. **[Risk Hypothesis 1]**: [Specific risk tailored to their workflow]
+   - Why this matters: [Connect to their quality dimensions]
+   - Potential impact: [What happens if this goes wrong]
+
+2. **[Risk Hypothesis 2]**: [Second specific risk]
+   - Why this matters: [Connection to their goals]
+   - Potential impact: [Consequences]
+
+3. **[Risk Hypothesis 3]**: [Third specific risk]
+   - Why this matters: [Relevance to their domain]
+   - Potential impact: [What could go wrong]
+
+[Continue with 2-3 more hypotheses...]
+
+**Ask for their reaction:**
+- Which of these risks concern you most based on your informal testing?
+- Do any of these match problems you've already noticed?
+- What other quality risks should we consider that I haven't mentioned?"
+
+**Collaborate to refine and add:**
+- Help them articulate risks they've observed but haven't named
+- Connect their domain expertise to potential failure modes
+- Ensure risks are specific to their workflow, not generic
+
+---
+
+## Phase 4: Risk Validation and Specificity
+
+**For each identified risk, make it specific:**
+- "Let's make this more concrete. Can you give me an example of when [risk] might occur?"
+- "What would be the symptoms? How would you recognize this risk is happening?"
+- "In your domain, what makes this particularly problematic?"
+
+**Ensure coverage across risk types:**
+- Input handling and edge cases
+- Output quality and consistency
+- Context appropriateness
+- Scope boundary handling
+- Performance under different conditions
+
+---
+
+## Phase 5: Documentation
+
+**Update the evaluation design report:**
+Add to `your_workspace/reports/evaluation_design_report.md`:
+
+```markdown
+
+## Quality Risk Hypotheses
+
+### Identified Quality Risks:
+1. **[Risk Name]**: [Specific risk description]
+   - **Why it matters:** [Connection to their quality dimensions]
+   - **Potential symptoms:** [How to recognize this risk]
+   - **Domain relevance:** [Why this is important for their specific use case]
+
+2. **[Risk Name 2]**: [Second risk description]
+   - **Why it matters:** [Relevance to their goals]
+   - **Potential symptoms:** [Observable indicators]
+   - **Domain relevance:** [Specific importance]
+
+[Continue for 5-8 total risks...]
+
+### Risk Categories Covered:
+- [ ] Input variability and edge cases
+- [ ] Output quality and consistency
+- [ ] Context sensitivity and appropriateness
+- [ ] Scope and boundary handling
+- [ ] Performance under different conditions
+
+### Participant Insights:
+- [Key observations they shared about risks they've noticed]
+- [Domain-specific concerns they raised]
+- [Connections to their informal testing experience]
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- **Be workflow-specific** - Don't use generic risks, tailor to their exact use case
+- **Use their context** - Reference their problem definition, domain, and informal testing insights
+- **Make risks concrete** - Help them visualize specific failure scenarios
+- **Collaborate, don't dictate** - They should validate and add to your hypotheses
+- **Cover risk categories** - Ensure comprehensive coverage without overwhelming them
+- **Connect to their quality dimensions** - Link each risk to why it matters for their specific goals
+- **Build on Step 1** - Use the quality vectors identified in progress reflection
+
+The goal is to move from "I want quality" to "Here are the specific ways my workflow might fail to meet quality standards, and why each matters for my use case."

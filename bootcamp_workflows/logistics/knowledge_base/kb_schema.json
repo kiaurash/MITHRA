@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "description": "General-purpose Q&A knowledge base schema for bootcamp information",
+
+  "mandatory_fields": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier using format: category_###",
+      "example": "help_001"
+    },
+    "questions": {
+      "type": "array[string]",
+      "min_items": 3,
+      "max_items": 5,
+      "description": "3-5 diverse phrasings of the same question to maximize query matching. Use different sentence structures, formal/informal variations, and question types.",
+      "example": [
+        "How do I get help if I'm stuck?",
+        "Who should I contact for support?",
+        "Where do I ask questions when I need assistance?"
+      ]
+    },
+    "answer": {
+      "type": "string",
+      "description": "Concise, actionable answer with specific details (names, links, dates, steps). Answer should be self-contained and directly usable.",
+      "example": "Contact Amir Feizpour on Slack (@Amir Feizpour) or email bootcamp@ai.science. Don't wait more than 1-2 days if you're stuck."
+    },
+    "keyphrases": {
+      "type": "array[string]",
+      "description": "10-20 multi-word phrases and semantic variations for matching. Focus on phrases (2-4 words) rather than single keywords. Include synonyms, related concepts, and common misspellings if applicable.",
+      "example": [
+        "get help",
+        "need support",
+        "stuck on project",
+        "contact mentor",
+        "ask question",
+        "reach out",
+        "need assistance",
+        "feeling lost",
+        "completely blocked",
+        "don't know what to do"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "description": "Primary category for organizational filtering. Use snake_case.",
+      "valid_categories": [
+        "getting_help",
+        "program_structure",
+        "deliverables",
+        "timeline",
+        "technical",
+        "logistics",
+        "mentorship",
+        "community"
+      ],
+      "example": "getting_help"
+    }
+  },
+
+  "optional_fields": {
+    "metadata": {
+      "type": "object",
+      "description": "Additional context about the entry",
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Original document filename",
+          "example": "getting_help.txt"
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "YYYY-MM-DD",
+          "description": "Date this entry was last modified",
+          "example": "2025-10-24"
+        }
+      }
+    },
+    "links": {
+      "type": "array[string]",
+      "description": "Relevant URLs mentioned in the answer (Calendly links, documentation, etc.)",
+      "example": [
+        "https://calendly.com/amirfzpr/agents-1on1-product",
+        "https://docs.example.com/guide"
+      ]
+    }
+  },
+
+  "design_principles": {
+    "generalization": "Schema should work for any Q&A knowledge base, not just bootcamp logistics",
+    "query_optimization": "Keyphrases designed for jq string matching with contains()",
+    "question_diversity": "Multiple phrasings maximize matching probability",
+    "answer_completeness": "Answers should be self-contained with actionable information",
+    "category_simplicity": "Single-level categorization, let keyphrases handle nuance"
+  }
+}

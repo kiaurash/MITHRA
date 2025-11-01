@@ -1,0 +1,176 @@
+## Goal: Create personalized learning strategy using RAG best practices and user context
+
+Your task is to generate a personalized learning plan by combining the source analysis with pedagogical best practices from the RAG corpus, tailored to the user's background and goals.
+
+---
+
+## Instructions
+
+### 1. Query RAG corpus for pedagogical best practices
+
+Retrieve relevant learning strategies from the RAG corpus based on:
+- User's learning goal (problem-solving / continuous learning / exploration)
+- User's background and knowledge gaps
+- Source complexity and structure
+- Available time and desired depth
+
+**RAG Query Areas:**
+- `rag_corpus/best_practices/` - Pedagogical principles for accelerated learning
+- `rag_corpus/techniques/` - Teaching techniques for technical content
+- `rag_corpus/neuroscience/` - Learning science principles for retention
+
+**What to retrieve:**
+- How to sequence concepts for this user's background
+- Techniques for bridging knowledge gaps
+- Strategies for matching depth to time available
+- Methods for connecting abstract concepts to user's context
+
+---
+
+### 2. Design modular learning structure
+
+Break the learning into 3-5 modules based on:
+- Core concepts from Step 2
+- Logical learning sequence (build from familiar to new)
+- User's time constraint (divide total time appropriately)
+
+**For each module, define:**
+- **Module name and learning objective**
+- **Core concept(s) covered**
+- **Teaching approach** (based on RAG best practices)
+  - Analogy to user's existing knowledge?
+  - Visual/conceptual explanation?
+  - Code examples?
+  - Step-by-step walkthrough?
+- **Estimated time** (sum should fit within user's available time minus buffer for visualization and reflection)
+
+**Module sequencing principles:**
+- Start with motivation/context (why this matters)
+- Build from concepts user knows → new concepts
+- Save most complex/novel ideas for middle modules (when engaged)
+- End with synthesis and application to user's goal
+
+---
+
+### 3. Adapt to user's specific context
+
+**Based on user's learning goal:**
+- **Problem-solving:** Emphasize how concepts apply to their specific problem
+- **Continuous learning:** Connect concepts to related work and broader field trends
+- **Capability exploration:** Focus on what's possible and implementation considerations
+
+**Based on user's background:**
+- For familiar concepts: Quick refresher, focus on what's new/different
+- For knowledge gaps: Provide more scaffolding and prerequisite explanations
+- Use domain-specific analogies from user's expertise area
+
+**Based on time/depth:**
+- High-level (30-40 min): Focus on key insights and takeaways
+- Moderate (45-60 min): Balanced coverage with examples
+- Deep dive (60-75 min): Detailed explanations with implementation details
+
+---
+
+### 4. Present learning strategy to user
+
+Show the proposed learning plan and get confirmation:
+
+"Based on your context and pedagogical best practices, here's your personalized learning plan:
+
+**Learning Strategy for [Source Title]**
+
+**Module 1: [Name]** (Est. [X] min)
+- Objective: [what you'll understand]
+- Approach: [how I'll teach this]
+- Why this order: [rationale based on your background]
+
+**Module 2: [Name]** (Est. [X] min)
+- Objective: [what you'll understand]
+- Approach: [how I'll teach this]
+
+[Continue for all modules]
+
+**Total Learning Time:** [X] minutes
+**Visualization & Reflection:** [Y] minutes
+**Total Session:** [Z] minutes
+
+This structure is designed for your [goal] and builds on your [background strength] while providing extra support for [knowledge gap areas].
+
+Does this learning path work for you? Any adjustments you'd like?"
+
+---
+
+### 5. Refine if needed
+
+If user requests changes:
+- Adjust module depth or sequencing
+- Add/remove focus areas
+- Modify time allocation
+
+Once confirmed, proceed to module delivery.
+
+---
+
+## Output Requirements
+
+**File:** `your_workspace/data/sessions/session_[timestamp]_learning_strategy.md`
+
+**Format:**
+```markdown
+# Personalized Learning Strategy
+
+**Session:** [timestamp]
+**Source:** [title]
+**User Context:** [brief summary]
+
+## Learning Goals Alignment
+- **User's Purpose:** [from Step 1]
+- **Strategy Focus:** [how this plan addresses their goal]
+
+## RAG Best Practices Applied
+- [Practice 1 and why it's relevant for this user]
+- [Practice 2 and why it's relevant for this user]
+- [Practice 3 and why it's relevant for this user]
+
+## Modular Learning Plan
+
+### Module 1: [Name]
+- **Estimated Time:** [X minutes]
+- **Learning Objective:** [what user will understand]
+- **Core Concepts:** [list]
+- **Teaching Approach:** [method based on RAG principles]
+- **Personalization Notes:** [how this adapts to user's background]
+
+### Module 2: [Name]
+[Same structure]
+
+[Continue for all 3-5 modules]
+
+## Time Allocation
+- Context Collection: [completed]
+- Source Analysis: [completed]
+- Strategy Generation: [completed]
+- Modular Learning: [X] minutes
+- Visualization Script: [Y] minutes
+- Script Delivery: [Z] minutes
+- Reflection: [W] minutes
+- **Total:** [Total] minutes
+
+## Success Indicators
+How we'll know this strategy is working:
+- User can explain core concepts
+- User connects learnings to their context
+- User identifies actionable next steps
+```
+
+---
+
+## Instructions for the AI Assistant
+
+- Use the RAG corpus to ground your strategy in pedagogical best practices (don't just guess)
+- If RAG retrieval is not implemented yet, state your pedagogical reasoning explicitly
+- Be transparent about why you're sequencing modules in this order
+- The strategy should feel personalized, not generic
+- Keep total learning time realistic - don't overpromise
+- After user confirms strategy, proceed immediately to step4_module_delivery
+- Store the strategy for reference in subsequent steps
