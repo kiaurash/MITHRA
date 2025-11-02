@@ -58,7 +58,7 @@ def process_pdf(file) -> list:
 
     return [[None, welcome_msg]]
 
-def chat(message: str, history: list) -> str:
+def chat(message: str, history: list) -> list:
     """
     Main chat handler - routes messages based on session state.
 
@@ -67,17 +67,21 @@ def chat(message: str, history: list) -> str:
         history: Chat history (Gradio format)
 
     Returns:
-        Assistant's response
+        Updated chat history in Gradio chatbot format: [[user_msg, bot_msg], ...]
     """
     global session, context_collector, module_generator
 
     # Check if API key is configured
     if not ANTHROPIC_API_KEY:
-        return "⚠️ **Error**: ANTHROPIC_API_KEY not configured. Please set it in Replit Secrets."
+        response = "⚠️ **Error**: ANTHROPIC_API_KEY not configured. Please set it in Replit Secrets."
+        history.append([message, response])
+        return history
 
     # Check if paper uploaded
     if session.state == State.INIT:
-        return "👆 Please upload a research paper PDF using the file upload above to get started."
+        response = "👆 Please upload a research paper PDF using the file upload above to get started."
+        history.append([message, response])
+        return history
 
     # Handle context collection
     if session.state == State.COLLECTING_CONTEXT:
@@ -87,7 +91,8 @@ def chat(message: str, history: list) -> str:
         if context_collector.is_complete():
             session.state = State.CONTEXT_COMPLETE
 
-        return response
+        history.append([message, response])
+        return history
 
     # Handle module generation
     if session.state == State.CONTEXT_COMPLETE:
@@ -98,7 +103,8 @@ def chat(message: str, history: list) -> str:
 
         # Generate learning plan
         plan = module_generator.generate_learning_plan()
-        return plan
+        history.append([message, plan])
+        return history
 
     # Handle teaching/conversation
     if session.state == State.TEACHING:
@@ -111,10 +117,13 @@ def chat(message: str, history: list) -> str:
         if module_generator.check_for_module_advance(message):
             session.advance_module()
 
-        return response
+        history.append([message, response])
+        return history
 
     # Default fallback
-    return "I'm not sure how to respond. Current state: " + session.state
+    response = "I'm not sure how to respond. Current state: " + session.state
+    history.append([message, response])
+    return history
 
 def reset_session():
     """Reset the session for a new paper"""
