@@ -6,7 +6,9 @@ load_dotenv()
 
 # API Configuration
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-CLAUDE_MODEL = "claude-3-5-sonnet-20241022"  # Claude 3.5 Sonnet (latest stable)
+# Using Claude 3 Haiku (fastest, most available model)
+# Note: Upgrade API key tier to access Claude 3.5 Sonnet
+CLAUDE_MODEL = "claude-3-haiku-20240307"
 
 # Session Configuration
 MAX_HISTORY_LENGTH = 20  # Keep last 20 messages in context
