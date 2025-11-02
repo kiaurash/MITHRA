@@ -31,7 +31,8 @@ class ModuleGenerator:
         try:
             response = self.client.messages.create(
                 model=CLAUDE_MODEL,
-                max_tokens=2000,
+                max_tokens=4000,
+                timeout=60.0,
                 system=LEARNING_STRATEGY_SYSTEM_PROMPT,
                 messages=[{
                     "role": "user",
