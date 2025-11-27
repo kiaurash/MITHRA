@@ -26,13 +26,15 @@ Interactive learning application powered by AI for personalized educational expe
 
 ---
 
-### 🔬 Ontology Extractor
-**Location**: [Ontology Extractor/](Ontology%20Extractor/)
+### 🔬 Ontology Builder
+**Repository**: [github.com/kiaurash/Ontology-Builder](https://github.com/kiaurash/Ontology-Builder)
 
-Tools for extracting and visualizing ontologies from scientific and experiential knowledge.
+HAOL-F 2.0 framework for extracting and visualizing ontologies from scientific and experiential knowledge. Features N-ary reification, SPARQL querying, and interactive D3.js visualization.
 
 **Status**: Complete with visualization capabilities
-**Tech Stack**: Python, OWL, RDF
+**Tech Stack**: Python, OWL/RDF, SPARQL, D3.js
+
+This project has been moved to its own standalone repository to allow independent development.
 
 ---
 
@@ -41,14 +43,14 @@ Tools for extracting and visualizing ontologies from scientific and experiential
 ```
 Bootcamp25/
 ├── Mithra App/               # AI learning assistant application
-├── Ontology Extractor/       # Ontology extraction tools
 ├── bootcamp_workflows/       # Bootcamp program workflows
 ├── master_orchestrator/      # Workflow orchestration
 ├── your_workspace/           # Working directory (local git repo)
 └── README.md                 # This file
 
-External Projects:
-└── ARCHE/                    # github.com/kiaurash/ARCHE (standalone repo)
+External Projects (Standalone Repositories):
+├── ARCHE/                    # github.com/kiaurash/ARCHE
+└── Ontology-Builder/         # github.com/kiaurash/Ontology-Builder
 ```
 
 ## Getting Started
