@@ -5,15 +5,14 @@ This repository contains multiple AI/ML projects developed during the Bootcamp25
 ## Projects
 
 ### 🧠 ARCHE - Reasoning Logic Tree Extraction
-**Location**: [ARCHE/](ARCHE/)
+**Repository**: [github.com/kiaurash/ARCHE](https://github.com/kiaurash/ARCHE)
 
 Implementation of the ARCHE (Latent Reasoning Chain Extraction) methodology for extracting structured reasoning trees from scientific papers and converting them to First-Order Logic for symbolic reasoning.
 
 **Status**: Pipeline design complete, ready for Phase 1 implementation
 **Tech Stack**: Python, LLMs (Claude/GPT-4), networkx, graphviz, Prolog/Clingo
-**Branch**: `arche-rlt-pipeline`
 
-[→ See ARCHE README](ARCHE/README.md)
+This project has been moved to its own standalone repository to allow independent development.
 
 ---
 
@@ -41,13 +40,15 @@ Tools for extracting and visualizing ontologies from scientific and experiential
 
 ```
 Bootcamp25/
-├── ARCHE/                    # Reasoning Logic Tree extraction project
 ├── Mithra App/               # AI learning assistant application
 ├── Ontology Extractor/       # Ontology extraction tools
 ├── bootcamp_workflows/       # Bootcamp program workflows
 ├── master_orchestrator/      # Workflow orchestration
 ├── your_workspace/           # Working directory (local git repo)
 └── README.md                 # This file
+
+External Projects:
+└── ARCHE/                    # github.com/kiaurash/ARCHE (standalone repo)
 ```
 
 ## Getting Started
