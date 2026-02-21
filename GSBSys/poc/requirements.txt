@@ -1,0 +1,24 @@
+# GA Trading System - Proof of Concept
+# Minimal dependencies to validate core assumptions
+
+# Data acquisition
+yfinance>=0.2.33
+
+# Backtesting engine
+vectorbt>=0.26.0
+
+# Genetic algorithm framework
+deap>=1.4.1
+
+# Technical indicators
+TA-Lib>=0.4.28
+
+# Core data processing
+pandas>=2.1.0
+numpy>=1.24.0
+
+# Performance optimization
+numba>=0.58.0
+
+# Utilities
+python-dateutil>=2.8.2
