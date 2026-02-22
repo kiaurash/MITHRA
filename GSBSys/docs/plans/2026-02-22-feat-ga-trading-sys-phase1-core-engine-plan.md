@@ -882,10 +882,12 @@ if max(fitnesses) == 0.0 and gen > 50:
 - [x] `tests/test_infrastructure.py` — 12 smoke tests, all passing
 
 ### Phase 1b: Data Pipeline (Weeks 1–2)
-- [ ] `src/data/loader.py` — `load_market_data(ticker, start, end)` with MultiIndex flattening
-- [ ] `src/data/validator.py` — `validate_ohlcv(df)` raises `ValueError` on bad data
-- [ ] `src/data/cache.py` — `DataCache(cache_dir)` with Parquet read/write
-- [ ] `src/data/normalizer.py` — `normalize_indicator(series, window=252)`, `train_test_split_timeseries(df, 0.4, warmup=252)`
+- [x] `src/data/loader.py` — `load_market_data(ticker, start, end)` with MultiIndex flattening
+- [x] `src/data/validator.py` — `validate_ohlcv(df)` raises `ValueError` on bad data
+- [x] `src/data/cache.py` — `DataCache(cache_dir)` with Parquet read/write
+- [x] `src/data/normalizer.py` — `normalize_indicator(series, window=252)`, `train_test_split_timeseries(df, 0.4, warmup=252)`
+- [x] `tests/test_data_loader.py`, `test_data_validator.py`, `test_data_cache.py`, `test_normalizer.py` — 50 tests, all passing
+- NOTE: rolling(window=252) first non-NaN is at index 251 (not 252) — warmup_bars=252 in split is still correct (conservative trim)
 
 ### Phase 1c: Indicator Engine (Weeks 3–4)
 - [ ] `src/indicators/registry.py` — `INDICATOR_REGISTRY: dict[int, IndicatorSpec]` for 15 indicators (with multi-output notes)
