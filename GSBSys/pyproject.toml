@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:SetupBackend"
+
+[project]
+name = "ga-trading-sys"
+version = "0.1.0"
+description = "Genetic algorithm trading system optimizer with practitioner-grade validation"
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+# ── pytest ────────────────────────────────────────────────────────────────────
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]   # makes `src` importable as `src.config` etc.
+# NUMBA_DISABLE_JIT=1 is set in tests/conftest.py (avoids pytest-env dependency)
+addopts = "-v --tb=short"
+
+# ── mypy ──────────────────────────────────────────────────────────────────────
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true   # TA-Lib has no stubs; numba stubs incomplete
+
+# ── black ─────────────────────────────────────────────────────────────────────
+[tool.black]
+line-length = 100
+target-version = ["py311"]
