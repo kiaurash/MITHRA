@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# Virtual environments
+venv/
+.venv/
+poc/venv/
+
+# Numba cache
+__numba_cache__/
+
+# Data cache (large binary files)
+data/cache/
+
+# Results (generated outputs)
+results/
+
+# Build / dist
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
