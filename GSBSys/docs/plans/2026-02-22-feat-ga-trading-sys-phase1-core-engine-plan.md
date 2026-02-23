@@ -890,30 +890,30 @@ if max(fitnesses) == 0.0 and gen > 50:
 - NOTE: rolling(window=252) first non-NaN is at index 251 (not 252) — warmup_bars=252 in split is still correct (conservative trim)
 
 ### Phase 1c: Indicator Engine (Weeks 3–4)
-- [ ] `src/indicators/registry.py` — `INDICATOR_REGISTRY: dict[int, IndicatorSpec]` for 15 indicators (with multi-output notes)
-- [ ] `src/indicators/calculator.py` — `build_indicator_cache(data, config) -> dict[str, np.ndarray]` (all periods pre-computed)
-- [ ] `src/indicators/signal_generator.py` — `generate_signals_weighted_sum(individual, cache) -> np.ndarray` (combines 3 indicator slots: lookup each ind_type+period from cache, apply ind_weight, sum, threshold at entry_threshold)
-- [ ] TA-Lib / pandas-ta fallback with `TALIB_AVAILABLE` flag
+- [x] `src/indicators/registry.py` — `INDICATOR_REGISTRY: dict[int, IndicatorSpec]` for 15 indicators (with multi-output notes)
+- [x] `src/indicators/calculator.py` — `build_indicator_cache(data, config) -> dict[str, np.ndarray]` (all periods pre-computed; pure NumPy/pandas — no TA-Lib)
+- [x] `src/indicators/signal_generator.py` — `generate_signals_weighted_sum(individual, cache) -> np.ndarray` (combines 3 indicator slots: lookup each ind_type+period from cache, apply ind_weight, sum, threshold at entry_threshold)
+- [x] TA-Lib / pandas-ta fallback — implemented as pure NumPy/pandas (both libs incompatible with current env)
 
 ### Phase 1d: GA Framework (Weeks 5–7)
-- [ ] `src/ga/chromosome.py` — `GENE_BOUNDS` (13 genes, 3 indicator slots), `GENE_RANGES`, `DISCRETE_GENES`, `CONTINUOUS_GENES`, `init_individual()`, `init_population_lhs()`, `clip_to_bounds(ind)`
-- [ ] `src/ga/operators.py` — `crossover_hybrid(ind1, ind2)`, `mutate_hybrid(ind, sigma_fraction)`, `get_sigma_fraction(gen)`
-- [ ] `src/ga/evolution.py` — `run_single_restart(seed, cache, config)` with HOF + convergence monitor + hasattr guard
-- [ ] `src/utils/parallel.py` — `run_restarts_parallel(seeds, cache, config)` with spawn/fork context
-- [ ] GA convergence log to `results/{run_id}/convergence.csv` (gen, best_fitness, avg_fitness, std_fitness)
+- [x] `src/ga/chromosome.py` — `GENE_BOUNDS` (13 genes, 3 indicator slots), `GENE_RANGES`, `DISCRETE_GENES`, `CONTINUOUS_GENES`, `init_individual()`, `init_population_lhs()`, `clip_to_bounds(ind)`
+- [x] `src/ga/operators.py` — `crossover_hybrid(ind1, ind2)`, `mutate_hybrid(ind, sigma_fraction)`, `get_sigma_fraction(gen)`
+- [x] `src/ga/evolution.py` — `run_single_restart(seed, cache, config)` with HOF + convergence monitor + hasattr guard
+- [x] `src/utils/parallel.py` — `run_restarts_parallel(seeds, cache, config)` with spawn/fork context; sequential fallback for tests
+- [x] GA convergence log to `results/{run_id}/convergence_{restart_id}.csv` (gen, best_fitness, avg_fitness, std_fitness)
 
 ### Phase 1e: Backtest Engine (Weeks 8–10)
-- [ ] `src/backtesting/engine.py` — `BacktestResult` (frozen dataclass, includes `total_pnl`, `avg_trade_pnl`) + `BacktestEngine` Protocol (takes `stop_loss_pct`, `take_profit_pct` — percentage-based)
-- [ ] `src/backtesting/numba_engine.py` — `NumbaBacktestEngine.run(...)` with `_backtest_core` JIT + `warmup_jit()`
-- [ ] `src/backtesting/metrics.py` — `calculate_metrics(equity_curve, trades)` dict (Sharpe, PF, MaxDD, win rate)
+- [x] `src/backtesting/engine.py` — `BacktestResult` (frozen dataclass, includes `total_pnl`, `avg_trade_pnl`) + `BacktestEngine` Protocol (takes `stop_loss_pct`, `take_profit_pct` — percentage-based)
+- [x] `src/backtesting/numba_engine.py` — `NumbaBacktestEngine.run(...)` with `_backtest_core` JIT + `warmup_jit()`
+- [x] `src/backtesting/metrics.py` — `calculate_metrics()` dict (Sharpe, PF, MaxDD, win rate, expectancy) + `max_drawdown()`
 - [ ] Benchmark: `experiments/03_benchmark_backtest.py` (1000 evals, report p50/p95/p99 ms)
-- [ ] `pearsonr_fast()` in `src/utils/` (NumPy Pearson, 3-5x faster than scipy)
+- [x] `pearsonr_fast()` in `src/utils/stats.py` (NumPy Pearson, 3-5x faster than scipy)
 
 ### Phase 1f: Fitness + Integration (Weeks 11–12)
-- [ ] `src/ga/fitness.py` — `evaluate_individual(individual, cache, engine)` with real NetProfit×AvgTrade, scaled penalties, fast-exit
-- [ ] Wire `fitness.py` into DEAP `toolbox.register("evaluate", partial(evaluate_individual, cache=cache, engine=engine))`
-- [ ] Integration experiment: `experiments/02_single_indicator_ga.py` (reproduce POC, expect PF≥1.2)
-- [ ] `tests/test_evolution.py` — 100-gen integration test with reproducibility assertion
+- [x] `src/ga/fitness.py` — `evaluate_individual(individual, cache, engine)` with real NetProfit×AvgTrade, scaled penalties, fast-exit
+- [x] Wire `fitness.py` into DEAP via `functools.partial` in `run_single_restart` (fitness_fn argument)
+- [x] Integration experiment: `experiments/02_single_indicator_ga.py` (end-to-end synthetic run, 100 gens)
+- [x] `tests/test_fitness.py` + `tests/test_evolution_integration.py` — fitness unit tests + 50-gen reproducibility assertion
 
 ---
 

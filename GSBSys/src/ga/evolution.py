@@ -223,6 +223,15 @@ def run_single_restart(
 
             writer.writerow([gen, best_fit, avg_fit, std_fit])
 
+            # Warn if entire population has collapsed to zero fitness
+            if best_fit == 0.0 and gen > 50:
+                logger.warning(
+                    "Restart %d gen %d: all-zero population. "
+                    "Penalties may be too strict or no profitable signals exist.",
+                    restart_id if "restart_id" in dir() else -1,
+                    gen,
+                )
+
             if monitor.update(best_fit, std_fit):
                 converged_early = True
                 break
