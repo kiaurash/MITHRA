@@ -34,7 +34,7 @@ def deap_creator():
     if not hasattr(creator, "Individual"):
         creator.create("Individual", list, fitness=creator.FitnessMax)
 
-    yield
+    yield creator
 
     # Cleanup — makes repeated pytest invocations safe
     if hasattr(creator, "FitnessMax"):
