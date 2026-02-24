@@ -8,6 +8,9 @@ version = "0.1.0"
 description = "Genetic algorithm trading system optimizer with practitioner-grade validation"
 requires-python = ">=3.11"
 
+[project.scripts]
+ga-trading-sys = "src.cli.commands:cli"
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["src*"]
