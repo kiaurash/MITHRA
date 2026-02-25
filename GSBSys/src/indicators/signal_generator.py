@@ -24,10 +24,6 @@ import numpy as np
 # Gene index constants for readability
 _SLOT_STRIDE = 3        # (type, period, weight) per slot
 _N_INDICATOR_SLOTS = 3  # Phase 1 fixed at 3 slots
-_IDX_ENTRY_THRESHOLD = 9
-_IDX_STOP_LOSS_PCT = 10
-_IDX_TAKE_PROFIT_PCT = 11
-_IDX_POSITION_SIZE_MULT = 12
 
 
 def generate_signals_weighted_sum(

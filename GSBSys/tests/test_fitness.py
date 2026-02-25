@@ -259,6 +259,51 @@ class TestPenalties:
 
 
 # ---------------------------------------------------------------------------
+# Entry threshold wiring
+# ---------------------------------------------------------------------------
+
+class TestEntryThreshold:
+    """entry_threshold gene (index 9) must gate signals before they reach the engine."""
+
+    def _run_capture(self, entry_threshold: float):
+        """Return total entry-signal count seen by the engine across both splits."""
+        n = 200
+        n_train = 100
+        # Constant cache values of 10.0 → composite = 1.0*10 + 0.5*10 + 0.5*10 = 20.0
+        arr = np.full(n, 10.0, dtype=np.float32)
+        cache = {"0_14": arr, "7_10": arr, "9_10": arr}
+        individual = _make_individual(entry_threshold=entry_threshold)
+        train_prices = _make_prices(n_train, seed=11)
+        test_prices  = _make_prices(n - n_train, seed=12)
+
+        captured: list = []
+
+        class _CapturingEngine:
+            def run(self, signals, prices, sl, tp, pos):
+                captured.append(np.array(signals, dtype=float).copy())
+                return _mock_result(n_trades=20)
+
+        evaluate_individual(individual, train_prices, test_prices, n_train, cache, _CapturingEngine())
+        return sum(int(np.sum(s > 0)) for s in captured)
+
+    def test_zero_threshold_passes_all_positive_signals(self):
+        """threshold=0.0: composite 20.0 > 0.0 → all bars produce entry signals."""
+        entries = self._run_capture(entry_threshold=0.0)
+        assert entries > 0
+
+    def test_high_threshold_suppresses_all_entries(self):
+        """threshold=50.0: composite 20.0 < 50.0 → no bar produces an entry signal."""
+        entries = self._run_capture(entry_threshold=50.0)
+        assert entries == 0
+
+    def test_entry_threshold_reduces_signal_count(self):
+        """Raising the threshold must strictly reduce the number of entry signals."""
+        low  = self._run_capture(entry_threshold=0.0)
+        high = self._run_capture(entry_threshold=50.0)
+        assert low > high
+
+
+# ---------------------------------------------------------------------------
 # Reproducibility
 # ---------------------------------------------------------------------------
 

@@ -70,6 +70,29 @@ class TestGenerateBacktestCode:
         for val in ind:
             assert str(val) in code or str(float(val)) in code
 
+    def test_uses_load_market_data_not_DataLoader(self):
+        """Generated script must call load_market_data(), not DataLoader class."""
+        code = generate_backtest_code(_make_individual())
+        assert "load_market_data" in code
+        assert "DataLoader" not in code
+
+    def test_warmup_bars_parameter_interpolated(self):
+        """Custom warmup_bars value must appear in generated WARMUP_BARS constant."""
+        code = generate_backtest_code(_make_individual(), warmup_bars=100)
+        assert "WARMUP_BARS     = 100" in code
+
+    def test_train_fraction_parameter_interpolated(self):
+        """Custom train_fraction value must appear in generated TRAIN_FRACTION constant."""
+        code = generate_backtest_code(_make_individual(), train_fraction=0.70)
+        assert "TRAIN_FRACTION  = 0.7" in code
+
+    def test_named_index_constants_in_generated_code(self):
+        """Generated code must use IDX_* constants, not raw indices 10/11/12."""
+        code = generate_backtest_code(_make_individual())
+        assert "IDX_STOP_LOSS_PCT" in code
+        assert "IDX_TAKE_PROFIT_PCT" in code
+        assert "IDX_POSITION_SIZE_MULT" in code
+
 
 # ---------------------------------------------------------------------------
 # export_strategy_yaml / load_strategy_yaml

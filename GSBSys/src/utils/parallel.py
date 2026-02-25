@@ -27,6 +27,7 @@ import multiprocessing
 import os
 from typing import Any, Callable, Dict, List, Optional, Tuple
 
+from src.backtesting.numba_engine import warmup_jit
 from src.ga.evolution import run_single_restart
 
 
@@ -72,6 +73,11 @@ def run_restarts_parallel(
         )
         for restart_id in range(n_restarts)
     ]
+
+    # Warm up Numba JIT in the main process before spawning workers.
+    # On Windows/macOS spawn context each worker is a fresh interpreter;
+    # warming up here writes the disk cache so workers skip recompilation.
+    warmup_jit()
 
     ctx = multiprocessing.get_context("spawn")
     with ctx.Pool(processes=n_workers) as pool:

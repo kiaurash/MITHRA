@@ -154,19 +154,13 @@ def main() -> None:
     )
     log.info("  Equity curves saved: %s", equity_path)
 
-    try:
-        regime_result = run_regime_testing(
-            BEST_INDIVIDUAL, df, engine,
-            normalization_window=NORM_WINDOW, warmup_bars=WARMUP_BARS,
-        )
-        regime_path = str(RESULTS_DIR / "regime_performance.png")
-        plot_regime_performance(regime_result, save_path=regime_path)
-        log.info("  Regime chart saved : %s", regime_path)
-    except (IndexError, ValueError) as exc:
-        log.warning(
-            "  Regime testing skipped (real engine returns trade-level returns, "
-            "regime classifier expects bar-level): %s", exc
-        )
+    regime_result = run_regime_testing(
+        BEST_INDIVIDUAL, df, engine,
+        normalization_window=NORM_WINDOW, warmup_bars=WARMUP_BARS,
+    )
+    regime_path = str(RESULTS_DIR / "regime_performance.png")
+    plot_regime_performance(regime_result, save_path=regime_path)
+    log.info("  Regime chart saved : %s", regime_path)
 
     # -----------------------------------------------------------------------
     # 5. CLI preview

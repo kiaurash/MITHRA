@@ -84,6 +84,13 @@ DISCRETE_GENE_NAMES: List[str] = [GENE_NAMES[i] for i in DISCRETE_GENES]
 #: Total chromosome length.
 N_GENES: int = len(GENE_NAMES)
 
+#: Named indices for the risk parameter genes (indices 10–12).
+#: Use these instead of raw integers so chromosome extension stays safe.
+IDX_ENTRY_THRESHOLD    = 9
+IDX_STOP_LOSS_PCT      = 10
+IDX_TAKE_PROFIT_PCT    = 11
+IDX_POSITION_SIZE_MULT = 12
+
 # ---------------------------------------------------------------------------
 # OBV special handling
 # ---------------------------------------------------------------------------

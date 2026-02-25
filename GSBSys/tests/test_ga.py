@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+import logging
 import random
 from pathlib import Path
 from typing import Tuple
+from unittest.mock import MagicMock, patch
 
 import numpy as np
 import pytest
@@ -21,7 +23,7 @@ from src.ga.chromosome import (
 )
 from src.ga.operators import crossover_hybrid, get_sigma_fraction, mutate_hybrid
 from src.ga.evolution import run_single_restart
-from src.utils.parallel import run_restarts_sequential
+from src.utils.parallel import run_restarts_parallel, run_restarts_sequential
 
 
 # ---------------------------------------------------------------------------
@@ -57,6 +59,11 @@ def _check_bounds(ind):
 def _dummy_fitness(ind) -> Tuple[float, ...]:
     """Fitness = weighted sum of continuous genes (cheap, deterministic enough)."""
     return (float(sum(ind[i] for i in CONTINUOUS_GENES)),)
+
+
+def _zero_fitness(ind) -> Tuple[float, ...]:
+    """Always returns zero fitness — simulates all-zero population collapse."""
+    return (0.0,)
 
 
 # ---------------------------------------------------------------------------
@@ -292,6 +299,39 @@ class TestEvolution:
         )
         assert len(result["best_individual"]) == N_GENES
 
+    def test_logger_is_defined(self):
+        """evolution.py must define a module-level logger (not cause NameError)."""
+        from src.ga.evolution import logger as ev_logger
+        assert isinstance(ev_logger, logging.Logger)
+
+    def test_all_zero_population_warning_does_not_raise(self, tmp_path):
+        """When all fitness=0 and gen>50, logger.warning must not raise NameError.
+
+        The convergence monitor is patched to never early-stop so the loop
+        runs past gen 50 and the warning branch is exercised.
+        """
+        class _ZeroFitnessConfig:
+            population_size = 5
+            n_generations = 55
+            cxpb = 0.0
+            mutpb = 0.0
+
+        never_stop = MagicMock()
+        never_stop.update.return_value = False
+
+        with patch("src.ga.evolution._ConvergenceMonitor", return_value=never_stop):
+            result = run_single_restart(
+                restart_id=7,
+                seed=0,
+                fitness_fn=_zero_fitness,
+                config=_ZeroFitnessConfig(),
+                run_id="zero_warn_test",
+                results_dir=str(tmp_path),
+            )
+
+        assert result["best_fitness"] == 0.0
+        assert result["restart_id"] == 7
+
 
 # ---------------------------------------------------------------------------
 # Sequential parallel runner tests
@@ -338,3 +378,34 @@ class TestParallel:
         required = {"best_individual", "best_fitness", "restart_id", "seed", "n_generations_run", "converged_early"}
         for r in results:
             assert required.issubset(r.keys())
+
+    def test_parallel_calls_warmup_jit_before_pool(self, tmp_path):
+        """run_restarts_parallel must call warmup_jit() before spawning workers."""
+        from src.utils.seed import make_restart_seeds
+
+        seeds = make_restart_seeds(base_seed=99, n=1)
+        with (
+            patch("src.utils.parallel.warmup_jit") as mock_warmup,
+            patch("src.utils.parallel.multiprocessing.get_context") as mock_ctx,
+        ):
+            # Make Pool.starmap return a minimal valid result without spawning
+            mock_pool = MagicMock()
+            mock_pool.__enter__ = MagicMock(return_value=mock_pool)
+            mock_pool.__exit__ = MagicMock(return_value=False)
+            mock_pool.starmap.return_value = [
+                {
+                    "restart_id": 0, "seed": seeds[0], "best_individual": [0.0] * 13,
+                    "best_fitness": 1.0, "n_generations_run": 5, "converged_early": False,
+                }
+            ]
+            mock_ctx.return_value.Pool.return_value = mock_pool
+
+            run_restarts_parallel(
+                seeds=seeds,
+                fitness_fn=_dummy_fitness,
+                config=_SmallConfig(),
+                run_id="warmup_test",
+                results_dir=str(tmp_path),
+            )
+
+        mock_warmup.assert_called_once()

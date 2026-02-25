@@ -24,6 +24,7 @@ import numpy as np
 import pandas as pd
 
 from src.backtesting.engine import BacktestEngine, BacktestResult
+from src.ga.chromosome import IDX_STOP_LOSS_PCT, IDX_TAKE_PROFIT_PCT, IDX_POSITION_SIZE_MULT
 from src.indicators.calculator import build_indicator_cache
 from src.indicators.signal_generator import generate_signals_weighted_sum
 
@@ -186,9 +187,9 @@ def run_regime_testing(
     Returns:
         RegimeTestResult with per-regime metrics and dominance summary.
     """
-    sl_pct   = stop_loss_pct      if stop_loss_pct      is not None else float(individual[10])
-    tp_pct   = take_profit_pct    if take_profit_pct    is not None else float(individual[11])
-    pos_mult = position_size_mult if position_size_mult is not None else float(individual[12])
+    sl_pct   = stop_loss_pct      if stop_loss_pct      is not None else float(individual[IDX_STOP_LOSS_PCT])
+    tp_pct   = take_profit_pct    if take_profit_pct    is not None else float(individual[IDX_TAKE_PROFIT_PCT])
+    pos_mult = position_size_mult if position_size_mult is not None else float(individual[IDX_POSITION_SIZE_MULT])
 
     # Build indicator cache and slice post-warmup
     cache = build_indicator_cache(df, normalization_window=normalization_window)
@@ -207,19 +208,20 @@ def run_regime_testing(
     signals = generate_signals_weighted_sum(individual, sliced_cache)
     result: BacktestResult = engine.run(signals, prices, sl_pct, tp_pct, pos_mult)
 
-    # Use bar-level returns from BacktestResult
-    # returns has length = len(prices) - 1 (daily changes)
-    # Align regime_labels: drop the first bar (no return for bar 0)
-    returns = result.returns  # shape (n-1,)
-    labels_aligned = regime_labels[1:]  # same length as returns
+    # Derive bar-level returns from equity_curve (shape n_bars).
+    # result.returns is per-trade level (shape n_trades) and must NOT be used
+    # for regime masking because regime labels are bar-indexed.
+    equity = result.equity_curve  # shape (n_bars,)
+    bar_returns = np.diff(equity) / np.maximum(equity[:-1], np.float32(1e-8))  # shape (n_bars-1,)
+    labels_aligned = regime_labels[1:]  # aligned to bar_returns, shape (n_bars-1,)
 
     bull_mask     = np.array([l == RegimeLabel.BULL     for l in labels_aligned])
     bear_mask     = np.array([l == RegimeLabel.BEAR     for l in labels_aligned])
     sideways_mask = np.array([l == RegimeLabel.SIDEWAYS for l in labels_aligned])
 
-    bull_perf     = _make_regime_performance(RegimeLabel.BULL,     returns, bull_mask)
-    bear_perf     = _make_regime_performance(RegimeLabel.BEAR,     returns, bear_mask)
-    sideways_perf = _make_regime_performance(RegimeLabel.SIDEWAYS, returns, sideways_mask)
+    bull_perf     = _make_regime_performance(RegimeLabel.BULL,     bar_returns, bull_mask)
+    bear_perf     = _make_regime_performance(RegimeLabel.BEAR,     bar_returns, bear_mask)
+    sideways_perf = _make_regime_performance(RegimeLabel.SIDEWAYS, bar_returns, sideways_mask)
 
     all_perfs = [bull_perf, bear_perf, sideways_perf]
 

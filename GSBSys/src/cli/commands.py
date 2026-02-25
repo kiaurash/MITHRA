@@ -229,7 +229,12 @@ def optimize(config: str, output: str | None, sequential: bool, verbose: bool) -
         export_strategy_yaml(best["best_individual"], ind_path)
         code_path = _Path(results_dir) / "strategy.py"
         code_path.write_text(
-            generate_backtest_code(best["best_individual"]), encoding="utf-8"
+            generate_backtest_code(
+                best["best_individual"],
+                warmup_bars=cfg.backtest.warmup_bars,
+                train_fraction=cfg.backtest.train_fraction,
+            ),
+            encoding="utf-8",
         )
 
     shutil.copy2(config, str(_Path(results_dir) / "config.yaml"))
@@ -350,6 +355,7 @@ def backtest(individual: str, config: str | None) -> None:
         import numpy as np
         from src.backtesting.numba_engine import NumbaBacktestEngine, warmup_jit
         from src.data.loader import load_market_data
+        from src.ga.chromosome import IDX_STOP_LOSS_PCT, IDX_TAKE_PROFIT_PCT, IDX_POSITION_SIZE_MULT
         from src.indicators.calculator import build_indicator_cache
         from src.indicators.signal_generator import generate_signals_weighted_sum
 
@@ -362,7 +368,7 @@ def backtest(individual: str, config: str | None) -> None:
         prices = df["close"].values[warmup:].astype(np.float32)
 
         signals = generate_signals_weighted_sum(ind, sliced)
-        result = engine.run(signals, prices, float(ind[10]), float(ind[11]), float(ind[12]))
+        result = engine.run(signals, prices, float(ind[IDX_STOP_LOSS_PCT]), float(ind[IDX_TAKE_PROFIT_PCT]), float(ind[IDX_POSITION_SIZE_MULT]))
         report = build_report(result)
         click.echo()
         click.echo(format_text(report))

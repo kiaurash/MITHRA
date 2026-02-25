@@ -22,7 +22,9 @@ import numpy as np
 import pandas as pd
 
 from src.backtesting.engine import BacktestEngine, BacktestResult
-from src.ga.chromosome import GENE_NAMES, clip_to_bounds
+from src.ga.chromosome import (
+    GENE_NAMES, IDX_STOP_LOSS_PCT, IDX_TAKE_PROFIT_PCT, IDX_POSITION_SIZE_MULT, clip_to_bounds,
+)
 from src.indicators.calculator import build_indicator_cache
 from src.indicators.signal_generator import generate_signals_weighted_sum
 from src.utils.stats import pearsonr_fast
@@ -137,9 +139,9 @@ def run_sensitivity_analysis(
         SensitivityResult with per-gene sensitivities and optional
         CoV-sensitivity correlation.
     """
-    sl_pct   = stop_loss_pct      if stop_loss_pct      is not None else float(individual[10])
-    tp_pct   = take_profit_pct    if take_profit_pct    is not None else float(individual[11])
-    pos_mult = position_size_mult if position_size_mult is not None else float(individual[12])
+    sl_pct   = stop_loss_pct      if stop_loss_pct      is not None else float(individual[IDX_STOP_LOSS_PCT])
+    tp_pct   = take_profit_pct    if take_profit_pct    is not None else float(individual[IDX_TAKE_PROFIT_PCT])
+    pos_mult = position_size_mult if position_size_mult is not None else float(individual[IDX_POSITION_SIZE_MULT])
 
     # Build indicator cache once
     cache = build_indicator_cache(df, normalization_window=normalization_window)
@@ -179,8 +181,8 @@ def run_sensitivity_analysis(
         minus_ind = _perturb_gene(individual, idx, 1.0 - perturbation)
 
         # Re-derive SL/TP/pos_mult for perturbed individual
-        plus_sl  = plus_ind[10];  plus_tp  = plus_ind[11];  plus_pm  = plus_ind[12]
-        minus_sl = minus_ind[10]; minus_tp = minus_ind[11]; minus_pm = minus_ind[12]
+        plus_sl  = plus_ind[IDX_STOP_LOSS_PCT];  plus_tp  = plus_ind[IDX_TAKE_PROFIT_PCT];  plus_pm  = plus_ind[IDX_POSITION_SIZE_MULT]
+        minus_sl = minus_ind[IDX_STOP_LOSS_PCT]; minus_tp = minus_ind[IDX_TAKE_PROFIT_PCT]; minus_pm = minus_ind[IDX_POSITION_SIZE_MULT]
 
         plus_pf  = _run_backtest_for_individual(plus_ind,  test_cache, test_prices, engine, plus_sl,  plus_tp,  plus_pm)
         minus_pf = _run_backtest_for_individual(minus_ind, test_cache, test_prices, engine, minus_sl, minus_tp, minus_pm)

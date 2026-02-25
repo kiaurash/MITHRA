@@ -25,7 +25,8 @@ from typing import Dict, Tuple
 import numpy as np
 
 from src.backtesting.engine import BacktestEngine
-from src.indicators.signal_generator import generate_signals_weighted_sum
+from src.ga.chromosome import IDX_STOP_LOSS_PCT, IDX_TAKE_PROFIT_PCT, IDX_POSITION_SIZE_MULT
+from src.indicators.signal_generator import generate_signals_weighted_sum, get_entry_signals
 from src.utils.stats import pearsonr_fast
 
 logger = logging.getLogger(__name__)
@@ -67,13 +68,14 @@ def evaluate_individual(
     Returns:
         (fitness,) — 1-tuple of float ≥ 0.0.  Returns (0.0,) on fast-exit.
     """
-    stop_loss_pct      = float(individual[10])
-    take_profit_pct    = float(individual[11])
-    position_size_mult = float(individual[12])
+    stop_loss_pct      = float(individual[IDX_STOP_LOSS_PCT])
+    take_profit_pct    = float(individual[IDX_TAKE_PROFIT_PCT])
+    position_size_mult = float(individual[IDX_POSITION_SIZE_MULT])
 
-    # Generate composite signals from the full cache (length = train + test)
-    # NaN bars are treated as zero (no entry) by the engine
+    # Generate composite signals from the full cache (length = train + test),
+    # then apply the entry threshold (gene 9) to gate entries.
     signals = generate_signals_weighted_sum(individual, cache)
+    signals = get_entry_signals(signals, float(individual[9]))
 
     # Split signals to match price arrays
     train_signals = signals[:n_train]

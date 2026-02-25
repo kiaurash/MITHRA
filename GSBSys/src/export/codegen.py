@@ -28,7 +28,11 @@ import yaml
 from src.ga.chromosome import GENE_NAMES, N_GENES
 
 
-def generate_backtest_code(individual: list) -> str:
+def generate_backtest_code(
+    individual: list,
+    warmup_bars: int = 252,
+    train_fraction: float = 0.40,
+) -> str:
     """Generate a self-contained Python script that re-runs the backtest.
 
     The generated script imports from the ``src`` package, loads SPY data,
@@ -36,7 +40,9 @@ def generate_backtest_code(individual: list) -> str:
     engine — reproducing exactly the same result as the GA evaluation.
 
     Args:
-        individual: 13-gene chromosome list.
+        individual:     13-gene chromosome list.
+        warmup_bars:    Warmup bars used during optimisation (default 252).
+        train_fraction: Train/test split fraction used during optimisation (default 0.40).
 
     Returns:
         Python source code as a string.
@@ -76,8 +82,9 @@ def generate_backtest_code(individual: list) -> str:
         import numpy as np
 
         from src.backtesting.numba_engine import NumbaBacktestEngine, warmup_jit
+        from src.ga.chromosome import IDX_STOP_LOSS_PCT, IDX_TAKE_PROFIT_PCT, IDX_POSITION_SIZE_MULT
         from src.indicators.calculator import build_indicator_cache
-        from src.indicators.signal_generator import generate_signals_weighted_sum
+        from src.indicators.signal_generator import generate_signals_weighted_sum, get_entry_signals
 
         # ---------------------------------------------------------------------------
         # Strategy genes
@@ -92,9 +99,9 @@ def generate_backtest_code(individual: list) -> str:
         TICKER          = "SPY"
         START_DATE      = "2010-01-01"
         END_DATE        = "2024-12-31"
-        WARMUP_BARS     = 252
+        WARMUP_BARS     = {warmup_bars}
         NORM_WINDOW     = 252
-        TRAIN_FRACTION  = 0.40
+        TRAIN_FRACTION  = {train_fraction}
 
         # ---------------------------------------------------------------------------
         # Main
@@ -102,11 +109,10 @@ def generate_backtest_code(individual: list) -> str:
 
 
         def main() -> None:
-            from src.data.loader import DataLoader
+            from src.data.loader import load_market_data
 
             print(f"Loading {{TICKER}} data …")
-            loader = DataLoader()
-            df = loader.load(TICKER, START_DATE, END_DATE)
+            df = load_market_data(TICKER, START_DATE, END_DATE)
 
             print(f"Loaded {{len(df)}} bars; warming up Numba …")
             warmup_jit()
@@ -122,12 +128,13 @@ def generate_backtest_code(individual: list) -> str:
             train_cache   = {{k: v[:n_train] for k, v in sliced_cache.items()}}
             test_cache    = {{k: v[n_train:] for k, v in sliced_cache.items()}}
 
-            sl_pct   = float(INDIVIDUAL[10])
-            tp_pct   = float(INDIVIDUAL[11])
-            pos_mult = float(INDIVIDUAL[12])
+            sl_pct   = float(INDIVIDUAL[IDX_STOP_LOSS_PCT])
+            tp_pct   = float(INDIVIDUAL[IDX_TAKE_PROFIT_PCT])
+            pos_mult = float(INDIVIDUAL[IDX_POSITION_SIZE_MULT])
 
-            train_signals = generate_signals_weighted_sum(INDIVIDUAL, train_cache)
-            test_signals  = generate_signals_weighted_sum(INDIVIDUAL, test_cache)
+            entry_threshold = float(INDIVIDUAL[9])
+            train_signals = get_entry_signals(generate_signals_weighted_sum(INDIVIDUAL, train_cache), entry_threshold)
+            test_signals  = get_entry_signals(generate_signals_weighted_sum(INDIVIDUAL, test_cache),  entry_threshold)
 
             train_result = engine.run(train_signals, train_prices, sl_pct, tp_pct, pos_mult)
             test_result  = engine.run(test_signals,  test_prices,  sl_pct, tp_pct, pos_mult)

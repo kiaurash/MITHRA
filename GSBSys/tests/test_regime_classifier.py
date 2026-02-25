@@ -54,6 +54,27 @@ def _mock_engine(n_returns: int = 299) -> MagicMock:
     return eng
 
 
+def _mock_engine_trade_level(n_bars: int = 300, n_trades: int = 10) -> MagicMock:
+    """Mock engine whose .returns is trade-level (n_trades << n_bars).
+
+    This is what NumbaBacktestEngine actually returns.  Regime metrics must
+    still be computed correctly via equity_curve, not via returns.
+
+    equity_curve has shape (n_bars,) matching len(prices) in run_regime_testing.
+    """
+    rng = np.random.default_rng(42)
+    equity = np.linspace(10_000, 10_500, n_bars).astype(np.float32)
+    trade_returns = rng.normal(0.005, 0.02, n_trades).astype(np.float32)
+    result = BacktestResult(
+        sharpe_ratio=1.0, profit_factor=1.5, n_trades=n_trades,
+        total_pnl=500.0, avg_trade_pnl=50.0,
+        equity_curve=equity, returns=trade_returns,
+    )
+    eng = MagicMock()
+    eng.run.return_value = result
+    return eng
+
+
 def _make_individual() -> list:
     return [0, 20, 1.0, 1, 14, 1.0, 2, 9, 1.0, 0.5, 0.05, 0.10, 1.0]
 
@@ -231,6 +252,31 @@ class TestRunRegimeTesting:
         )
         for perf in [result.bull, result.bear, result.sideways]:
             assert perf.profitable == (perf.profit_factor >= 1.0)
+
+    def test_regime_metrics_nonempty_with_low_trade_frequency(self):
+        """Regime metrics must be computed from equity_curve, not per-trade returns.
+
+        With only 10 trades over 300 bars, using result.returns (length 10) as
+        the bar-indexed return array would produce zero bars in every regime.
+        Using bar_returns derived from equity_curve (length 300) is correct.
+        """
+        df = _make_ohlcv(WARMUP + 300, seed=1)
+        engine = _mock_engine_trade_level(n_bars=300, n_trades=10)
+        result = run_regime_testing(_make_individual(), df, engine)
+        total_bars = result.bull.n_bars + result.bear.n_bars + result.sideways.n_bars
+        # equity_curve has 300 bars → bar_returns has 299 → total_bars == 299
+        assert total_bars == 299
+
+    def test_regime_bar_count_uses_equity_curve_not_trade_returns(self):
+        """Bar counts must equal len(equity_curve)-1, not n_trades."""
+        df = _make_ohlcv(WARMUP + 100, seed=2)
+        n_bars = 100
+        n_trades = 5  # deliberately fewer than n_bars
+        engine = _mock_engine_trade_level(n_bars=n_bars, n_trades=n_trades)
+        result = run_regime_testing(_make_individual(), df, engine)
+        total_bars = result.bull.n_bars + result.bear.n_bars + result.sideways.n_bars
+        # equity_curve has 100 bars → bar_returns has 99 → total_bars == 99, not 5
+        assert total_bars == n_bars - 1
 
 
 # ---------------------------------------------------------------------------

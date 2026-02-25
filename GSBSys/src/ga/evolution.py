@@ -17,10 +17,13 @@ IMPORTANT — Windows spawn multiprocessing:
 from __future__ import annotations
 
 import csv
+import logging
 import os
 import random
 from pathlib import Path
 from typing import Any, Callable, Dict, Optional, Tuple
+
+logger = logging.getLogger(__name__)
 
 import numpy as np
 
@@ -228,7 +231,7 @@ def run_single_restart(
                 logger.warning(
                     "Restart %d gen %d: all-zero population. "
                     "Penalties may be too strict or no profitable signals exist.",
-                    restart_id if "restart_id" in dir() else -1,
+                    restart_id,
                     gen,
                 )
 
