@@ -1,5 +1,0 @@
-anthropic>=0.39.0
-gradio>=4.0.0
-pypdf2
-python-dotenv
-huggingface_hub>=0.20.0

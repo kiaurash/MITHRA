@@ -1,0 +1,34 @@
+# GA-Trading-Sys — SPY MVP Configuration
+# Phase 1 defaults: SPY daily 2010-2025, 3-indicator genome, 10 restarts
+#
+# Load with: GAConfig.from_yaml("config/spy_mvp.yaml")
+
+data:
+  ticker: "SPY"
+  start_date: "2010-01-01"
+  end_date: "2025-12-31"
+  cache_dir: "data/cache"
+
+# GA parameters (match GSBsys documented defaults)
+population_size: 200
+n_generations: 1000
+n_restarts: 10
+cxpb: 0.95       # crossover probability
+mutpb: 0.05      # mutation probability
+tournsize: 3
+
+# Chromosome: 3 indicator slots (Phase 1)
+n_indicators: 3
+
+# Fitness / train-test split
+train_ratio: 0.40      # 40% train, 60% test (sequential)
+warmup_bars: 252       # 1 trading year warm-up trimmed before split
+min_trades: 5          # fast-exit if fewer trades than this
+pearson_threshold: 0.85
+
+# Execution
+n_workers: 8           # parallel restart processes
+random_seed: 42        # master seed; restart seeds derived deterministically
+
+# Output
+results_dir: "results"
